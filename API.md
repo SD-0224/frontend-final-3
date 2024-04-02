@@ -1,6 +1,6 @@
 Data:
 
-```json
+```
 const product = {
 	id:string,
 	image:URL,
