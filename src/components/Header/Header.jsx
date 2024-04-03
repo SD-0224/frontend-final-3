@@ -10,8 +10,8 @@ export const Header = () => {
                 </a>
                 <div className={styles.navigationLinks}>
                     {
-                        linksArr.map((text) => (
-                            <a href='#' className={styles.navigationLink}>{text}</a>
+                        linksArr.map((text, index) => (
+                            <a href='#' className={styles.navigationLink} key={index}>{text}</a>
                         ))
                     }
                 </div>
