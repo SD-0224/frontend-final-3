@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    position: sticky;
+    top: 0;
+}
+
+.navigationSection {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.navigationLinks {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navigationLink {
+    text-decoration: none;
+    color: #171520;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.opertaionsSection {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
