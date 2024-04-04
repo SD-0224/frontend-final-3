@@ -27,7 +27,8 @@
 }
 
 .opertaionsSection {
-    display: flex;
+    display: grid;
+    grid-template-columns: 300px auto;
     align-items: center;
     gap: 24px;
 }
