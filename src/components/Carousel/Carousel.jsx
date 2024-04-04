@@ -85,7 +85,6 @@ function Carousel() {
                     borderRadius: "15px 0 0 15px",
                     backgroundColor: "rgba(255, 255, 255, 0.5)",
                     color: "#1B4B66",
-                    fontWeight: 800,
                   }}
                 >
                   <Typography sx={{ p: 2 }}>{step.label}</Typography>
