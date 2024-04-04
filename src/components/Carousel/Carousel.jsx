@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import * as React from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -33,17 +33,11 @@ const images = [
 ];
 
 function Carousel() {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = React.useState(0);
 
-  useEffect(() => {
-    const handleStepChange = (step) => {
-      setActiveStep(step);
-    };
-
-    return () => {
-      // Clean-up function if needed
-    };
-  }, [activeStep]);
+  const handleStepChange = (step) => {
+    setActiveStep(step);
+  };
 
   return (
     <Box
