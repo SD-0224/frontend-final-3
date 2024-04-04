@@ -1,6 +1,6 @@
 import "./App.css";
-import Carousel from "./components/Carousel/Carousel";
 import { Header } from "./components/Header/Header";
+import { Carousel } from "./components/carousel";
 
 function App() {
   return (
