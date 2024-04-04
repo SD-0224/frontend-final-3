@@ -1,5 +1,7 @@
 import "./App.css";
 import Box from "@mui/material/Box";
+import { Header } from './components/Header';
+
 import { MainRouter } from "./router";
 
 function App() {
@@ -11,7 +13,7 @@ function App() {
         position: "absolute",
       }}
     >
-      {/* Header goes here */}
+      <Header />
       <main>
         <MainRouter />
       </main>
