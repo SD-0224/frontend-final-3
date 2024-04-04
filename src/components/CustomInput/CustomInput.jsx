@@ -1,25 +1,25 @@
 import styles from './CustomInput.module.css';
 
-export const CustomInput = ({ label, id, type, placeholder, value, onChange, ...props }) => {
+export const CustomInput = ({ label, id, type, placeholder, value, onChange, icon, ...props }) => {
     return (
         <div className={styles.inputWrapp}>
-            {props.label &&
-                <label htmlFor={props.id} className={styles.inputLabel}>
-                    {props.label}
+            {label &&
+                <label htmlFor={id} className={styles.inputLabel}>
+                    {label}
                 </label>
             }
             <div className={styles.inputContainer}>
-                {props.icon &&
+                {icon &&
                     <>
-                        {props.icon}
+                        {icon}
                     </>
                 }
                 <input
-                    id={props.id}
-                    type={props.type}
-                    placeholder={props.placeholder}
-                    value={props.value}
-                    onChange={props.onChange}
+                    id={id}
+                    type={type}
+                    placeholder={placeholder}
+                    value={value}
+                    onChange={onChange}
                 />
             </div>
         </div>
