@@ -1,0 +1,31 @@
+.inputWrapp {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputLabel {
+    font-weight: 600;
+}
+
+.inputContainer {
+    background-color: #F1F1F1;
+    padding: 1rem;
+    display: flex;
+    gap: 8px;
+    font-weight: 600;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.inputContainer input {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    width: -webkit-fill-available;
+}
+
+.inputContainer input::placeholder {
+    color: #626262;
+    font-weight: 600;
+}
