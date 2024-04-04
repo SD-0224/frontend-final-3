@@ -16,8 +16,7 @@ const images = [
   },
   {
     label: "Bird",
-    imgPath:
-      "https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60",
+    imgPath: "logo192.png",
   },
   {
     label: "Bali, Indonesia",
@@ -42,7 +41,7 @@ function Carousel() {
     <Box
       sx={{
         position: "relative",
-        margin: "5%",
+        margin: "1%",
         overflow: "hidden",
         borderRadius: "25px",
       }}
@@ -61,8 +60,7 @@ function Carousel() {
                   display: "block",
                   overflow: "hidden",
                   width: "100%",
-                  height: 255,
-                  borderRadius: "25px",
+                  height: 275,
                 }}
               >
                 <img
@@ -76,13 +74,18 @@ function Carousel() {
                 />
                 <Paper
                   square
-                  elevation={3}
+                  elevation={0}
+                  color="transparent"
                   sx={{
                     position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    bgcolor: "background.default",
+                    left: "40%",
+                    width: "60%",
+                    height: "80%",
+                    top: "10%",
+                    borderRadius: "15px 0 0 15px",
+                    backgroundColor: "rgba(255, 255, 255, 0.5)",
+                    color: "#1B4B66",
+                    fontWeight: 800,
                   }}
                 >
                   <Typography sx={{ p: 2 }}>{step.label}</Typography>
