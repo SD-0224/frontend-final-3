@@ -39,7 +39,14 @@ function Carousel() {
   };
 
   return (
-    <Box sx={{ width: "100%", position: "relative" }}>
+    <Box
+      sx={{
+        position: "relative",
+        margin: "5%",
+        overflow: "hidden",
+        borderRadius: "25px",
+      }}
+    >
       <AutoPlaySwipeableViews
         index={activeStep}
         onChangeIndex={handleStepChange}
@@ -50,24 +57,29 @@ function Carousel() {
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
                 sx={{
-                  position: "relative", // Ensure the image container is relative
+                  position: "relative",
                   display: "block",
                   overflow: "hidden",
                   width: "100%",
                   height: 255,
+                  borderRadius: "25px",
                 }}
               >
                 <img
                   src={step.imgPath}
                   alt={step.label}
-                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
                 />
                 <Paper
                   square
                   elevation={3}
                   sx={{
-                    position: "absolute", // Position the label absolutely
-                    bottom: 0,
+                    position: "absolute",
+                    top: 0,
                     left: 0,
                     width: "100%",
                     bgcolor: "background.default",
