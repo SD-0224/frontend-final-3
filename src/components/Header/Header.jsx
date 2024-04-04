@@ -1,5 +1,5 @@
 import styles from './Header.module.css';
-import { CustomInput } from "../CustomInput/CustomInput";
+import { CustomInput } from "../CustomInput";
 import { PersonOutline, FavoriteBorder, ShoppingBagOutlined, SearchOutlined } from '@mui/icons-material';
 
 export const Header = () => {
