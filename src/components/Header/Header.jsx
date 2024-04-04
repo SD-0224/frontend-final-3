@@ -1,4 +1,6 @@
 import styles from './Header.module.css';
+import { CustomInput } from "../CustomInput/CustomInput";
+import { PersonOutline, FavoriteBorder, ShoppingBagOutlined, SearchOutlined } from '@mui/icons-material';
 
 export const Header = () => {
     const linksArr = ["Handbags", "Watches", "Skincare", "Jewellery", "Apparels"];
@@ -6,7 +8,7 @@ export const Header = () => {
         <header className={styles.header}>
             <section className={styles.navigationSection}>
                 <a href="#" className={styles.logo}>
-                    <img src={null} alt="Logo" />
+                    <img src={'./logo.png'} alt="Logo" width={100} />
                 </a>
                 <div className={styles.navigationLinks}>
                     {
@@ -17,14 +19,14 @@ export const Header = () => {
                 </div>
             </section>
             <section className={styles.opertaionsSection}>
-                <div className={styles.searchOperations}>
-                    {/* Here we will use icon */}
-                    <input type='search' />
-                </div>
+                <CustomInput id={"searchInput"} type={"search"} placeholder={"Search for products or brands....."} icon={<SearchOutlined />} />
                 <div className={styles.userOperations}>
-                    {/* Here we will use icons as Links or Buttons */}
-                    {/* Here we will use icons as Links or Buttons */}
-                    {/* Here we will use icons as Links or Buttons */}
+                    <FavoriteBorder />
+                    <PersonOutline />
+                    <div className={styles.shoppingContainer}>
+                        <div className={styles.dot}></div>
+                        <ShoppingBagOutlined />
+                    </div>
                 </div>
             </section>
         </header>

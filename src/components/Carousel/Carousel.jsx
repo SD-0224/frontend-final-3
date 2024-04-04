@@ -10,21 +10,22 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const images = [
   {
-    label: "San Francisco – Oakland Bay Bridge, United States",
+    label: "Carry your Funk",
     imgPath:
       "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60",
   },
   {
-    label: "Bird",
-    imgPath: "logo192.png",
+    label: "Carry your Funk",
+    imgPath:
+      "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
   },
   {
-    label: "Bali, Indonesia",
+    label: "Carry your Funk",
     imgPath:
       "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250",
   },
   {
-    label: "Goč, Serbia",
+    label: "Carry your Funk",
     imgPath:
       "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60",
   },
@@ -61,6 +62,7 @@ function Carousel() {
                   overflow: "hidden",
                   width: "100%",
                   height: 275,
+                  fontWeight: 600,
                 }}
               >
                 <img
@@ -87,7 +89,28 @@ function Carousel() {
                     color: "#1B4B66",
                   }}
                 >
-                  <Typography sx={{ p: 2 }}>{step.label}</Typography>
+                  <Box
+                    sx={{
+                      maxHeight: "70%",
+                      overflow: "hidden",
+                      padding: "2% 3%",
+                    }}
+                  >
+                    <Typography
+                      fontSize={60}
+                      fontWeight={"900"}
+                      lineHeight={"73px"}
+                    >
+                      {step.label}
+                    </Typography>
+                    <Typography
+                      fontSize={28}
+                      fontWeight={"400"}
+                      lineHeight={"38px"}
+                    >
+                      Trendy handbags collection for your party animal
+                    </Typography>
+                  </Box>
                 </Paper>
               </Box>
             ) : null}
