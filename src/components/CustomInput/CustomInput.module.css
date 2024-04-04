@@ -1,14 +1,14 @@
-.input_wrapp {
+.inputWrapp {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.input_label {
+.inputLabel {
     font-weight: 600;
 }
 
-.input_container {
+.inputContainer {
     background-color: #F1F1F1;
     padding: 1rem;
     display: flex;
@@ -18,14 +18,14 @@
     border-radius: 8px;
 }
 
-.input_container input {
+.inputContainer input {
     border: 0;
     outline: 0;
     background-color: transparent;
     width: -webkit-fill-available;
 }
 
-.input_container input::placeholder {
+.inputContainer input::placeholder {
     color: #626262;
     font-weight: 600;
 }
