@@ -33,10 +33,26 @@
     gap: 24px;
 }
 
-.userOperations{
+.userOperations {
     display: flex;
     align-items: center;
     gap: 20px;
     font-size: 24px;
     color: #1B4B66;
+}
+
+.shoppingContainer {
+    position: relative;
+    display: flex;
+}
+
+.dot {
+    position: absolute;
+    background-color: #FF8C4B;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    right: 2px;
+    top: 4px;
 }
