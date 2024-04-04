@@ -1,5 +1,6 @@
 import "./App.css";
 import Box from "@mui/material/Box";
+import { MainRouter } from "./router";
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       }}
     >
       {/* Header goes here */}
-      {/* Main content goes here */}
+      <main>
+        <MainRouter />
+      </main>
       {/* Footer goes here */}
     </Box>
   );
