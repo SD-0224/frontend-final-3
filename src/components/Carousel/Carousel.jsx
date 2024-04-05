@@ -41,6 +41,17 @@ const imageContainerStyles = {
   fontWeight: 600,
 };
 
+const textContainerStyles = {
+  position: "absolute",
+  left: "40%",
+  width: "60%",
+  height: "80%",
+  top: "10%",
+  borderRadius: "15px 0 0 15px",
+  backgroundColor: "rgba(255, 255, 255, 0.5)",
+  color: "#1B4B66",
+};
+
 function Carousel() {
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -84,14 +95,7 @@ function Carousel() {
                   elevation={0}
                   color="transparent"
                   sx={{
-                    position: "absolute",
-                    left: "40%",
-                    width: "60%",
-                    height: "80%",
-                    top: "10%",
-                    borderRadius: "15px 0 0 15px",
-                    backgroundColor: "rgba(255, 255, 255, 0.5)",
-                    color: "#1B4B66",
+                    ...textContainerStyles,
                   }}
                 >
                   <Box
