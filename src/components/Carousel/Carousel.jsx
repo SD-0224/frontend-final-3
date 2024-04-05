@@ -2,10 +2,10 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import EastIcon from "@mui/icons-material/East";
 import SwipeableViews from "react-swipeable-views-react-18-fix";
 import { autoPlay } from "react-swipeable-views-utils";
+import { IconicButton } from "../IconicButton";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -126,20 +126,9 @@ function Carousel() {
           </div>
         ))}
       </AutoPlaySwipeableViews>
-      <Button
-        variant="contained"
-        startIcon={<EastIcon />}
-        sx={{
-          position: "absolute",
-          backgroundColor: "#1B4B66",
-          padding: "7px 40px",
-          left: "42%",
-          top: "70%",
-          borderRadius: "8px",
-        }}
-      >
-        See more
-      </Button>
+      <Box sx={{ position: "absolute", left: "42%", top: "70%" }}>
+        <IconicButton icon={<EastIcon />} label={"See More"} />
+      </Box>
     </Box>
   );
 }
