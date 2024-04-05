@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import EastIcon from "@mui/icons-material/East";
 import { ProductImage } from "../product-image";
 import { CategoryItems } from "./category-titles";
+import Link from "@mui/material/Link";
 
 const imageContainerStyles = {
   position: "relative",
@@ -22,21 +23,23 @@ function CarouselItem(props) {
           borderRadius: "25px",
         }}
       >
-        <Box
-          sx={{
-            ...imageContainerStyles,
-          }}
-        >
-          <ProductImage src={props.item.imgPath} width="100%" height={300} />
-          <CategoryItems
-            title={props.item.name}
-            description={props.item.description}
-          />
-        </Box>
+        <Link href="#">
+          <Box
+            sx={{
+              ...imageContainerStyles,
+            }}
+          >
+            <ProductImage src={props.item.imgPath} width="100%" height={300} />
+            <CategoryItems
+              title={props.item.name}
+              description={props.item.description}
+            />
+          </Box>
 
-        <Box sx={{ position: "absolute", left: "42%", top: "70%" }}>
-          <IconicButton icon={<EastIcon />} label={"See More"} />
-        </Box>
+          <Box sx={{ position: "absolute", left: "42%", top: "70%" }}>
+            <IconicButton icon={<EastIcon />} label={"See More"} />
+          </Box>
+        </Link>
       </Box>
     </>
   );
