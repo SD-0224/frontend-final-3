@@ -12,7 +12,6 @@ function App() {
         position: "absolute",
       }}
     >
-      {/* Header goes here */}
       <Header />
       <main>
         <MainRouter />
