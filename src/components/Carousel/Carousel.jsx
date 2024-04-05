@@ -55,6 +55,8 @@ const textContainerStyles = {
 function Carousel() {
   const [activeStep, setActiveStep] = React.useState(0);
 
+  const isWithinRange = (index) => Math.abs(activeStep - index) <= 2;
+
   const handleStepChange = (step) => {
     setActiveStep(step);
   };
@@ -75,7 +77,7 @@ function Carousel() {
       >
         {images.map((step, index) => (
           <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
+            {isWithinRange(index) ? (
               <Box
                 sx={{
                   ...imageContainerStyles,
