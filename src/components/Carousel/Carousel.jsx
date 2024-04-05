@@ -32,6 +32,15 @@ const images = [
   },
 ];
 
+const imageContainerStyles = {
+  position: "relative",
+  display: "block",
+  overflow: "hidden",
+  width: "100%",
+  height: 300,
+  fontWeight: 600,
+};
+
 function Carousel() {
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -58,12 +67,7 @@ function Carousel() {
             {Math.abs(activeStep - index) <= 2 ? (
               <Box
                 sx={{
-                  position: "relative",
-                  display: "block",
-                  overflow: "hidden",
-                  width: "100%",
-                  height: 300,
-                  fontWeight: 600,
+                  ...imageContainerStyles,
                 }}
               >
                 <img
