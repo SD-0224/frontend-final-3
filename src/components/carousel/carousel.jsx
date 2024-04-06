@@ -1,9 +1,9 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import CarouselItems from "./carousel-items";
+import CarouselItem from "./carousel-item";
 
 export function CategoryCarousel({ categories, interval }) {
-  const carouselStyle = (interval) => ({
+  const carouselStyle = {
     indicatorIconButtonProps: {
       style: { display: "none" },
     },
@@ -11,12 +11,12 @@ export function CategoryCarousel({ categories, interval }) {
       style: { display: "none" },
     },
     interval: interval,
-  });
+  };
 
   return (
-    <Carousel {...carouselStyle(interval)}>
+    <Carousel {...carouselStyle}>
       {categories.map((item, i) => (
-        <CarouselItems key={i} {...item} />
+        <CarouselItem key={i} {...item} />
       ))}
     </Carousel>
   );

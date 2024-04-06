@@ -11,7 +11,7 @@ const imageContainerStyles = {
   fontWeight: 600,
 };
 
-function CarouselItems({ title, description, imgPath }) {
+function CarouselItem({ title, description, imgPath }) {
   return (
     <>
       <Box
@@ -41,4 +41,4 @@ function CarouselItems({ title, description, imgPath }) {
   );
 }
 
-export default CarouselItems;
+export default CarouselItem;
