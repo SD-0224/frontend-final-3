@@ -1,6 +1,6 @@
-import { IconicButton } from "../iconic-button";
-import { ProductImage } from "../product-image";
-import { CategoryTitles } from "./category-titles";
+import { IconicButton } from "../../../iconic-button/";
+import { ProductImage } from "../../../product-image";
+import { CategoryTitles } from "../category-titles";
 import EastIcon from "@mui/icons-material/East";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -12,7 +12,7 @@ const imageContainerStyles = {
   fontWeight: 600,
 };
 
-function CarouselItem({ title, description, imgPath }) {
+export function CarouselItem({ title, description, imgPath }) {
   return (
     <>
       <Box
@@ -41,5 +41,3 @@ function CarouselItem({ title, description, imgPath }) {
     </>
   );
 }
-
-export default CarouselItem;
