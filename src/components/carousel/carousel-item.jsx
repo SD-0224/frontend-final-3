@@ -2,7 +2,8 @@ import { IconicButton } from "../iconic-button";
 import { ProductImage } from "../product-image";
 import { CategoryTitles } from "./category-titles";
 import EastIcon from "@mui/icons-material/East";
-import { Link, Box } from "@mui/material";
+import { Box } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const imageContainerStyles = {
   position: "relative",
@@ -22,7 +23,7 @@ function CarouselItem({ title, description, imgPath }) {
           borderRadius: "25px",
         }}
       >
-        <Link href="#">
+        <Link to={"/"}>
           <Box
             sx={{
               ...imageContainerStyles,
