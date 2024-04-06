@@ -1,8 +1,8 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import CarouselItem from "./carousel-items";
+import CarouselItems from "./carousel-items";
 
-export function CategoryCarousel(props) {
+export function CategoryCarousel({ categories, interval }) {
   const carouselStyle = (interval) => ({
     indicatorIconButtonProps: {
       style: { display: "none" },
@@ -14,9 +14,9 @@ export function CategoryCarousel(props) {
   });
 
   return (
-    <Carousel {...carouselStyle(props.interval)}>
-      {props.categories.map((item, i) => (
-        <CarouselItem key={i} item={item} />
+    <Carousel {...carouselStyle(interval)}>
+      {categories.map((item, i) => (
+        <CarouselItems key={i} {...item} />
       ))}
     </Carousel>
   );

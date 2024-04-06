@@ -1,9 +1,8 @@
 import { IconicButton } from "../iconic-button";
-import Box from "@mui/material/Box";
-import EastIcon from "@mui/icons-material/East";
 import { ProductImage } from "../product-image";
-import { CategoryItems } from "./category-titles";
-import Link from "@mui/material/Link";
+import { CategoryTitles } from "./category-titles";
+import EastIcon from "@mui/icons-material/East";
+import { Link, Box } from "@mui/material";
 
 const imageContainerStyles = {
   position: "relative",
@@ -12,7 +11,7 @@ const imageContainerStyles = {
   fontWeight: 600,
 };
 
-function CarouselItem(props) {
+function CarouselItems({ title, description, imgPath }) {
   return (
     <>
       <Box
@@ -29,11 +28,8 @@ function CarouselItem(props) {
               ...imageContainerStyles,
             }}
           >
-            <ProductImage src={props.item.imgPath} width="100%" height={300} />
-            <CategoryItems
-              title={props.item.name}
-              description={props.item.description}
-            />
+            <ProductImage src={imgPath} width="100%" height={300} />
+            <CategoryTitles title={title} description={description} />
           </Box>
 
           <Box sx={{ position: "absolute", left: "42%", top: "70%" }}>
@@ -45,4 +41,4 @@ function CarouselItem(props) {
   );
 }
 
-export default CarouselItem;
+export default CarouselItems;

@@ -1,6 +1,4 @@
-import Typography from "@mui/material/Typography";
-import { Paper } from "@mui/material";
-import Box from "@mui/material/Box";
+import { Typography, Paper, Box } from "@mui/material";
 
 const textContainerStyles = {
   position: "absolute",
@@ -13,7 +11,7 @@ const textContainerStyles = {
   color: "#1B4B66",
 };
 
-export function CategoryItems(props) {
+export function CategoryTitles({ title, description }) {
   return (
     <Paper
       square
@@ -31,10 +29,10 @@ export function CategoryItems(props) {
         }}
       >
         <Typography fontSize={60} fontWeight={"900"} lineHeight={"50px"}>
-          {props.title}
+          {title}
         </Typography>
         <Typography fontSize={28} fontWeight={"400"} lineHeight={"38px"}>
-          {props.description}
+          {description}
         </Typography>
       </Box>
     </Paper>
