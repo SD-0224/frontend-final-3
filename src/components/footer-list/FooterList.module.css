@@ -1,0 +1,9 @@
+.commenTextStyle {
+    line-height: 18px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: capitalize;
+    padding-inline: 0px;
+    padding-block: 4px;
+    width: 100%;
+}
