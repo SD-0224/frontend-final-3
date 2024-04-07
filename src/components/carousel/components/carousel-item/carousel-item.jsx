@@ -1,4 +1,4 @@
-import { CustomButton } from "../../../button";
+import { CustomButton } from "../../../custom-button";
 import { ProductImage } from "../../../product-image";
 import { CategoryTitles } from "../category-titles";
 import { Box } from "@mui/material";
@@ -17,7 +17,6 @@ export function CarouselItem({ title, description, imgPath }) {
       <Box
         sx={{
           position: "relative",
-          margin: "1%",
           overflow: "hidden",
           borderRadius: "25px",
         }}
