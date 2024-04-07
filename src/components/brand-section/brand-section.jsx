@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Typography, Box } from "@mui/material";
+import { Box } from "@mui/material";
 import { ProductImage } from "../product-image/ProductImage";
+import { CustomTypography } from "../custom-typography";
 
 const brandContainer = {
   display: "flex",
@@ -24,13 +25,12 @@ export function BrandSection({ brandImages }) {
         height: 263,
       }}
     >
-      <Typography
+      <CustomTypography
+        text={"Shop by Brands"}
         fontSize={"34px"}
         fontWeight={"500"}
-        sx={{ marginBottom: "20px" }}
-      >
-        Shop by Brands
-      </Typography>
+        marginBottom={"20px"}
+      />
       <Box
         sx={{
           ...brandContainer,

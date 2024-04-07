@@ -1,4 +1,5 @@
-import { Typography, Paper, Box } from "@mui/material";
+import { Paper, Box } from "@mui/material";
+import { CustomTypography } from "../../../custom-typography";
 
 const textContainerStyles = {
   position: "absolute",
@@ -8,7 +9,6 @@ const textContainerStyles = {
   top: "10%",
   borderRadius: "15px 0 0 15px",
   backgroundColor: "rgba(255, 255, 255, 0.5)",
-  color: "#1B4B66",
 };
 
 export function CategoryTitles({ title, description }) {
@@ -28,12 +28,20 @@ export function CategoryTitles({ title, description }) {
           padding: "5% 4% 0",
         }}
       >
-        <Typography fontSize={60} fontWeight={"900"} lineHeight={"50px"}>
-          {title}
-        </Typography>
-        <Typography fontSize={28} fontWeight={"400"} lineHeight={"38px"}>
-          {description}
-        </Typography>
+        <CustomTypography
+          text={title}
+          fontSize={60}
+          fontWeight={"900"}
+          lineHeight={"50px"}
+          color={"#1B4B66"}
+        />
+        <CustomTypography
+          text={description}
+          fontSize={28}
+          fontWeight={"400"}
+          lineHeight={"38px"}
+          color={"#1B4B66"}
+        />
       </Box>
     </Paper>
   );
