@@ -1,23 +1,23 @@
 import "./App.css";
 import Box from "@mui/material/Box";
 import { Header } from './components/Header';
-
+import { Footer } from "./components/footer";
 import { MainRouter } from "./router";
 
 function App() {
   return (
     <Box
       sx={{
-        width: "100%",
-        height: "100%",
-        position: "absolute",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       <Header />
       <main>
         <MainRouter />
       </main>
-      {/* Footer goes here */}
+      <Footer />
     </Box>
   );
 }
