@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material/';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState, useEffect } from 'react';
+import { Margin } from '@mui/icons-material';
 
 export const Footer = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -24,7 +25,13 @@ export const Footer = () => {
 
 
     return (
-        <Accordion defaultExpanded>
+        <Accordion defaultExpanded={isMobile} sx={{
+            width: "100%",
+            margin: isMobile ? "0 !important" : "unset",
+            marginBottom: isMobile ? "unset !important" : "0",
+            marginTop: isMobile ? "auto !important" : "0",
+            boxShadow: "unset"
+        }}>
             {
                 isMobile &&
                 <AccordionSummary
@@ -35,7 +42,7 @@ export const Footer = () => {
                     More about CORA’L
                 </AccordionSummary>
             }
-            <AccordionDetails>
+            <AccordionDetails sx={{background: "#1B4B66", color:"#fff"}}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                 malesuada lacus ex, sit amet blandit leo lobortis eget.
             </AccordionDetails>
