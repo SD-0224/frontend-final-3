@@ -7,20 +7,26 @@ export const FooterList = ({ title, dataArr, type }) => {
         fontSize: 14,
         fontWeight: 500,
         textTransform: "capitalize",
-        paddingBlock: "0px"
+        paddingInline: "0px",
+        paddingBlock: "4px",
     }
     return (
-        <Box>
+        <Box sx={{ width: "fit-content" }}>
             <List>
                 <ListSubheader style={styles} sx={{ color: "#fff", background: "transparent", marginBottom: "8px" }}>
                     {title}
                 </ListSubheader>
-                <Box>
+                <Box sx={{ display: "flex", flexDirection: type === "row" ? "row" : "column", flexWrap: "wrap" }}>
                     {
                         dataArr.map((data) => (
-                            <ListItemButton href="#" target="_blank" style={styles} sx={{ color: "#B6B6B6", paddingBlock: 0 }}>
-                                <ListItemText sx={{ '& .MuiListItemText-primary': { fontSize: "14px" } }} primary={data} />
-                            </ListItemButton>
+                            <>
+                                <ListItemButton href="#" target="_blank" style={styles} sx={{ color: "#B6B6B6", '& .MuiListItemText-root': { margin: 0 }, flex: "none" }}>
+                                    <ListItemText sx={{ '& .MuiListItemText-primary': { fontSize: "14px" } }} primary={data} />
+                                </ListItemButton>
+                                {
+                                    type === "row" && <span>|</span>
+                                }
+                            </>
                         ))
                     }
                 </Box>
