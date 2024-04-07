@@ -4,25 +4,21 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState, useEffect } from 'react';
 
 export const Footer = () => {
-    const [smallScreen, setSmallScreen] = useState(true);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        // Function to update window width
         const handleResize = () => {
-            if (window.innerWidth > 600) {
-                setSmallScreen(false);
-            } else {
-                setSmallScreen(true);
-            }
+            setIsMobile(window.matchMedia('(max-width: 768px)').matches);
         };
 
-        // Add event listener to handle window resize
+        // Initial check
+        handleResize();
+
+        // Listen for window resize events
         window.addEventListener('resize', handleResize);
 
-        // Cleanup function to remove event listener
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
+        // Clean up event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
 
@@ -30,7 +26,7 @@ export const Footer = () => {
     return (
         <Accordion defaultExpanded>
             {
-                smallScreen &&
+                isMobile &&
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel3-content"
