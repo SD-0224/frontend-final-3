@@ -18,34 +18,32 @@ const brandContainer = {
 
 export function BrandSection({ brands }) {
   return (
-    <>
+    <Box
+      sx={{
+        width: "100%",
+        height: 263,
+      }}
+    >
+      <Typography
+        fontSize={"34px"}
+        fontWeight={"500"}
+        sx={{ marginBottom: "20px" }}
+      >
+        Shop by Brands
+      </Typography>
       <Box
         sx={{
-          width: "100%",
-          height: 263,
+          ...brandContainer,
         }}
       >
-        <Typography
-          fontSize={"34px"}
-          fontWeight={"500"}
-          sx={{ marginBottom: "20px" }}
-        >
-          Shop by Brands
-        </Typography>
-        <Box
-          sx={{
-            ...brandContainer,
-          }}
-        >
-          {brands.map((brand) => {
-            return (
-              <div key={brand.id}>
-                <ProductImage src={brand} width={"168px"} />
-              </div>
-            );
-          })}
-        </Box>
+        {brands.map((brand) => {
+          return (
+            <div key={brand.id}>
+              <ProductImage src={brand} width={"168px"} />
+            </div>
+          );
+        })}
       </Box>
-    </>
+    </Box>
   );
 }
