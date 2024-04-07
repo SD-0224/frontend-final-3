@@ -16,7 +16,7 @@ export const FooterList = ({ title, dataArr, type }) => {
                 <ListSubheader style={styles} sx={{ color: "#fff", background: "transparent", marginBottom: "8px" }}>
                     {title}
                 </ListSubheader>
-                <Box sx={{ display: "flex", flexDirection: type === "row" ? "row" : "column", flexWrap: "wrap" }}>
+                <Box sx={{ display: "flex",  flexWrap: "wrap", flexDirection: type === "row" ? "row" : "column", alignItems: type === "row" ? "center" : "baseline", gap: type === "row" ? "4px" : "0px" }}>
                     {
                         dataArr.map((data) => (
                             <>
