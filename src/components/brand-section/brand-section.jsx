@@ -16,7 +16,7 @@ const brandContainer = {
   },
 };
 
-export function BrandSection({ brands }) {
+export function BrandSection({ brandImages }) {
   return (
     <Box
       sx={{
@@ -36,9 +36,9 @@ export function BrandSection({ brands }) {
           ...brandContainer,
         }}
       >
-        {brands.map((brand) => {
+        {brandImages.map((brand) => {
           return (
-            <div key={brand.id}>
+            <div key={brand}>
               <ProductImage src={brand} width={"168px"} />
             </div>
           );
