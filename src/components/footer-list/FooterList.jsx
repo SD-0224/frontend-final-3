@@ -9,6 +9,7 @@ export const FooterList = ({ title, dataArr, type }) => {
         textTransform: "capitalize",
         paddingInline: "0px",
         paddingBlock: "4px",
+        width: "100%"
     }
     return (
         <Box sx={{ width: "fit-content" }}>
