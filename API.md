@@ -7,7 +7,7 @@ const product = {
 	title:string,
 	subtitle:string,
 	description:string,
-	category:string,
+	categoryId:string,
 	createdAt:number => Date.now(),
 	ratings: [
 		{
