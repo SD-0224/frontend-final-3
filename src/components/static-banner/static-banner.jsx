@@ -1,16 +1,19 @@
 import { Box } from "@mui/material";
 import { ProductImage } from "../product-image";
 
+const bannerContainer = {
+  margin: "40px 0",
+  height: "668px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+};
+
 export function StaticBanner() {
   return (
     <Box
       sx={{
-        width: "100%",
-        margin: "40px 0",
-        height: "668px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
+        ...bannerContainer,
       }}
     >
       <ProductImage
