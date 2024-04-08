@@ -14,6 +14,7 @@ const product = {
 			userId:string,
 			productId:string,
 			rating:number => 0 - 5
+			review:string,
 		}
 	],
 	price:float => up to 2 decimal points,
