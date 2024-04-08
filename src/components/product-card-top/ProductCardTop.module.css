@@ -1,0 +1,23 @@
+.cardTopContainer {
+  width: min-content;
+}
+
+.cardDetails>* {
+  margin-top: 8px;
+}
+
+.titleSection {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #626262;
+}
