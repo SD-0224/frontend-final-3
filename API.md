@@ -12,14 +12,14 @@ const product = {
 	ratings: [
 		{
 			userId:string,
-			productId:string
+			productId:string,
+			rating:number => 0 - 5
 		}
 	],
-	price:number,
-	brand:string,
+	price:float => up to 2 decimal points,
+	brandId:string,
 	quantity:number,
 	discountPercentage:number => 0 - 100,
-	initialQuantity?:number,
 }
 
 const user = {
@@ -38,7 +38,7 @@ const user = {
 	}},
 	orders:{[orderId]:{
 		products:[{
-			id:string,
+			productId:string,
 			quantity:number,
 		}],
 		date:number => Date.now(),
