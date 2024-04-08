@@ -1,11 +1,30 @@
 import { Typography, Box } from "@mui/material";
 
-export function HorizontalScroll({ color = "#13101E", title, children }) {
+export function HorizontalScroll({
+  height,
+  color = "#13101E",
+  title,
+  imagesContainerStyles,
+  children,
+}) {
+  const imagesContainer = {
+    display: "flex",
+    overflowX: "auto",
+    scrollbarWidth: "none",
+    msOverflowStyle: "none",
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
+    "& > :not(style)": {
+      ...imagesContainerStyles,
+    },
+  };
+
   return (
     <Box
       sx={{
         width: "100%",
-        height: 263,
+        height: { height },
       }}
     >
       <Typography
@@ -16,7 +35,13 @@ export function HorizontalScroll({ color = "#13101E", title, children }) {
       >
         {title}
       </Typography>
-      {children}
+      <Box
+        sx={{
+          ...imagesContainer,
+        }}
+      >
+        {children}
+      </Box>
     </Box>
   );
 }
