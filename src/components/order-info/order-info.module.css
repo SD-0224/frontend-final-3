@@ -1,0 +1,28 @@
+.title {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.seperator {
+  margin-bottom: 35px;
+}
+
+.tableContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.lightFont {
+  color: "#626262";
+}
+
+.darkFont {
+  color: #171520;
+}
+
+.bold {
+  font-weight: bold;
+}

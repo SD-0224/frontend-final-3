@@ -1,34 +1,28 @@
-export function OrderInfo({ title, orderInfo }) {
-  const tableContainer = {
-    display: "flex",
-    justifyContent: "space-between",
-    marginBottom: "12px",
-    fontSize: "16px",
-    fontWeight: "500",
-  };
+import styles from "./order-info.module.css";
 
+export function OrderInfo({ title, orderInfo }) {
   return (
     <>
-      <h1 style={{ fontSize: "20px", marginBottom: "8px" }}>{title}</h1>
-      <hr style={{ marginBottom: "35px" }} />
+      <h1 className={styles.title}>{title}</h1>
+      <hr className={styles.seperator} />
 
       {orderInfo.map(([detail, amount], index) => (
         <div
           key={index}
-          style={{
-            ...tableContainer,
-            ...(index === orderInfo.length - 1 ? { fontWeight: "bold" } : {}),
-          }}
+          className={`${styles.tableContainer} ${
+            index === orderInfo.length - 1 ? styles.bold : ""
+          }`}
         >
           <div
-            style={{
-              color: "#626262",
-              ...(index === orderInfo.length - 1 ? { color: "#171520" } : {}),
-            }}
+            className={
+              index === orderInfo.length - 1
+                ? styles.darkFont
+                : styles.lightFont
+            }
           >
             {detail}
           </div>
-          <div style={{ color: "#171520" }}>{amount}</div>
+          <div className={styles.darkFont}>{amount}</div>
         </div>
       ))}
     </>
