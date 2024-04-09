@@ -1,6 +1,13 @@
 import styles from "./order-info.module.css";
 
 export function OrderInfo({ title, orderInfo }) {
+  const lastRowFontWeight = (index) => {
+    return index === orderInfo.length - 1 ? styles.bold : "";
+  };
+
+  const lastRowFontColor = (index) => {
+    return index === orderInfo.length - 1 ? styles.darkFont : styles.lightFont;
+  };
   return (
     <>
       <h1 className={styles.title}>{title}</h1>
@@ -9,19 +16,9 @@ export function OrderInfo({ title, orderInfo }) {
       {orderInfo.map(([detail, amount], index) => (
         <div
           key={index}
-          className={`${styles.tableContainer} ${
-            index === orderInfo.length - 1 ? styles.bold : ""
-          }`}
+          className={`${styles.tableContainer} ${lastRowFontWeight(index)}`}
         >
-          <div
-            className={
-              index === orderInfo.length - 1
-                ? styles.darkFont
-                : styles.lightFont
-            }
-          >
-            {detail}
-          </div>
+          <div className={`${lastRowFontColor(index)}`}>{detail}</div>
           <div className={styles.darkFont}>{amount}</div>
         </div>
       ))}

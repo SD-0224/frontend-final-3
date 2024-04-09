@@ -16,7 +16,7 @@
 }
 
 .lightFont {
-  color: "#626262";
+  color: #626262;
 }
 
 .darkFont {
@@ -25,4 +25,5 @@
 
 .bold {
   font-weight: bold;
+  color: #171520;
 }
