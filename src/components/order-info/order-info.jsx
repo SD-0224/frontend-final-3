@@ -1,10 +1,4 @@
-export function OrderInfo() {
-  const orderInfo = [
-    ["Sub Total", "$119.69"],
-    ["Discount", "$119.69"],
-    ["Delivery Fee", "$119.69"],
-    ["Grand Total", "$119.69"],
-  ];
+export function OrderInfo({ title, orderInfo }) {
   const tableContainer = {
     display: "flex",
     justifyContent: "space-between",
@@ -12,9 +6,10 @@ export function OrderInfo() {
     fontSize: "16px",
     fontWeight: "500",
   };
+
   return (
     <>
-      <h1 style={{ fontSize: "20px", marginBottom: "8px" }}>Order Details</h1>
+      <h1 style={{ fontSize: "20px", marginBottom: "8px" }}>{title}</h1>
       <hr style={{ marginBottom: "35px" }} />
 
       {orderInfo.map(([detail, amount], index) => (
