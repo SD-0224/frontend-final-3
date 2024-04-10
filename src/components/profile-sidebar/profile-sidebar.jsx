@@ -12,6 +12,7 @@ import { RightChevron } from "../icons";
 
 export function SideBar() {
   const [selected, setSelected] = useState(false);
+
   const sidebarSections = [
     "Personal Information",
     "Refer and Earn",
