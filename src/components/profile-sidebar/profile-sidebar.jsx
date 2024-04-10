@@ -10,10 +10,10 @@ import {
 import styles from "./profile-sidebar.module.css";
 import { RightChevron } from "../icons";
 
-export function SideBar() {
+export function SidebarMenu() {
   const [selected, setSelected] = useState(false);
 
-  const sidebarSections = [
+  const SidebarOptions = [
     "Personal Information",
     "Refer and Earn",
     "My Orders",
@@ -23,9 +23,11 @@ export function SideBar() {
     "My Saved Cards",
   ];
 
-  const handleClick = (index) => {
+  const handleSidebarOptionClick = (index) => {
     setSelected(index);
   };
+
+  const isOptionSelected = (index) => selected === index;
 
   return (
     <>
@@ -37,9 +39,9 @@ export function SideBar() {
         }}
       >
         <List>
-          {sidebarSections.map((section, index) => (
+          {SidebarOptions.map((option, index) => (
             <>
-              {selected === index && <div className={styles.vl}></div>}
+              {isOptionSelected(index) && <div className={styles.vl}></div>}
               <ListItemButton
                 key={index}
                 sx={{
@@ -49,11 +51,11 @@ export function SideBar() {
                   },
                   padding: "24px 10px",
                 }}
-                selected={selected === index}
-                onClick={() => handleClick(index)}
+                selected={isOptionSelected(index)}
+                onClick={() => handleSidebarOptionClick(index)}
               >
                 <ListItemText
-                  primary={section}
+                  primary={option}
                   primaryTypographyProps={{
                     fontSize: 16,
                     fontWeight: "medium",
@@ -61,11 +63,11 @@ export function SideBar() {
                   }}
                 />
                 <ListItemIcon sx={{ minWidth: "24px" }}>
-                  {selected === index ? (
-                    <RightChevron borderColor={"#1B4B66"} />
-                  ) : (
-                    <RightChevron />
-                  )}
+                  <RightChevron
+                    borderColor={
+                      isOptionSelected(index) ? "#1B4B66" : "#13101E"
+                    }
+                  />
                 </ListItemIcon>
               </ListItemButton>
             </>
