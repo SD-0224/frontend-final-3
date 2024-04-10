@@ -1,8 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import ListItemButton from "@mui/material/ListItemButton";
-import { Box } from "@mui/material";
+import {
+  Box,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import styles from "./profile-sidebar.module.css";
+import { RightChevron } from "../icons";
 
 export function SideBar() {
   const [selected, setSelected] = useState(false);
@@ -29,28 +35,41 @@ export function SideBar() {
           position: "relative",
         }}
       >
-        {sidebarSections.map((section, index) => (
-          <>
-            {selected === index && <div className={styles.vl}></div>}
-            <ListItemButton
-              key={index}
-              sx={{
-                "&.Mui-selected, &.Mui-selected:hover": {
-                  color: "#1B4B66",
-                  backgroundColor: "#F1F1F100",
-                },
-                color: "#13101E",
-                fontSize: "16px",
-                fontWeight: 500,
-                padding: "24px 10px",
-              }}
-              selected={selected === index ? true : false}
-              onClick={() => handleClick(index)}
-            >
-              {section}
-            </ListItemButton>
-          </>
-        ))}
+        <List>
+          {sidebarSections.map((section, index) => (
+            <>
+              {selected === index && <div className={styles.vl}></div>}
+              <ListItemButton
+                key={index}
+                sx={{
+                  "&.Mui-selected, &.Mui-selected:hover": {
+                    color: "#1B4B66",
+                    backgroundColor: "#F1F1F100",
+                  },
+                  padding: "24px 10px",
+                }}
+                selected={selected === index}
+                onClick={() => handleClick(index)}
+              >
+                <ListItemText
+                  primary={section}
+                  primaryTypographyProps={{
+                    fontSize: 16,
+                    fontWeight: "medium",
+                    letterSpacing: 0,
+                  }}
+                />
+                <ListItemIcon sx={{ minWidth: "24px" }}>
+                  {selected === index ? (
+                    <RightChevron borderColor={"#1B4B66"} />
+                  ) : (
+                    <RightChevron />
+                  )}
+                </ListItemIcon>
+              </ListItemButton>
+            </>
+          ))}
+        </List>
       </Box>
     </>
   );
