@@ -1,4 +1,4 @@
-export const RightVector = function ({
+export const RightChevron = function ({
   width = 24,
   height = 24,
   borderColor = "#13101E",
