@@ -41,7 +41,9 @@ export function SidebarMenu() {
         <List>
           {SidebarOptions.map((option, index) => (
             <>
-              {isOptionSelected(index) && <div className={styles.vl}></div>}
+              {isOptionSelected(index) && (
+                <div className={styles.verticalLine}></div>
+              )}
               <ListItemButton
                 key={index}
                 sx={{
