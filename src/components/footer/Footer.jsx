@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material/';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState, useEffect } from 'react';
-import { FooterList } from '../footer-list/FooterList';
+import { FooterList } from './components/footer-list/FooterList';
 import { Box } from "@mui/material";
 import { Facebook, Instagram, Twitter, Youtube, Location } from '../icons';
 import { CircleIconLink } from '../circle-icon-link';
