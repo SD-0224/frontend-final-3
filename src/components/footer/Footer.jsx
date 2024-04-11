@@ -4,7 +4,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState, useEffect } from 'react';
 import { FooterList } from '../footer-list/FooterList';
 import { Box } from "@mui/material";
-
+import { Facebook, Instagram, Twitter, Youtube } from '../icons';
+import { CircleIconLink } from '../circle-icon-link/CircleIconLink';
 export const Footer = () => {
     const [isMobile, setIsMobile] = useState(false);
     const conditionalStyles = {
@@ -65,10 +66,18 @@ export const Footer = () => {
                     More about CORA’L
                 </AccordionSummary>
             }
-            <AccordionDetails sx={{ background: "#1B4B66", color: "#fff", padding: conditionalStyles.padding }}>
+            <AccordionDetails sx={{ background: "#1B4B66", color: "#fff", padding: conditionalStyles.padding, display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
                 <Box sx={{ display: "flex", gap: conditionalStyles.gap, flexWrap: "wrap" }}>
                     <FooterList title={"Shop by Category"} footerLinks={links} />
                     <FooterList toRow={isMobile} type={"row"} title={"Shop by Category"} footerLinks={links} />
+                </Box>
+                <Box sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    <Box sx={{ display: "flex", gap: "16px", marginBottom: "14px" }}>
+                        <CircleIconLink icon={<Facebook borderSize={0} fillColor='#1b4b66'/>} />
+                        <CircleIconLink icon={<Instagram borderSize={0} fillColor='#1b4b66'/>} />
+                        <CircleIconLink icon={<Twitter borderSize={0} fillColor='#1b4b66'/>} />
+                        <CircleIconLink icon={<Youtube borderSize={0} fillColor='#1b4b66'/>} />
+                    </Box>
                 </Box>
             </AccordionDetails>
         </Accordion>
