@@ -9,6 +9,7 @@ import { CircleIconLink } from '../circle-icon-link/CircleIconLink';
 
 export const Footer = () => {
     const [isMobile, setIsMobile] = useState(false);
+    const currentYear = new Date().getFullYear();
 
     const conditionalStyles = {
         padding: isMobile ? "0px" : "30px 60px",
@@ -18,7 +19,8 @@ export const Footer = () => {
         width: isMobile ? "100%" : "fit-content",
         marginTop: isMobile ? "28px" : "0px",
         borderTop: isMobile ? 1 : null,
-        borderColor: "#3E6F73"
+        borderColor: "#3E6F73",
+        alignItems: isMobile ? "baseline" : "end",
     }
 
     const links = [
@@ -38,6 +40,37 @@ export const Footer = () => {
             text: "Apparels",
             link: "https://google.com"
         },
+        {
+            text: "Watches",
+            link: "https://google.com"
+        },
+        {
+            text: "Eye Wear",
+            link: "https://google.com"
+        },
+        {
+            text: "Jewellery",
+            link: "https://google.com"
+        },
+    ]
+
+    const socialList = [
+        {
+            iconName: Facebook,
+            link: "#",
+        },
+        {
+            iconName: Instagram,
+            link: "#",
+        },
+        {
+            iconName: Twitter,
+            link: "#",
+        },
+        {
+            iconName: Youtube,
+            link: "#",
+        }
     ]
 
     useEffect(() => {
@@ -86,22 +119,32 @@ export const Footer = () => {
                     paddingBlock: conditionalStyles.paddingBlock, paddingInline: conditionalStyles.paddingInline
                 }}>
                     <FooterList title={"Shop by Category"} footerLinks={links} />
-                    <FooterList toRow={isMobile} type={"row"} title={"Shop by Category"} footerLinks={links} />
                 </Box>
 
                 {/* Social media side */}
 
                 <Box sx={{
-                    display: "flex", flexDirection: "column",
+                    display: "flex", flexDirection: "column", fontSize: "14px", alignItems: conditionalStyles.alignItems,
                     gap: "8px", width: conditionalStyles.width, marginTop: conditionalStyles.marginTop,
                     paddingBlock: conditionalStyles.paddingBlock, paddingInline: conditionalStyles.paddingInline,
                     borderTop: conditionalStyles.borderTop, borderColor: conditionalStyles.borderColor
                 }}>
                     <Box sx={{ display: "flex", gap: "16px", marginBottom: "14px", }}>
-                        <CircleIconLink icon={<Facebook borderSize={0} fillColor='#1b4b66' />} />
-                        <CircleIconLink icon={<Instagram borderSize={0} fillColor='#1b4b66' />} />
-                        <CircleIconLink icon={<Twitter borderSize={0} fillColor='#1b4b66' />} />
-                        <CircleIconLink icon={<Youtube borderSize={0} fillColor='#1b4b66' />} />
+                        {
+                            socialList?.map((social, index) => (
+                                <CircleIconLink key={index} link={social.link} icon={<social.iconName borderSize={0} fillColor={'#1b4b66'} />} />
+                            ))
+                        }
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: "1px", color: "#fff" }}>
+                        {/* location icon */}
+                        <span>United States</span>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center", gap: "2px", color: "#B6B6B6" }}>
+                        {/* copy right icon */}
+                        {currentYear}
+                        <span>|</span>
+                        <span>Cora Leviene All Rights Reserved</span>
                     </Box>
                 </Box>
 
