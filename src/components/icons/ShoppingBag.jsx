@@ -4,10 +4,12 @@ export const ShoppingBag = function ({
   borderColor = "#13101E",
   borderSize = 2,
   fillColor = "none",
+  ...props
 }) {
   return (
     <svg
       {...{ width, height }}
+      {...props}
       viewBox="0 0 24 24"
       fill={fillColor}
       xmlns="http://www.w3.org/2000/svg"

@@ -1,49 +1,23 @@
 import * as React from "react";
-import { Typography, Box } from "@mui/material";
-import { ProductImage } from "../product-image/ProductImage";
-
-const brandContainer = {
-  display: "flex",
-  overflowX: "auto",
-  scrollbarWidth: "none",
-  msOverflowStyle: "none",
-  "&::-webkit-scrollbar": {
-    display: "none",
-  },
-  "& > :not(style)": {
-    mr: 6,
-    height: "187px",
-  },
-};
+import { ProductImage } from "../product-image";
+import { HorizontalScroll } from "../horizontal-scroll";
 
 export function BrandSection({ brandImages }) {
+  const imagesContainerStyles = { mr: 6, height: "187px" };
+
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: 263,
-      }}
+    <HorizontalScroll
+      height={263}
+      title={"Shop by Brands"}
+      imagesContainerStyles={imagesContainerStyles}
     >
-      <Typography
-        fontSize={"34px"}
-        fontWeight={"500"}
-        sx={{ marginBottom: "20px" }}
-      >
-        Shop by Brands
-      </Typography>
-      <Box
-        sx={{
-          ...brandContainer,
-        }}
-      >
-        {brandImages.map((brand) => {
-          return (
-            <div key={brand}>
-              <ProductImage src={brand} width={"168px"} />
-            </div>
-          );
-        })}
-      </Box>
-    </Box>
+      {brandImages.map((brand) => {
+        return (
+          <div key={brand}>
+            <ProductImage src={brand} width={"168px"} />
+          </div>
+        );
+      })}
+    </HorizontalScroll>
   );
 }
