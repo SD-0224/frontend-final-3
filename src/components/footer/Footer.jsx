@@ -7,6 +7,10 @@ import { Box } from "@mui/material";
 
 export const Footer = () => {
     const [isMobile, setIsMobile] = useState(false);
+    const conditionalStyles = {
+        padding: isMobile ? "25px 16px" : "30px 60px",
+        gap: isMobile ? "24px" : "60px"
+    }
     const links = [
         {
             text: "Skincare",
@@ -61,8 +65,8 @@ export const Footer = () => {
                     More about CORA’L
                 </AccordionSummary>
             }
-            <AccordionDetails sx={{ background: "#1B4B66", color: "#fff" }}>
-                <Box sx={{ display: "flex", gap: isMobile ? "24px" : "60px", flexWrap: "wrap"}}>
+            <AccordionDetails sx={{ background: "#1B4B66", color: "#fff", padding: conditionalStyles.padding }}>
+                <Box sx={{ display: "flex", gap: conditionalStyles.gap, flexWrap: "wrap" }}>
                     <FooterList title={"Shop by Category"} footerLinks={links} />
                     <FooterList toRow={isMobile} type={"row"} title={"Shop by Category"} footerLinks={links} />
                 </Box>
