@@ -1,6 +1,6 @@
 import "./App.css";
 import Box from "@mui/material/Box";
-import { Header } from './components/Header';
+import { Header } from './components/header';
 import { Footer } from "./components/footer";
 import { MainRouter } from "./router";
 
