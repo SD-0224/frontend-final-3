@@ -2,9 +2,27 @@ import * as React from 'react';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material/';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState, useEffect } from 'react';
-
+import { FooterList } from '../footer-list/FooterList';
 export const Footer = () => {
     const [isMobile, setIsMobile] = useState(false);
+    const links = [
+        {
+            text: "Skincare",
+            link: "https://google.com"
+        },
+        {
+            text: "Personal Care",
+            link: "https://google.com"
+        },
+        {
+            text: "Handbags",
+            link: "https://google.com"
+        },
+        {
+            text: "Apparels",
+            link: "https://google.com"
+        },
+    ]
 
     useEffect(() => {
         const handleResize = () => {
@@ -41,9 +59,9 @@ export const Footer = () => {
                     More about CORA’L
                 </AccordionSummary>
             }
-            <AccordionDetails sx={{background: "#1B4B66", color:"#fff"}}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                malesuada lacus ex, sit amet blandit leo lobortis eget.
+            <AccordionDetails sx={{ background: "#1B4B66", color: "#fff" }}>
+                <FooterList title={"Shop by Category"} footerLinks={links} />
+                <FooterList isMobile={isMobile} type={"row"} title={"Shop by Category"} footerLinks={links} />
             </AccordionDetails>
         </Accordion>
     );

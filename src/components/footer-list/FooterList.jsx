@@ -1,35 +1,38 @@
-import { Box } from "@mui/material"
-import { List, ListItemButton, ListSubheader, ListItemText } from '@mui/material';
+import { useMemo } from "react";
+import { Box } from "@mui/material";
+import { List, ListSubheader, ListItemText } from '@mui/material';
+import { Link } from "react-router-dom";
 import styles from "./FooterList.module.css";
 
-export const FooterList = ({ title, footerLinks, type }) => {
-    const isRow = type == "row";
+export const FooterList = ({ title, footerLinks, toRow }) => {
 
     const conditionalStyle = {
-        flexDirection: isRow ? "row" : "column",
-        alignItems: isRow ? "center" : "baseline",
-        gap: isRow ? "4px" : "0px",
+        flexDirection: toRow ? "row" : "column",
+        alignItems: toRow ? "center" : "baseline",
+        gap: toRow ? "4px" : "0px",
     }
 
+    const memoizedFooterLinks = useMemo(() => {
+        return footerLinks?.map((data) => (
+            <>
+                <Link to={data.link} target="_blank" className={styles.footerListItem}>
+                    <ListItemText sx={{ margin: 0, '& .MuiListItemText-primary': { fontSize: "14px" } }} primary={data.text} />
+                </Link>
+                {
+                    toRow && <span className={styles.verticalBar}>|</span>
+                }
+            </>
+        ));
+    }, [footerLinks, toRow]);
+
     return (
-        <Box sx={{ width: "fit-content" }}>
+        <Box>
             <List>
-                <ListSubheader className={styles.footerListItem} sx={{ color: "#fff", background: "transparent", marginBottom: "8px" }}>
+                <ListSubheader className={styles.footerListItem} sx={{ color: "#fff", background: "#1b4b66", marginBottom: "8px", lineHeight: "18px", paddingLeft: 0, paddingRight: 0 }}>
                     {title}
                 </ListSubheader>
-                <Box sx={{ display: "flex", flexWrap: "wrap", flexDirection: conditionalStyle.flexDirection, alignItems: conditionalStyle.alignItems, gap: conditionalStyle.gap }}>
-                    {
-                        footerLinks?.map((data) => (
-                            <>
-                                <ListItemButton href="#" target="_blank" className={styles.footerListItem} sx={{ color: "#B6B6B6", '& .MuiListItemText-root': { margin: 0 }, flex: "none" }}>
-                                    <ListItemText sx={{ '& .MuiListItemText-primary': { fontSize: "14px" } }} primary={data} />
-                                </ListItemButton>
-                                {
-                                    isRow && <span>|</span>
-                                }
-                            </>
-                        ))
-                    }
+                <Box className={styles.linksContainer} sx={{ flexDirection: conditionalStyle.flexDirection, alignItems: conditionalStyle.alignItems, gap: conditionalStyle.gap }}>
+                    {memoizedFooterLinks}
                 </Box>
             </List>
         </Box>

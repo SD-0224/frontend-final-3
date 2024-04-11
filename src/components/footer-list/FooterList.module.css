@@ -1,9 +1,28 @@
 .footerListItem {
-    line-height: 18px;
     font-size: 14px;
     font-weight: 500;
     text-transform: capitalize;
     padding-inline: 0px;
     padding-block: 4px;
     width: 100%;
+    color: #B6B6B6;
+    text-decoration: none;
+    width: auto;
+}
+
+a.footerListItem {
+    transition: 0.2s all;
+}
+
+a.footerListItem:hover {
+    color: #fff;
+}
+
+.linksContainer {
+    display: flex;
+    flex-wrap: wrap,
+}
+
+.linksContainer>span.verticalBar:last-child {
+    display: none;
 }
