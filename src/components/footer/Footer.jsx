@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import { FooterList } from '../footer-list/FooterList';
 import { Box } from "@mui/material";
 import { Facebook, Instagram, Twitter, Youtube, Location } from '../icons';
-import { CircleIconLink } from '../circle-icon-link/CircleIconLink';
+import { CircleIconLink } from '../circle-icon-link';
 import CopyrightOutlinedIcon from '@mui/icons-material/CopyrightOutlined';
 export const Footer = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -118,7 +118,7 @@ export const Footer = () => {
                     display: "flex", gap: conditionalStyles.gap, flexWrap: "wrap", width: conditionalStyles.width,
                     paddingBlock: conditionalStyles.paddingBlock, paddingInline: conditionalStyles.paddingInline
                 }}>
-                    <FooterList title={"Shop by Category"} footerLinks={links} />
+                    <FooterList title={"Shop by Category"} links={links} />
                 </Box>
 
                 {/* Social media side */}
