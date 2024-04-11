@@ -1,6 +1,7 @@
 import styles from './Header.module.css';
 import { CustomInput } from "../CustomInput";
 import { PersonOutline, FavoriteBorder, ShoppingBagOutlined, SearchOutlined } from '@mui/icons-material';
+import { Facebook } from '../icons';
 
 export const Header = () => {
     const linksArr = ["Handbags", "Watches", "Skincare", "Jewellery", "Apparels"];
@@ -23,6 +24,7 @@ export const Header = () => {
                 <div className={styles.userOperations}>
                     <FavoriteBorder />
                     <PersonOutline />
+                    <Facebook />
                     <div className={styles.shoppingContainer}>
                         <div className={styles.dot}></div>
                         <ShoppingBagOutlined />
