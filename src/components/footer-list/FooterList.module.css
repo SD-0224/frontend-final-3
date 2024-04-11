@@ -2,8 +2,6 @@
     font-size: 14px;
     font-weight: 500;
     text-transform: capitalize;
-    padding-inline: 0px;
-    padding-block: 4px;
     width: 100%;
     text-decoration: none;
     width: auto;
@@ -12,6 +10,8 @@
 a.footerListItem {
     color: #B6B6B6;
     transition: 0.2s all;
+    padding-inline: 0px;
+    padding-block: 4px;
 }
 
 a.footerListItem:hover {

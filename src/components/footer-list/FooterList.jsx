@@ -27,7 +27,7 @@ export const FooterList = ({ title, footerLinks, toRow }) => {
 
     return (
         <Box>
-            <List>
+            <List sx={{ paddingTop: 0, paddingBottom: 0 }}>
                 <ListSubheader className={styles.footerListItem} sx={{ color: "#fff", background: "#1b4b66", marginBottom: "8px", lineHeight: "18px", paddingLeft: 0, paddingRight: 0 }}>
                     {title}
                 </ListSubheader>
