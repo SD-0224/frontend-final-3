@@ -3,6 +3,8 @@ import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material/';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState, useEffect } from 'react';
 import { FooterList } from '../footer-list/FooterList';
+import { Box } from "@mui/material";
+
 export const Footer = () => {
     const [isMobile, setIsMobile] = useState(false);
     const links = [
@@ -60,8 +62,10 @@ export const Footer = () => {
                 </AccordionSummary>
             }
             <AccordionDetails sx={{ background: "#1B4B66", color: "#fff" }}>
-                <FooterList title={"Shop by Category"} footerLinks={links} />
-                <FooterList isMobile={isMobile} type={"row"} title={"Shop by Category"} footerLinks={links} />
+                <Box sx={{ display: "flex", gap: isMobile ? "24px" : "60px", flexWrap: "wrap"}}>
+                    <FooterList title={"Shop by Category"} footerLinks={links} />
+                    <FooterList toRow={isMobile} type={"row"} title={"Shop by Category"} footerLinks={links} />
+                </Box>
             </AccordionDetails>
         </Accordion>
     );
