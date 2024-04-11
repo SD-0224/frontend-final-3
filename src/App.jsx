@@ -1,8 +1,6 @@
 import "./App.css";
 import Box from "@mui/material/Box";
-import { Header } from "./components/header";
-import { Footer } from "./components/footer";
-import { MainRouter } from "./router";
+import { Layout } from "./layout/Layout";
 
 function App() {
   return (
@@ -13,11 +11,7 @@ function App() {
         flexDirection: "column",
       }}
     >
-      <Header />
-      <main>
-        <MainRouter />
-      </main>
-      <Footer />
+      <Layout />
     </Box>
   );
 }
