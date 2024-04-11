@@ -7,7 +7,7 @@
 .accordionDetails {
     background: #1B4B66;
     color: #fff;
-    padding: 30px 60px;
+    padding: 30px 60px !important;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -18,7 +18,6 @@
     flex-wrap: wrap;
     gap: 60px;
     width: fit-content;
-    padding: 30px 60px;
 }
 
 .socialContainer {
