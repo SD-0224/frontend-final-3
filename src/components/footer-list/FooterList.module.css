@@ -5,12 +5,12 @@
     padding-inline: 0px;
     padding-block: 4px;
     width: 100%;
-    color: #B6B6B6;
     text-decoration: none;
     width: auto;
 }
 
 a.footerListItem {
+    color: #B6B6B6;
     transition: 0.2s all;
 }
 
