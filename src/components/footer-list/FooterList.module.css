@@ -20,7 +20,7 @@ a.footerListItem:hover {
 
 .linksContainer {
     display: flex;
-    flex-wrap: wrap,
+    flex-wrap: wrap;
 }
 
 .linksContainer>span.verticalBar:last-child {
