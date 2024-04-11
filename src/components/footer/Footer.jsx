@@ -4,9 +4,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState, useEffect } from 'react';
 import { FooterList } from '../footer-list/FooterList';
 import { Box } from "@mui/material";
-import { Facebook, Instagram, Twitter, Youtube } from '../icons';
+import { Facebook, Instagram, Twitter, Youtube, Location } from '../icons';
 import { CircleIconLink } from '../circle-icon-link/CircleIconLink';
-
+import CopyrightOutlinedIcon from '@mui/icons-material/CopyrightOutlined';
 export const Footer = () => {
     const [isMobile, setIsMobile] = useState(false);
     const currentYear = new Date().getFullYear();
@@ -137,11 +137,11 @@ export const Footer = () => {
                         }
                     </Box>
                     <Box sx={{ display: "flex", alignItems: "center", gap: "1px", color: "#fff" }}>
-                        {/* location icon */}
+                        <Location borderColor="#FFF" />
                         <span>United States</span>
                     </Box>
                     <Box sx={{ display: "flex", alignItems: "center", gap: "2px", color: "#B6B6B6" }}>
-                        {/* copy right icon */}
+                        <CopyrightOutlinedIcon />
                         {currentYear}
                         <span>|</span>
                         <span>Cora Leviene All Rights Reserved</span>
