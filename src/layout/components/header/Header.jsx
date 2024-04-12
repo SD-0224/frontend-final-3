@@ -7,10 +7,7 @@ import {
   SearchOutlined,
 } from "@mui/icons-material";
 
-import FolderIcon from '@mui/icons-material/Folder';
-import RestoreIcon from '@mui/icons-material/Restore';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { ShoppingBag, Profile } from "../../../components/icons";
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -23,6 +20,29 @@ export const Header = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const bottomNavigationData = [
+    {
+      icon: Home,
+      label: "Home",
+      value: "home"
+    },
+    {
+      icon: Category,
+      label: "Category",
+      value: "category"
+    },
+    {
+      icon: Profile,
+      label: "Profile",
+      value: "profile"
+    },
+    {
+      icon: ShoppingBag,
+      label: "Bag",
+      value: "bag"
+    },
+  ]
 
   return (
     <>
