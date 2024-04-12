@@ -11,15 +11,37 @@ import { ShoppingBag, Profile, Category, Home } from "../../../components/icons"
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const Header = () => {
   const linksArr = ["Handbags", "Watches", "Skincare", "Jewellery", "Apparels"];
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const [value, setValue] = useState('recents');
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 1) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Add event listener when the component mounts
+    window.addEventListener('scroll', handleScroll);
+
+    // Remove event listener when the component unmounts to prevent memory leaks
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const bottomNavigationData = [
     {
@@ -46,7 +68,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className={styles.header}>
+      <header className={styles.header} style={{ boxShadow: isScrolled ? "0px 0px 20px 0px rgba(0,0,0,0.1)" : "unset" }}>
         <section className={styles.navigationSection}>
           <a href="#" className={styles.logo}>
             <img src={"./logo.png"} alt="Logo" width={100} />
