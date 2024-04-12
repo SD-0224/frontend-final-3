@@ -56,8 +56,14 @@ export const Header = () => {
           </div>
         </section>
       </header>
-      <BottomNavigation sx={{ position: "fixed", bottom: "0", width: "100%", left: "0", right: "0" }} value={value} onChange={handleChange}>
+      <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "#1b4b66" }} value={value} onChange={handleChange}>
         <BottomNavigationAction
+          sx={{
+            color: "#B6B6B6",
+            '& .MuiButtonBase-root-MuiBottomNavigationAction-root, &.Mui-selected ': {
+              color: "#fff",
+            },
+          }}
           label="Recents"
           value="recents"
           icon={<RestoreIcon />}
