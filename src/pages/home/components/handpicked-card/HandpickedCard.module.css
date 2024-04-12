@@ -1,0 +1,21 @@
+.handpickedCard {
+  position: relative;
+  width: min-content;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(rgba(196, 196, 196, 0), rgba(3, 24, 26, 0.46));
+}
+
+.text {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
