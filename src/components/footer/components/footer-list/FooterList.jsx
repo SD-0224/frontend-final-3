@@ -4,7 +4,7 @@ import { List, ListSubheader, ListItemText } from '@mui/material';
 import { Link } from "react-router-dom";
 import styles from "./FooterList.module.css";
 
-export const FooterList = ({ title, footerLinks, toRow }) => {
+export const FooterList = ({ title, links, toRow }) => {
 
     const conditionalStyle = {
         flexDirection: toRow ? "row" : "column",
@@ -13,7 +13,7 @@ export const FooterList = ({ title, footerLinks, toRow }) => {
     }
 
     const memoizedFooterLinks = useMemo(() => {
-        return footerLinks?.map((data) => (
+        return links?.map((data) => (
             <>
                 <Link to={data.link} target="_blank" className={styles.footerListItem}>
                     <ListItemText sx={{ margin: 0, '& .MuiListItemText-primary': { fontSize: "14px" } }} primary={data.text} />
@@ -23,11 +23,11 @@ export const FooterList = ({ title, footerLinks, toRow }) => {
                 }
             </>
         ));
-    }, [footerLinks, toRow]);
+    }, [links, toRow]);
 
     return (
         <Box>
-            <List>
+            <List sx={{ paddingTop: 0, paddingBottom: 0 }}>
                 <ListSubheader className={styles.footerListItem} sx={{ color: "#fff", background: "#1b4b66", marginBottom: "8px", lineHeight: "18px", paddingLeft: 0, paddingRight: 0 }}>
                     {title}
                 </ListSubheader>

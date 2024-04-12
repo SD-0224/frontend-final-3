@@ -2,9 +2,17 @@ import * as React from 'react';
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material/';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState, useEffect } from 'react';
-import { FooterList } from '../footer-list/FooterList';
+import { FooterList } from './components/footer-list/FooterList';
+import { Box } from "@mui/material";
+import { Facebook, Instagram, Twitter, Youtube } from '../icons';
+import { CircleIconLink } from '../circle-icon-link';
+import { CopyrightBox } from './components/copyright';
+import { LocationBox } from './components/location';
+import styles from './Footer.module.css';
+
 export const Footer = () => {
     const [isMobile, setIsMobile] = useState(false);
+
     const links = [
         {
             text: "Skincare",
@@ -22,6 +30,37 @@ export const Footer = () => {
             text: "Apparels",
             link: "https://google.com"
         },
+        {
+            text: "Watches",
+            link: "https://google.com"
+        },
+        {
+            text: "Eye Wear",
+            link: "https://google.com"
+        },
+        {
+            text: "Jewellery",
+            link: "https://google.com"
+        },
+    ]
+
+    const socialList = [
+        {
+            iconName: Facebook,
+            link: "#",
+        },
+        {
+            iconName: Instagram,
+            link: "#",
+        },
+        {
+            iconName: Twitter,
+            link: "#",
+        },
+        {
+            iconName: Youtube,
+            link: "#",
+        }
     ]
 
     useEffect(() => {
@@ -42,13 +81,8 @@ export const Footer = () => {
 
 
     return (
-        <Accordion defaultExpanded={isMobile} sx={{
-            width: "100%",
-            margin: isMobile ? "0 !important" : "unset",
-            marginBottom: isMobile ? "unset !important" : "0",
-            marginTop: isMobile ? "auto !important" : "0",
-            boxShadow: "unset"
-        }}>
+        <Accordion defaultExpanded={isMobile} className={styles.accordion}>
+
             {
                 isMobile &&
                 <AccordionSummary
@@ -59,9 +93,26 @@ export const Footer = () => {
                     More about CORA’L
                 </AccordionSummary>
             }
-            <AccordionDetails sx={{ background: "#1B4B66", color: "#fff" }}>
-                <FooterList title={"Shop by Category"} footerLinks={links} />
-                <FooterList isMobile={isMobile} type={"row"} title={"Shop by Category"} footerLinks={links} />
+
+            <AccordionDetails className={styles.accordionDetails}>
+
+                <Box className={styles.listsContainer}>
+                    <FooterList title={"Shop by Category"} links={links} />
+                </Box>
+
+                {/* Social media side */}
+
+                <Box className={`${styles.listsContainer} ${styles.socialContainer}`}>
+                    <Box className={styles.socialList}>
+                        {
+                            socialList?.map((social, index) => (
+                                <CircleIconLink key={index} link={social.link} icon={<social.iconName borderSize={0} fillColor={'#1b4b66'} />} />
+                            ))
+                        }
+                    </Box>
+                    <LocationBox country={"United States"} />
+                    <CopyrightBox text={"Cora Leviene All Rights Reserved"} />
+                </Box>
             </AccordionDetails>
         </Accordion>
     );

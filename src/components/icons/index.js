@@ -7,3 +7,4 @@ export * from "./Instagram";
 export * from "./Twitter";
 export * from "./Youtube";
 export * from "./RightChevron";
+export * from "./Location";
