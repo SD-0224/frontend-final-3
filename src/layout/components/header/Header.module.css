@@ -57,6 +57,13 @@
     top: 4px;
 }
 
+.bottomNavigation {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
 @media (max-width: 1000px) {
 
     .navigationLinks,
