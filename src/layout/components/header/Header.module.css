@@ -56,3 +56,25 @@
     right: 2px;
     top: 4px;
 }
+
+@media (max-width: 1000px) {
+
+    .navigationLinks,
+    .userOperations {
+        display: none;
+    }
+
+    .opertaionsSection {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem;
+    }
+
+    .navigationSection img {
+        width: 70px;
+    }
+}
