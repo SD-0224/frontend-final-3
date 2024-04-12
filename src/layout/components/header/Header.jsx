@@ -7,7 +7,7 @@ import {
   SearchOutlined,
 } from "@mui/icons-material";
 
-import { ShoppingBag, Profile } from "../../../components/icons";
+import { ShoppingBag, Profile, Category, Home } from "../../../components/icons";
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -77,30 +77,29 @@ export const Header = () => {
         </section>
       </header>
       <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "#1b4b66" }} value={value} onChange={handleChange}>
-        <BottomNavigationAction
-          sx={{
-            color: "#B6B6B6",
-            '& .MuiButtonBase-root-MuiBottomNavigationAction-root, &.Mui-selected ': {
-              color: "#fff",
-            },
-          }}
-          label="Recents"
-          value="recents"
-          icon={<RestoreIcon />}
-        />
-        <BottomNavigationAction
-          label="Favorites"
-          value="favorites"
-          icon={<FavoriteIcon />}
-        />
-        <BottomNavigationAction
-          label="Nearby"
-          value="nearby"
-          icon={<LocationOnIcon />}
-        />
-        <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+        {
+          bottomNavigationData?.map((data, index) => (
+            <BottomNavigationAction
+              key={index}
+              sx={{
+                color: "#B6B6B6",
+                '& path': {
+                  stroke: "#B6B6B6"
+                },
+                '&.Mui-selected ': {
+                  color: "#fff",
+                  '& path': {
+                    stroke: "#fff"
+                  }
+                },
+              }}
+              label={data.label}
+              value={data.value}
+              icon={<data.icon />}
+            />
+          ))
+        }
       </BottomNavigation>
-
     </>
   );
 };
