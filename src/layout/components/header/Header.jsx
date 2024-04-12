@@ -56,7 +56,7 @@ export const Header = () => {
           </div>
         </section>
       </header>
-      <BottomNavigation sx={{ width: 500 }} value={value} onChange={handleChange}>
+      <BottomNavigation sx={{ position: "fixed", bottom: "0", width: "100%", left: "0", right: "0" }} value={value} onChange={handleChange}>
         <BottomNavigationAction
           label="Recents"
           value="recents"
