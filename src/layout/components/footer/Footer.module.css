@@ -2,7 +2,6 @@
     width: 100%;
     margin-top: auto !important;
     box-shadow: unset;
-    margin-bottom: 56px;
 }
 
 .accordionDetails {
@@ -32,6 +31,12 @@
     display: flex;
     gap: 16px;
     margin-bottom: 14px;
+}
+
+@media (max-width: 1000px) {
+    .accordion {
+        margin-bottom: 56px !important;
+    }
 }
 
 @media (max-width: 768px) {

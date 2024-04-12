@@ -63,6 +63,9 @@
     width: 100%;
     left: 0;
     right: 0;
+    z-index: 99999;
+    border-top: 1px solid #ffffff21;
+    display: none !important;
 }
 @media (max-width: 1000px) {
 
@@ -73,6 +76,10 @@
 
     .opertaionsSection {
         grid-template-columns: 1fr;
+    }
+
+    .bottomNavigation {
+        display: flex !important;
     }
 }
 
