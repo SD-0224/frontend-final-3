@@ -5,6 +5,8 @@
     padding: 30px 20px;
     position: sticky;
     top: 0;
+    background-color: #fff;
+    transition: 0.5s all;
 }
 
 .navigationSection {
@@ -67,6 +69,7 @@
     border-top: 1px solid #ffffff21;
     display: none !important;
 }
+
 @media (max-width: 1000px) {
 
     .navigationLinks,
@@ -81,11 +84,9 @@
     .bottomNavigation {
         display: flex !important;
     }
-}
 
-@media (max-width: 768px) {
     .header {
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     .navigationSection img {
