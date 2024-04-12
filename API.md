@@ -12,7 +12,6 @@ const product = {
 	ratings: [
 		{
 			userId:string,
-			productId:string,
 			rating:number => 0 - 5
 			review:string,
 		}
