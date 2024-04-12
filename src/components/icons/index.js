@@ -8,3 +8,5 @@ export * from "./Twitter";
 export * from "./Youtube";
 export * from "./RightChevron";
 export * from "./Location";
+export * from "./Category";
+export * from "./Home";

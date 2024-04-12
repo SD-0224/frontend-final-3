@@ -29,3 +29,12 @@
     color: #626262;
     font-weight: 600;
 }
+
+@media (max-width: 768px) {
+    .inputContainer {
+        padding: 0.5rem;
+    }
+    .inputContainer input::placeholder{
+        font-size: 10px;
+    }
+}

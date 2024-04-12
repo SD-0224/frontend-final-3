@@ -5,6 +5,8 @@
     padding: 30px 20px;
     position: sticky;
     top: 0;
+    background-color: #fff;
+    transition: 0.5s all;
 }
 
 .navigationSection {
@@ -55,4 +57,39 @@
     border: 2px solid #fff;
     right: 2px;
     top: 4px;
+}
+
+.bottomNavigation {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    border-top: 1px solid #ffffff21;
+    display: none !important;
+}
+
+@media (max-width: 1000px) {
+
+    .navigationLinks,
+    .userOperations {
+        display: none;
+    }
+
+    .opertaionsSection {
+        grid-template-columns: 1fr;
+    }
+
+    .bottomNavigation {
+        display: flex !important;
+    }
+
+    .header {
+        padding: 0.5rem;
+    }
+
+    .navigationSection img {
+        width: 70px;
+    }
 }

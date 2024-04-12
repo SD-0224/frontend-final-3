@@ -33,6 +33,12 @@
     margin-bottom: 14px;
 }
 
+@media (max-width: 1000px) {
+    .accordion {
+        margin-bottom: 56px !important;
+    }
+}
+
 @media (max-width: 768px) {
     .accordionDetails {
         padding: unset !important;
