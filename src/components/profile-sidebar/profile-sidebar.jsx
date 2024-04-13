@@ -11,7 +11,10 @@ export function SideBar({ SidebarOptions }) {
     setValue(newValue);
   };
 
-  const getFontColor = (index) => (value === index ? "#1B4B66" : "#13101E");
+  const getFontColorClass = (index) =>
+    value === index ? styles.fontColor1B4B66 : styles.fontColor13101E;
+
+  const getBorderColor = (index) => (value === index ? "#1B4B66" : "#000000");
 
   const memoizedTabs = useMemo(() => {
     return SidebarOptions?.map((option, index) => (
@@ -19,12 +22,9 @@ export function SideBar({ SidebarOptions }) {
         key={index}
         className={styles.tab}
         label={
-          <div
-            className={`${styles.tabLabel} `}
-            style={{ color: getFontColor(index) }}
-          >
+          <div className={`${styles.tabLabel} ${getFontColorClass(index)}`}>
             <span>{option}</span>
-            <RightChevron borderColor={getFontColor(index)} />
+            <RightChevron borderColor={getBorderColor(index)} />
           </div>
         }
       />
