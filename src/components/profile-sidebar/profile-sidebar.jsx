@@ -3,6 +3,7 @@ import { Tabs, Box } from "@mui/material";
 import Tab from "@mui/material/Tab";
 import { RightChevron } from "../icons";
 import styles from "./profile-sidebar.module.css";
+import { getBorderColor, getFontColor } from "./components/tab-content-styles";
 
 export function SideBar({ SidebarOptions }) {
   const [value, setValue] = useState(0);
@@ -11,20 +12,21 @@ export function SideBar({ SidebarOptions }) {
     setValue(newValue);
   };
 
-  const getFontColorClass = (index) =>
-    value === index ? styles.fontColor1B4B66 : styles.fontColor13101E;
-
-  const getBorderColor = (index) => (value === index ? "#1B4B66" : "#000000");
-
   const memoizedTabs = useMemo(() => {
     return SidebarOptions?.map((option, index) => (
       <Tab
         key={index}
-        className={styles.tab}
+        sx={{ padding: "24px 10px", maxWidth: "none" }}
         label={
-          <div className={`${styles.tabLabel} ${getFontColorClass(index)}`}>
+          <div
+            className={`${styles.tabLabel} ${getFontColor(
+              value,
+              index,
+              styles
+            )}`}
+          >
             <span>{option}</span>
-            <RightChevron borderColor={getBorderColor(index)} />
+            <RightChevron borderColor={getBorderColor(value, index)} />
           </div>
         }
       />
@@ -44,7 +46,14 @@ export function SideBar({ SidebarOptions }) {
         onChange={handleChange}
         aria-label="Vertical tabs"
         TabIndicatorProps={{
-          className: styles.tabIndicator,
+          style: {
+            backgroundColor: "#17494D",
+            width: "4px",
+            left: 0,
+            borderRadius: "10px",
+            height: "54px",
+            marginTop: "10px",
+          },
         }}
       >
         {memoizedTabs}

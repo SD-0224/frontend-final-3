@@ -7,23 +7,14 @@
   font-weight: 700;
 }
 
-.tabIndicator {
-  background-color: #17494d !important;
-  width: 4px !important;
-  left: 0;
-  border-radius: 10px;
-  height: 54px !important;
-  margin-top: 10px;
-}
-
 .tab {
   padding: 24px 10px !important;
   max-width: none !important;
-  color: #13101e;
 }
 
 .fontColor1B4B66 {
   color: #1b4b66;
+  border-color: #1b4b66;
 }
 
 .fontColor13101E {
