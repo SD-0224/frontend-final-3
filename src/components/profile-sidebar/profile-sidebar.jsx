@@ -1,79 +1,53 @@
-import * as React from "react";
-import Tabs from "@mui/material/Tabs";
+import React, { useMemo, useState } from "react";
+import { Tabs, Box } from "@mui/material";
 import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
 import { RightChevron } from "../icons";
-
-function a11yProps(index) {
-  return {
-    id: `vertical-tab-${index}`,
-    "aria-controls": `vertical-tabpanel-${index}`,
-  };
-}
+import styles from "./profile-sidebar.module.css";
 
 export function SideBar({ SidebarOptions }) {
-  const [value, setValue] = React.useState(0);
-  console.log(value);
+  const [value, setValue] = useState(0);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const getFontColor = (index) => (value === index ? "#1B4B66" : "#13101E");
+
+  const memoizedTabs = useMemo(() => {
+    return SidebarOptions?.map((option, index) => (
+      <Tab
+        key={index}
+        className={styles.tab}
+        label={
+          <div
+            className={`${styles.tabLabel} `}
+            style={{ color: getFontColor(index) }}
+          >
+            <span>{option}</span>
+            <RightChevron borderColor={getFontColor(index)} />
+          </div>
+        }
+      />
+    ));
+  }, [SidebarOptions, value]);
 
   return (
     <Box
       sx={{
         bgcolor: "#F1F1F1",
         borderRadius: "10px",
-        marginLeft: "20px",
       }}
     >
       <Tabs
         orientation="vertical"
         value={value}
         onChange={handleChange}
-        aria-label="Vertical tabs example"
+        aria-label="Vertical tabs"
         TabIndicatorProps={{
-          style: {
-            backgroundColor: "#17494D",
-            width: "4px",
-            left: 0,
-            borderRadius: "10px",
-            height: "54px",
-            marginTop: "10px",
-          },
+          className: styles.tabIndicator,
         }}
       >
-        {SidebarOptions?.map((option, index) => {
-          return (
-            <Tab
-              key={index}
-              className="MuiTab-fullWidth"
-              style={{
-                maxWidth: "none",
-              }}
-              sx={{
-                padding: "24px 10px",
-              }}
-              label={
-                <div
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    fontSize: "16px",
-                    fontWeight: "700px",
-                    color: value === index ? "#1B4B66" : "#13101E",
-                  }}
-                >
-                  <span>{option}</span>
-                  <RightChevron
-                    borderColor={value === index ? "#1B4B66" : "#13101E"}
-                  />
-                </div>
-              }
-            />
-          );
-        })}
+        {memoizedTabs}
       </Tabs>
     </Box>
   );
