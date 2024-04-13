@@ -3,7 +3,7 @@ import { Tabs, Box } from "@mui/material";
 import Tab from "@mui/material/Tab";
 import { RightChevron } from "../icons";
 import styles from "./profile-sidebar.module.css";
-import { getBorderColor, getFontColor } from "./components/tab-content-styles";
+import { getSelectedColor } from "./components/tab-content-styles";
 
 export function SideBar({ SidebarOptions }) {
   const [value, setValue] = useState(0);
@@ -19,14 +19,11 @@ export function SideBar({ SidebarOptions }) {
         sx={{ padding: "24px 10px", maxWidth: "none" }}
         label={
           <div
-            className={`${styles.tabLabel} ${getFontColor(
-              value,
-              index,
-              styles
-            )}`}
+            className={`${styles.tabLabel}`}
+            style={{ color: getSelectedColor(value, index) }}
           >
             <span>{option}</span>
-            <RightChevron borderColor={getBorderColor(value, index)} />
+            <RightChevron borderColor={getSelectedColor(value, index)} />
           </div>
         }
       />
