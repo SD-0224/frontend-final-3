@@ -10,3 +10,4 @@ export * from "./RightChevron";
 export * from "./Location";
 export * from "./Category";
 export * from "./Home";
+export * from "./Star";
