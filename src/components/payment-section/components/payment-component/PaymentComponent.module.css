@@ -1,0 +1,58 @@
+.paymentMethodContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 13px;
+  width: 25%;
+  height: 143px;
+  border: 1px solid #e3e3e3;
+  flex: 0 0 160px;
+}
+
+.input {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  outline: none;
+  border: 2px solid #626262;
+}
+
+input[type="radio"]:before {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 70%;
+  margin: 15% auto;
+  border-radius: 50%;
+}
+
+input[type="radio"]:checked:before {
+  background: #1b4b66;
+}
+
+input[type="radio"]:checked {
+  border-color: #1b4b66;
+}
+
+.paymentMethodContainer:has(input:checked) {
+  background-color: rgb(75, 155, 161, 8%);
+  border-color: #1b4b66;
+}
+
+.paymentMethodImg {
+  margin-top: 40px;
+}
+
+.paymentMethodText {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #171520;
+  font-weight: 600;
+}
