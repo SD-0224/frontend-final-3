@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productData {
+    display: flex;
+    gap: 16px;
+}
+
+.productSubData {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title {
+    font-weight: 500;
+    color: #171520;
+}
+
+.subtitle {
+    color: #626262;
+}
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    gap: 16px;
+}
+
+.removeButton {
+    transition: 0.3s all;
+    color: #626262;
+    border: 0;
+    outline: 0;
+    background-color: unset;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.removeButton:hover {
+    color: #171520;
+}
+
+.removeButton:active {
+    color: #a3a3a3;
+}
+
+.price {
+    color: #171520;
+    font-size: 14px;
+    font-weight: 500;
+}

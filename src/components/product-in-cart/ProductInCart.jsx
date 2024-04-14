@@ -1,30 +1,32 @@
 import styles from './ProductInCart.module.css';
-import ProductImage from '../product-image';
+import { ProductImage } from '../product-image';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
-export const ProductInCart = ({ drawer }) => {
+export const ProductInCart = ({ drawer = true, title = "Coach", subtitle = "Leather Coach Bag", price = "54.69", quantityValue = 1 }) => {
     return (
-        <div>
-            <div>
-                <ProductImage />
-                <div>
-                    <span></span>
-                    <span></span>
-                    {/* 
-                        Here will be condition for showing quantitiy-counter
-                        Here will be the quantity-counter 
-                     */}
-                    {/* 
-                        Here will be conditon for showing Qty- 1
-                        Here will be the span which hold the value
-                     */}
+        <div className={styles.container}>
+            <div className={styles.productData}>
+                <ProductImage width={"80px"} src='./logo192.png' />
+                <div className={styles.productSubData}>
+                    <span className={styles.title}>{title}</span>
+                    <span className={styles.subtitle}>{subtitle}</span>
+                    {
+                        drawer && <></>
+                    }
+                    {
+                        !drawer && <span>Qty- 1</span>
+                    }
                 </div>
             </div>
-            <div>
-                {/* 
-                    Here will be conditon for showing both remove-button & price 
-                    Here will be the remove and price     
-                */}
-            </div>
+            {
+                drawer &&
+                <div className={styles.rightSide}>
+                    <button className={styles.removeButton}>
+                        <CloseRoundedIcon />
+                    </button>
+                    <span className={styles.price}>{price}</span>
+                </div>
+            }
         </div>
     )
 }
