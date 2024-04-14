@@ -1,0 +1,31 @@
+.container {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 16px;
+}
+
+.quantityText {
+    color: #13101E;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+}
+
+.operations {
+    display: flex;
+    align-items: stretch;
+    border-radius: 4px;
+    border: 1px solid #1B4B66;
+    overflow: hidden;
+}
+
+.operations>* {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
