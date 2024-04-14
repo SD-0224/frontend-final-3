@@ -1,28 +1,39 @@
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 import styles from './QuantitiyCounter.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const QuantityCounter = () => {
     const [value, setValue] = useState(0);
 
-    const increaseHandler = (event) => {
+    const increaseHandler = () => {
         setValue(value + 1);
     }
 
-    const decreaseHandler = (event) => {
+    const decreaseHandler = () => {
         setValue(value - 1);
     }
-    
+
+    useEffect(() => {
+        if (!value) {
+            document.getElementById("dec").style.pointerEvents = "none";
+            document.getElementById("dec").style.opacity = "0.2";
+        } else {
+            document.getElementById("dec").style.pointerEvents = "auto";
+            document.getElementById("dec").style.opacity = "1";
+        }
+    }, [value])
+
+
     return (
         <div className={styles.container}>
             <span className={styles.quantityText}>Quantity:</span>
             <div className={styles.operations}>
-                <button id='dec' type='button' onClick={decreaseHandler}>
+                <button className={styles.counterOperation} id='dec' type='button' onClick={decreaseHandler}>
                     <RemoveRoundedIcon />
                 </button>
-                <input type="number" value={value} />
-                <button id='inc' type='button' onClick={increaseHandler}>
+                <input type="number" id='quantityValue' value={value} />
+                <button className={styles.counterOperation} id='inc' type='button' onClick={increaseHandler}>
                     <AddRoundedIcon />
                 </button>
             </div>
