@@ -9,7 +9,7 @@ const product = {
 	description:string,
 	categoryId:string,
 	createdAt:number => Date.now(),
-	ratings: [
+	reviews: [
 		{
 			userId:string,
 			rating:number => 0 - 5
