@@ -32,7 +32,7 @@ export const QuantityCounter = ({ quantityValue = 0 }) => {
                 <button className={styles.counterOperation} type='button' onClick={decreaseHandler} ref={decreseButton}>
                     <RemoveRoundedIcon />
                 </button>
-                <input type="number" id='quantityValue' value={value} />
+                <input type="number" value={value} />
                 <button className={styles.counterOperation} type='button' onClick={increaseHandler}>
                     <AddRoundedIcon />
                 </button>
