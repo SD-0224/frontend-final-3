@@ -28,4 +28,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+.counterOperation {
+    transition: 0.4s all;
+}
+
+.counterOperation:hover {
+    cursor: pointer;
+    background-color: #e6e6e6;
+}
+
+.counterOperation:active {
+    background-color: #bebebe;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
