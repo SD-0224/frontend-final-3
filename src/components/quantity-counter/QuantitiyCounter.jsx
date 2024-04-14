@@ -3,8 +3,8 @@ import RemoveRoundedIcon from '@mui/icons-material/RemoveRounded';
 import styles from './QuantitiyCounter.module.css';
 import { useEffect, useState } from 'react';
 
-export const QuantityCounter = () => {
-    const [value, setValue] = useState(0);
+export const QuantityCounter = ({quantityValue = 0}) => {
+    const [value, setValue] = useState(quantityValue);
 
     const increaseHandler = () => {
         setValue(value + 1);
