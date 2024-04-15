@@ -84,7 +84,7 @@ export const Footer = () => {
   }, []);
 
   return (
-    <Accordion defaultExpanded={isMobile} className={styles.accordion} sx={{boxShadow: "unset"}}>
+    <Accordion defaultExpanded={isMobile} className={styles.accordion} sx={{ boxShadow: "unset", '&.Mui-expanded::before': { opacity: 1 } }}>
       {isMobile && (
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
