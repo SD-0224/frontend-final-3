@@ -11,7 +11,6 @@ export function CustomButton({
   fontWeight = "600",
   textColor = "FFFFFF",
 }) {
-  console.log(textColor, color);
   const outlinedButton = {
     color: color,
     borderColor: color,
