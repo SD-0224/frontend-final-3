@@ -1,6 +1,16 @@
 import Button from "@mui/material/Button";
 
-export function CustomButton({ variant, icon, label, color = "#1B4B66" }) {
+export function CustomButton({
+  variant = "contained",
+  startIcon,
+  endIcon,
+  label,
+  borderRadius = "8px",
+  color = "#1B4B66",
+  fontSize = "16px",
+  fontWeight = "600",
+  textColor = "FFFFFF",
+}) {
   const outlinedButton = {
     color: color,
     borderColor: color,
@@ -8,16 +18,22 @@ export function CustomButton({ variant, icon, label, color = "#1B4B66" }) {
 
   const containedButton = {
     backgroundColor: color,
+    color: textColor,
   };
+
+  const isContained = variant === "contained";
 
   return (
     <Button
       variant={variant}
-      startIcon={icon}
+      startIcon={startIcon}
+      endIcon={endIcon}
       sx={{
-        ...(variant === "outlined" ? outlinedButton : containedButton),
-        padding: "7px 40px",
-        borderRadius: "8px",
+        ...(isContained ? containedButton : outlinedButton),
+        borderRadius: { borderRadius },
+        width: "100%",
+        fontSize: { fontSize },
+        fontWeight: { fontWeight },
       }}
     >
       {label}

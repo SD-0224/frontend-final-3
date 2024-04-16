@@ -34,7 +34,7 @@ export function CarouselItem({ title, description, imgPath }) {
 
           <Box sx={{ position: "absolute", left: "42%", top: "70%" }}>
             <CustomButton
-              icon={<RightArrow borderColor={"white"} />}
+              startIcon={<RightArrow borderColor={"white"} />}
               label={"See More"}
               variant={"contained"}
             />
