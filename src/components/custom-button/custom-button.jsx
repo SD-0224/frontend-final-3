@@ -21,13 +21,15 @@ export function CustomButton({
     color: textColor,
   };
 
+  const isContained = variant === "contained";
+
   return (
     <Button
       variant={variant}
       startIcon={startIcon}
       endIcon={endIcon}
       sx={{
-        ...(variant === "contained" ? containedButton : outlinedButton),
+        ...(isContained ? containedButton : outlinedButton),
         borderRadius: { borderRadius },
         width: "100%",
         fontSize: { fontSize },
