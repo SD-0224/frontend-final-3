@@ -1,7 +1,7 @@
 import Button from "@mui/material/Button";
 
 export function CustomButton({
-  variant,
+  variant = "contained",
   startIcon,
   endIcon,
   label,
@@ -27,7 +27,7 @@ export function CustomButton({
       startIcon={startIcon}
       endIcon={endIcon}
       sx={{
-        ...(variant === "outlined" ? outlinedButton : containedButton),
+        ...(variant === "contained" ? containedButton : outlinedButton),
         borderRadius: { borderRadius },
         width: "100%",
         fontSize: { fontSize },
