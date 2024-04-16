@@ -1,9 +1,13 @@
 import { Typography, Box } from "@mui/material";
 
 export function HorizontalScroll({
-  height,
   color = "#13101E",
   title,
+  fontSize = "34px",
+  padding = 0,
+  fontWeight = "500",
+  backgroundColor,
+  titleMarginBottom,
   imagesContainerStyles,
   children,
 }) {
@@ -24,14 +28,15 @@ export function HorizontalScroll({
     <Box
       sx={{
         width: "100%",
-        height: { height },
+        backgroundColor: { backgroundColor },
+        padding: { padding },
       }}
     >
       <Typography
-        fontSize={"34px"}
-        fontWeight={"500"}
+        fontSize={fontSize}
+        fontWeight={fontWeight}
         color={color}
-        sx={{ marginBottom: "20px" }}
+        sx={{ marginBottom: titleMarginBottom, lineHeight: "44px" }}
       >
         {title}
       </Typography>
