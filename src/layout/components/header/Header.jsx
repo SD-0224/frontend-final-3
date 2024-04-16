@@ -59,7 +59,8 @@ export const Header = () => {
       padding: "20px 40px 10px",
       width: "420px",
       top: "80px",
-      height: "calc(100vh - 80px)",
+      height: "fit-content",
+      maxHeight: "calc(100vh - 80px)",
       overflow: "auto",
     },
     '@media (max-width: 768px)': {
@@ -67,7 +68,7 @@ export const Header = () => {
         padding: "8px",
         width: "260px",
         top: "60px",
-        height: 'calc(100vh - 60px)',
+        maxHeight: 'calc(100vh - 60px)',
       }
     }
   }
