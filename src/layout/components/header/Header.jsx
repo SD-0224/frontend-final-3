@@ -9,8 +9,8 @@ import {
 
 import { ShoppingBag, Profile, Category, Home } from "../../../components/icons";
 
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
+import KeyboardBackspaceRoundedIcon from '@mui/icons-material/KeyboardBackspaceRounded';
 
 import { useState, useEffect } from "react";
 
@@ -129,7 +129,12 @@ export const Header = () => {
         </section>
       </header>
       <button onClick={toggleDrawer(true)}>Open drawer</button>
-      <Drawer className={styles.drawer} open={open} onClose={toggleDrawer(false)} sx={drawerStyles}>
+      <Drawer className={styles.drawer} open={open} onClose={toggleDrawer(false)} sx={drawerStyles} anchor={"right"}>
+        <button className={styles.closeDrawer} onClick={toggleDrawer(false)}>
+          <KeyboardBackspaceRoundedIcon />
+          <span>Back</span>
+        </button>
+        <ProductInCart title={"ferass"} subtitle={"is the son"} price={50} />
         <ProductInCart title={"ferass"} subtitle={"is the son"} price={50} />
       </Drawer>
       <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "#1b4b66" }} value={value} onChange={handleChange}>
