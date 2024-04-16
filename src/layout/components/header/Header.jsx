@@ -137,7 +137,7 @@ export const Header = () => {
         </button>
         <ProductInCart title={"ferass"} subtitle={"is the son"} price={50} />
         <Divider sx={{marginTop: "50px", marginBottom:"24px"}}/>
-        <button className={styles.continueShopping}>
+        <button className={styles.continueShopping} onClick={toggleDrawer(false)}>
           <span>Continue Shopping</span>
         </button>
       </Drawer>
