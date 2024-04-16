@@ -3,12 +3,13 @@ import { ProductImage } from "../product-image";
 import { HorizontalScroll } from "../horizontal-scroll";
 
 export function BrandSection({ brandImages }) {
-  const imagesContainerStyles = { mr: 6, height: "187px" };
+  const imagesContainerStyles = { mr: 6 };
 
   return (
     <HorizontalScroll
       height={263}
       title={"Shop by Brands"}
+      titleMarginBottom={"27px"}
       imagesContainerStyles={imagesContainerStyles}
     >
       {brandImages.map((brand) => {
