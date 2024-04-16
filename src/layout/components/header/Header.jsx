@@ -11,8 +11,12 @@ import { ShoppingBag, Profile, Category, Home } from "../../../components/icons"
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+
 import { useState, useEffect } from "react";
+
 import Drawer from '@mui/material/Drawer';
+import { ProductInCart } from '../../../components/product-in-cart';
+
 export const Header = () => {
   const linksArr = ["Handbags", "Watches", "Skincare", "Jewellery", "Apparels"];
 
@@ -48,6 +52,25 @@ export const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const drawerStyles = {
+    zIndex: 99999,
+    '& .MuiDrawer-paper': {
+      padding: "20px 40px 10px",
+      width: "420px",
+      top: "80px",
+      height: "calc(100vh - 80px)",
+      overflow: "auto",
+    },
+    '@media (max-width: 768px)': {
+      '& .MuiDrawer-paper': {
+        padding: "8px",
+        width: "260px",
+        top: "60px",
+        height: 'calc(100vh - 60px)',
+      }
+    }
+  }
 
   const bottomNavigationData = [
     {
@@ -105,8 +128,8 @@ export const Header = () => {
         </section>
       </header>
       <button onClick={toggleDrawer(true)}>Open drawer</button>
-      <Drawer open={open} onClose={toggleDrawer(false)}>
-        <h1>Ferass</h1>
+      <Drawer className={styles.drawer} open={open} onClose={toggleDrawer(false)} sx={drawerStyles}>
+        <ProductInCart title={"ferass"} subtitle={"is the son"} price={50} />
       </Drawer>
       <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "#1b4b66" }} value={value} onChange={handleChange}>
         {
