@@ -12,7 +12,7 @@ import { ShoppingBag, Profile, Category, Home } from "../../../components/icons"
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { useState, useEffect } from "react";
-
+import Drawer from '@mui/material/Drawer';
 export const Header = () => {
   const linksArr = ["Handbags", "Watches", "Skincare", "Jewellery", "Apparels"];
 
@@ -20,8 +20,14 @@ export const Header = () => {
 
   const [value, setValue] = useState('recents');
 
+  const [open, setOpen] = useState(false);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
   };
 
   useEffect(() => {
@@ -98,6 +104,10 @@ export const Header = () => {
           </div>
         </section>
       </header>
+      <button onClick={toggleDrawer(true)}>Open drawer</button>
+      <Drawer open={open} onClose={toggleDrawer(false)}>
+        <h1>Ferass</h1>
+      </Drawer>
       <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "#1b4b66" }} value={value} onChange={handleChange}>
         {
           bottomNavigationData?.map((data, index) => (
