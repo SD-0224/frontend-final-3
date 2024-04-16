@@ -1,7 +1,7 @@
 import { CustomButton } from "../../../custom-button";
 import { RightArrow } from "../../../icons/RightArrow";
 import { ProductImage } from "../../../product-image";
-import { CategoryTitles } from "../category-titles";
+import { CategoryTitles } from "./components/category-titles";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ export function CarouselItem({ title, description, imgPath }) {
         sx={{
           position: "relative",
           overflow: "hidden",
-          borderRadius: "25px",
+          borderRadius: "24px",
         }}
       >
         <Link to={"/"}>
@@ -34,9 +34,10 @@ export function CarouselItem({ title, description, imgPath }) {
 
           <Box sx={{ position: "absolute", left: "42%", top: "70%" }}>
             <CustomButton
-              startIcon={<RightArrow borderColor={"white"} />}
-              label={"See More"}
-              variant={"contained"}
+              startIcon={<RightArrow borderColor={"#ffffff"} />}
+              label="See More"
+              variant="contained"
+              padding="10px 65px"
             />
           </Box>
         </Link>
