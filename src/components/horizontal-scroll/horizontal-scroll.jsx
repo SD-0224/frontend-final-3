@@ -28,8 +28,8 @@ export function HorizontalScroll({
     <Box
       sx={{
         width: "100%",
-        backgroundColor: { backgroundColor },
-        padding: { padding },
+        backgroundColor: backgroundColor,
+        padding: padding,
       }}
     >
       <Typography
