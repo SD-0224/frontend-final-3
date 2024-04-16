@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Sheet, Typography } from "@mui/joy";
 import styles from "./PaymentComponent.module.css";
 
-export function PaymentComponent({ label, src }) {
+export function PaymentComponent({ paymentMethod }) {
+  const { title, src } = paymentMethod;
+
   const [selectedValue, setSelectedValue] = useState("");
 
   const handleChange = (event) => {
@@ -12,18 +14,27 @@ export function PaymentComponent({ label, src }) {
   return (
     <Sheet
       component="label"
-      key={label}
+      key={title}
       className={styles.paymentMethodContainer}
     >
       <input
         type="radio"
         name="radio"
-        value={label}
+        value={title}
         onChange={handleChange}
         className={styles.input}
       ></input>
-      <img alt={label} src={src} className={styles.paymentMethodImg} />
-      <Typography className={styles.paymentMethodText}>{label}</Typography>
+      <img alt={title} src={src} className={styles.paymentMethodImg} />
+      <Typography
+        sx={{
+          marginTop: "16px",
+          fontSize: "16px",
+          color: "#171520",
+          fontWeight: "600",
+        }}
+      >
+        {title}
+      </Typography>
     </Sheet>
   );
 }

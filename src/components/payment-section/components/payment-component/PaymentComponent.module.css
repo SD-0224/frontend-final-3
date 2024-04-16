@@ -29,6 +29,7 @@ input[type="radio"]:before {
   width: 70%;
   height: 70%;
   margin: 15% auto;
+  margin-right: 13%;
   border-radius: 50%;
 }
 
@@ -47,11 +48,4 @@ input[type="radio"]:checked {
 
 .paymentMethodImg {
   margin-top: 40px;
-}
-
-.paymentMethodText {
-  margin-top: 16px;
-  font-size: 16px;
-  color: #171520;
-  font-weight: 600;
 }
