@@ -25,7 +25,7 @@ export const ProductInCart = ({ drawer = true, title, subtitle, price, quantityV
                     <button className={styles.removeButton}>
                         <CloseRoundedIcon />
                     </button>
-                    <span className={styles.price}>{price}</span>
+                    <span className={styles.price}>${price}</span>
                 </div>
             }
         </div>
