@@ -17,9 +17,9 @@ export const RightChevron = function ({
       <path
         d="M9 4.5L16.5 12L9 19.5"
         stroke={borderColor}
-        stroke-width={borderSize}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth={borderSize}
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
