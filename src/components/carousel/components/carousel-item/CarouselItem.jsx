@@ -7,6 +7,7 @@ const imageContainerStyles = {
   position: "relative",
   display: "block",
   overflow: "hidden",
+  height: { xs: "200px", sm: "250px", md: "350px", lg: "400px" },
 };
 
 export function CarouselItem({ title, subtitle, homeImage }) {
@@ -15,7 +16,6 @@ export function CarouselItem({ title, subtitle, homeImage }) {
       <Box
         sx={{
           position: "relative",
-          overflow: "hidden",
           borderRadius: "24px",
         }}
       >
@@ -28,7 +28,7 @@ export function CarouselItem({ title, subtitle, homeImage }) {
             <ProductImage
               src={homeImage}
               width="100%"
-              height="400px"
+              height="100%"
               borderRadius="24px"
             />
             <CategoryTitles {...{ title, subtitle }} />
