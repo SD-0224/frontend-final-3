@@ -14,7 +14,7 @@ export function CategoryCarousel({ categories, interval = "2000" }) {
   };
 
   return (
-    <Carousel {...carouselStyle} sx={{ border: "none" }}>
+    <Carousel {...carouselStyle}>
       {categories.map((item, i) => (
         <CarouselItem key={i} {...item} />
       ))}
