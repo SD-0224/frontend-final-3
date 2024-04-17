@@ -9,7 +9,7 @@ export function CustomButton({
   borderRadius = "8px",
   color = "#1B4B66",
   fontSize = "16px",
-  fontWeight = "600",
+  fontWeight = "500",
   textColor = "#FFFFFF",
   padding = "6px 18px",
 }) {
@@ -58,6 +58,7 @@ export function CustomButton({
         fontSize: fontSize,
         fontWeight: fontWeight,
         padding: padding,
+        textTransform: "none",
         "&:hover": {
           ...(isContained
             ? { backgroundColor: "#639599", boxShadow: "unset" }
