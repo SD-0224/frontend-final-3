@@ -1,5 +1,3 @@
-import { CustomButton } from "../../../custom-button";
-import { RightArrow } from "../../../icons/RightArrow";
 import { ProductImage } from "../../../product-image";
 import { CategoryTitles } from "./components/category-titles";
 import { Box } from "@mui/material";
