@@ -17,9 +17,9 @@ export const RightArrow = function ({
       <path
         d="M1 5.49996H15M15 5.49996L10.5 1M15 5.49996L10.5 9.99996"
         stroke={borderColor}
-        stroke-width={borderSize}
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth={borderSize}
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
