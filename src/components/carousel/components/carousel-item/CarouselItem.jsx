@@ -28,8 +28,8 @@ export function CarouselItem({ title, subtitle, homeImage }) {
             <ProductImage
               src={homeImage}
               width="100%"
-              height="400"
-              borderRadius="24"
+              height="400px"
+              borderRadius="24px"
             />
             <CategoryTitles {...{ title, subtitle }} />
           </Box>
