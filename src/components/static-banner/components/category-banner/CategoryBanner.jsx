@@ -3,7 +3,7 @@ import { ProductImage } from "../../../product-image";
 import { CircleIconLink } from "../../../circle-icon-link";
 import { RightArrow } from "../../../icons";
 
-export function DualCategoryRow({
+export function CategoryBanner({
   variant = "dual",
   imageSrc,
   title,

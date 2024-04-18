@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { DualCategoryRow } from "./components/category-row";
+import { CategoryBanner } from "./components/category-banner";
 
 const bannerContainer = {
   display: "flex",
@@ -15,7 +15,7 @@ export function StaticBanner() {
         ...bannerContainer,
       }}
     >
-      <DualCategoryRow
+      <CategoryBanner
         variant="full"
         imageSrc={
           "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
@@ -25,7 +25,7 @@ export function StaticBanner() {
       />
 
       <Box display={"flex"} justifyContent={"space-between"}>
-        <DualCategoryRow
+        <CategoryBanner
           variant="dual"
           imageSrc={
             "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
@@ -36,7 +36,7 @@ export function StaticBanner() {
           marginRight={{ xs: "20px", md: "32px" }}
         />
 
-        <DualCategoryRow
+        <CategoryBanner
           variant="dual"
           imageSrc={
             "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
