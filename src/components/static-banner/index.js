@@ -1,1 +1,1 @@
-export * from "./static-banner";
+export * from "./StaticBanner";
