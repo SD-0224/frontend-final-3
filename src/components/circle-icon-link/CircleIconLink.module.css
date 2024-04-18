@@ -1,0 +1,17 @@
+.circleLink {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s all;
+  border-radius: 50%;
+}
+
+.circleLink:hover {
+  background-color: #aedadd;
+}
+
+.circleLink:active {
+  background-color: #87b5b8;
+}
