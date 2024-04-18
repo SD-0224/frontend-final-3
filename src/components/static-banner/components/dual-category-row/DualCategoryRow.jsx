@@ -48,7 +48,7 @@ export function DualCategoryRow({
         top={{ xs: "10px", md: "auto" }}
         left={{ xs: "10px", md: "auto" }}
         right={{ xs: "auto", md: "26px" }}
-        bottom={{ xs: "auto", md: "26px" }}
+        bottom={{ xs: "auto", md: "15px", lg: "26px" }}
       >
         <CircleIconLink
           icon={<RightArrow borderColor={borderColor} width={31} height={21} />}
