@@ -1,7 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { ProductImage } from "../product-image";
-import { CircleIconLink } from "../circle-icon-link";
-import { RightArrow } from "../icons";
+import { DualCategoryRow } from "./components/dual-category-row";
 
 const bannerContainer = {
   display: "flex",
@@ -51,102 +50,23 @@ export function StaticBanner() {
       </Box>
 
       <Box display={"flex"} justifyContent={"space-between"}>
-        <Box
-          position={"relative"}
-          flex={1}
+        <DualCategoryRow
+          imageSrc={
+            "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
+          }
+          title="15% OFF & more"
+          backgroundColor="#F1F1F1"
+          borderColor="#A53F64"
           marginRight={{ xs: "20px", md: "32px" }}
-          height={{ xs: "78px", sm: "128px", md: "178px", lg: "228px" }}
-        >
-          <ProductImage
-            src={
-              "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
-            }
-            width="100%"
-            height="100%"
-            borderRadius="24px"
-          />
-          <Typography
-            position={"absolute"}
-            right={"35px"}
-            top={{ xs: "14px", sm: "18px", md: "22px", lg: "26px" }}
-            fontSize={{ xs: 20, sm: 25, md: 40, xl: 55 }}
-            fontWeight={"700"}
-            lineHeight={{ xs: "20px", sm: "35px", md: "45px", lg: "52px" }}
-            color={"#A53F64"}
-            sx={{
-              maxWidth: "50%",
-              maxHeight: { xs: "50px", sm: "70px", md: "90px", lg: "104px" },
-              overflow: "hidden",
-              display: "-webkit-box",
-              WebkitLineClamp: { xs: "2", md: "3" },
-              WebkitBoxOrient: "vertical",
-              textAlign: "right",
-            }}
-          >
-            15% OFF & more
-          </Typography>
-          <Box
-            position={"absolute"}
-            top={{ xs: "10px", md: "auto" }}
-            left={{ xs: "10px", md: "auto" }}
-            right={{ xs: "auto", md: "26px" }}
-            bottom={{ xs: "auto", md: "26px" }}
-          >
-            <CircleIconLink
-              icon={<RightArrow borderColor="#A53F64" width={31} height={21} />}
-              backgroundColor="#F1F1F1"
-              width="51px"
-            />
-          </Box>
-        </Box>
-
-        <Box
-          position={"relative"}
-          flex={1}
-          height={{ xs: "78px", sm: "128px", md: "178px", lg: "228px" }}
-        >
-          <ProductImage
-            src={
-              "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
-            }
-            width="100%"
-            height="100%"
-            borderRadius="24px"
-          />
-          <Typography
-            position={"absolute"}
-            right={"35px"}
-            top={{ xs: "14px", sm: "18px", md: "22px", lg: "26px" }}
-            fontSize={{ xs: 20, sm: 25, md: 40, xl: 55 }}
-            fontWeight={"700"}
-            lineHeight={{ xs: "20px", sm: "30px", md: "40px", lg: "52px" }}
-            color={"#1B4B66"}
-            sx={{
-              maxWidth: "50%",
-              maxHeight: { xs: "50px", sm: "65px", md: "150px" },
-              overflow: "hidden",
-              display: "-webkit-box",
-              WebkitLineClamp: { xs: "2", md: "3" },
-              WebkitBoxOrient: "vertical",
-              textAlign: "right",
-            }}
-          >
-            Popular in community!
-          </Typography>
-          <Box
-            position={"absolute"}
-            top={{ xs: "10px", md: "auto" }}
-            left={{ xs: "10px", md: "auto" }}
-            right={{ xs: "auto", md: "26px" }}
-            bottom={{ xs: "auto", md: "26px" }}
-          >
-            <CircleIconLink
-              icon={<RightArrow borderColor="#1B4B66" width={31} height={21} />}
-              backgroundColor="#C4C4C4"
-              width="51px"
-            />
-          </Box>
-        </Box>
+        />
+        <DualCategoryRow
+          imageSrc={
+            "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
+          }
+          title="Popular in community!"
+          backgroundColor="#C4C4C4"
+          borderColor="#1B4B66"
+        />
       </Box>
     </Box>
   );
