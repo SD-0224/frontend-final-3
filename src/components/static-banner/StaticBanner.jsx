@@ -16,7 +16,7 @@ export function StaticBanner() {
     >
       <Box
         position={"relative"}
-        marginBottom={"40px"}
+        marginBottom={{ xs: "20px", md: "40px" }}
         height={{ xs: "200px", sm: "250px", md: "350px", lg: "400px" }}
       >
         <ProductImage
@@ -48,20 +48,15 @@ export function StaticBanner() {
         </Typography>
       </Box>
 
-      <Box
-        display={{ xs: "block", md: "flex" }}
-        justifyContent={"space-between"}
-      >
+      <Box display={"flex"} justifyContent={"space-between"}>
         <Box
           position={"relative"}
           flex={1}
-          margin={{ xs: "0 0 40px ", md: "0 32px 0 0" }}
-          height={{ xs: "178px", lg: "228px" }}
+          marginRight={{ xs: "20px", md: "32px" }}
+          height={{ xs: "78px", sm: "128px", md: "178px", lg: "228px" }}
         >
           <ProductImage
-            src={
-              "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
-            }
+            src={"logo192.png"}
             width="100%"
             height="100%"
             borderRadius="24px"
@@ -69,17 +64,17 @@ export function StaticBanner() {
           <Typography
             position={"absolute"}
             right={"35px"}
-            top={{ xs: "22px", lg: "26px" }}
-            fontSize={{ xs: 40, xl: 55 }}
+            top={{ xs: "14px", sm: "18px", md: "22px", lg: "26px" }}
+            fontSize={{ xs: 18, sm: 25, md: 40, xl: 55 }}
             fontWeight={"700"}
-            lineHeight={{ xs: "40px", md: "45px", lg: "52px" }}
+            lineHeight={{ xs: "20px", sm: "35px", md: "45px", lg: "52px" }}
             color={"#A53F64"}
             sx={{
               maxWidth: "50%",
-              maxHeight: { xs: "150px", lg: "104px" },
+              maxHeight: { xs: "50px", sm: "70px", md: "90px", lg: "104px" },
               overflow: "hidden",
               display: "-webkit-box",
-              WebkitLineClamp: 3,
+              WebkitLineClamp: { xs: "2", md: "3" },
               WebkitBoxOrient: "vertical",
               textAlign: "right",
             }}
@@ -91,12 +86,10 @@ export function StaticBanner() {
         <Box
           position={"relative"}
           flex={1}
-          height={{ xs: "178px", lg: "228px" }}
+          height={{ xs: "78px", sm: "128px", md: "178px", lg: "228px" }}
         >
           <ProductImage
-            src={
-              "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
-            }
+            src={"logo192.png"}
             width="100%"
             height="100%"
             borderRadius="24px"
@@ -104,22 +97,22 @@ export function StaticBanner() {
           <Typography
             position={"absolute"}
             right={"35px"}
-            top={{ xs: "22px", lg: "26px" }}
-            fontSize={{ xs: 40, xl: 55 }}
+            top={{ xs: "14px", sm: "18px", md: "22px", lg: "26px" }}
+            fontSize={{ xs: 18, sm: 25, md: 40, xl: 55 }}
             fontWeight={"700"}
-            lineHeight={{ xs: "40px", md: "40px", lg: "52px" }}
+            lineHeight={{ xs: "20px", sm: "30px", md: "40px", lg: "52px" }}
             color={"#1B4B66"}
             sx={{
               maxWidth: "50%",
-              maxHeight: { xs: "150px", lg: "104px" },
+              maxHeight: { xs: "50px", sm: "65px", md: "150px" },
               overflow: "hidden",
               display: "-webkit-box",
-              WebkitLineClamp: 3,
+              WebkitLineClamp: { xs: "2", md: "3" },
               WebkitBoxOrient: "vertical",
               textAlign: "right",
             }}
           >
-            Popular in the community!
+            Popular in community!
           </Typography>
         </Box>
       </Box>
