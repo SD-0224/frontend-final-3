@@ -16,6 +16,6 @@
   left: 16px;
   bottom: 16px;
   font-size: 24px;
-  font-weight: var(--semi-bold-font-weight);
+  font-weight: 600;
   line-height: 32px;
 }
