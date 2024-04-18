@@ -101,7 +101,7 @@ export function StaticBanner() {
             fontSize={{ xs: 18, sm: 25, md: 40, xl: 55 }}
             fontWeight={"700"}
             lineHeight={{ xs: "20px", sm: "30px", md: "40px", lg: "52px" }}
-            color={"#1B4B66"}
+            color={"var(--primary)"}
             sx={{
               maxWidth: "50%",
               maxHeight: { xs: "50px", sm: "65px", md: "150px" },

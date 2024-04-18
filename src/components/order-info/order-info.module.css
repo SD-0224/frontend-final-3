@@ -12,18 +12,18 @@
   justify-content: space-between;
   margin-bottom: 12px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: var(--medium-font-weight)
 }
 
 .lightFont {
-  color: #626262;
+  color: var(--low-emphasis-text-color);
 }
 
 .darkFont {
-  color: #171520;
+  color: var(--high-emphasis-text-color);
 }
 
 .bold {
   font-weight: bold;
-  color: #171520;
+  color: var(--high-emphasis-text-color);
 }

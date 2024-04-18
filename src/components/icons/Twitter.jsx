@@ -1,7 +1,7 @@
 export const Twitter = function ({
   width = 25,
   height = 21,
-  borderColor = "#13101E",
+  borderColor = "var(--dark)",
   borderSize = 2,
   fillColor = "none",
   ...props

@@ -1,6 +1,6 @@
 .footerListItem {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: var(--medium-font-weight);
     text-transform: capitalize;
     width: 100%;
     text-decoration: none;
@@ -8,14 +8,14 @@
 }
 
 a.footerListItem {
-    color: #B6B6B6;
+    color: var(--light-text-color);
     transition: 0.2s all;
     padding-inline: 0px;
     padding-block: 4px;
 }
 
 a.footerListItem:hover {
-    color: #fff;
+    color: var(--white);
 }
 
 .linksContainer {

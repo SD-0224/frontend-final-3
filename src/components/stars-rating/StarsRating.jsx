@@ -3,8 +3,8 @@ import { Star } from "../icons/Star";
 export const StarsRating = function ({
   rating = 0,
   starsNumber = 5,
-  fullColor = "#FF8C4B",
-  emptyColor = "#F1F1F1",
+  fullColor = "var(--highlight)",
+  emptyColor = "var(--grey)",
   starHeight = 24,
   starWidth = 24,
   gap = 0,

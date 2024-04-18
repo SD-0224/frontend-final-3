@@ -14,11 +14,11 @@
 
 .ratingCount {
   font-size: 14px;
-  font-weight: 500;
-  color: #1b4b66;
+  font-weight: var(--medium-font-weight);
+  color: var(--primary);
 }
 
 .discountPrice {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: var(--medium-font-weight);
 }

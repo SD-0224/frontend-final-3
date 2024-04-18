@@ -1,7 +1,7 @@
 export const Home = function ({
   width = 20,
   height = 20,
-  borderColor = "#13101E",
+  borderColor = "var(--dark)",
   borderSize = 2,
   fillColor = "none",
   ...props

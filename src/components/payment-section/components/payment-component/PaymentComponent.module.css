@@ -20,7 +20,7 @@ input[type="radio"] {
   height: 18px;
   border-radius: 50%;
   outline: none;
-  border: 2px solid #626262;
+  border: 2px solid var(--low-emphasis-text-color);
 }
 
 input[type="radio"]:before {
@@ -34,16 +34,16 @@ input[type="radio"]:before {
 }
 
 input[type="radio"]:checked:before {
-  background: #1b4b66;
+  background: var(--primary);
 }
 
 input[type="radio"]:checked {
-  border-color: #1b4b66;
+  border-color: var(--primary);
 }
 
 .paymentMethodContainer:has(input:checked) {
   background-color: rgb(75, 155, 161, 8%);
-  border-color: #1b4b66;
+  border-color: var(--primary);
 }
 
 .paymentMethodImg {

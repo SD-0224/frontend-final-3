@@ -1,7 +1,7 @@
 export const Star = function ({
   width = 24,
   height = 24,
-  fillColor = "#FF8C4B",
+  fillColor = "var(--highlight)",
   borderSize = 2,
   borderColor = fillColor,
   ...props
