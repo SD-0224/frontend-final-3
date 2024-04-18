@@ -48,12 +48,15 @@ export function StaticBanner() {
         </Typography>
       </Box>
 
-      <Box display={"flex"} justifyContent={"space-between"}>
+      <Box
+        display={{ xs: "block", md: "flex" }}
+        justifyContent={"space-between"}
+      >
         <Box
           position={"relative"}
           flex={1}
-          marginRight={"32px"}
-          height={{ xs: "78px", sm: "128px", md: "178px", lg: "228px" }}
+          margin={{ xs: "0 0 40px ", md: "0 32px 0 0" }}
+          height={{ xs: "178px", lg: "228px" }}
         >
           <ProductImage
             src={
@@ -66,14 +69,14 @@ export function StaticBanner() {
           <Typography
             position={"absolute"}
             right={"35px"}
-            top={{ xs: "14px", sm: "18px", md: "22px", lg: "26px" }}
-            fontSize={{ xs: 15, sm: 25, md: 40, xl: 55 }}
+            top={{ xs: "22px", lg: "26px" }}
+            fontSize={{ xs: 40, xl: 55 }}
             fontWeight={"700"}
-            lineHeight={{ xs: "25px", sm: "35px", md: "45px", lg: "52px" }}
+            lineHeight={{ xs: "40px", md: "45px", lg: "52px" }}
             color={"#A53F64"}
             sx={{
               maxWidth: "50%",
-              maxHeight: { xs: "50px", sm: "70px", md: "90px", lg: "104px" },
+              maxHeight: { xs: "150px", lg: "104px" },
               overflow: "hidden",
               display: "-webkit-box",
               WebkitLineClamp: 3,
@@ -88,7 +91,7 @@ export function StaticBanner() {
         <Box
           position={"relative"}
           flex={1}
-          height={{ xs: "78px", sm: "128px", md: "178px", lg: "228px" }}
+          height={{ xs: "178px", lg: "228px" }}
         >
           <ProductImage
             src={
@@ -101,14 +104,14 @@ export function StaticBanner() {
           <Typography
             position={"absolute"}
             right={"35px"}
-            top={{ xs: "14px", sm: "18px", md: "22px", lg: "26px" }}
-            fontSize={{ xs: 15, sm: 25, md: 40, xl: 55 }}
+            top={{ xs: "22px", lg: "26px" }}
+            fontSize={{ xs: 40, xl: 55 }}
             fontWeight={"700"}
-            lineHeight={{ xs: "20px", sm: "30px", md: "40px", lg: "52px" }}
+            lineHeight={{ xs: "40px", md: "40px", lg: "52px" }}
             color={"#1B4B66"}
             sx={{
               maxWidth: "50%",
-              maxHeight: { xs: "50px", sm: "65px", md: "150px" },
+              maxHeight: { xs: "150px", lg: "104px" },
               overflow: "hidden",
               display: "-webkit-box",
               WebkitLineClamp: 3,
