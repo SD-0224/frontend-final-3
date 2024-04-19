@@ -98,20 +98,20 @@ export const Header = () => {
           </div>
         </section>
       </header>
-      <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "#1b4b66" }} value={value} onChange={handleChange}>
+      <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "var(--primary)" }} value={value} onChange={handleChange}>
         {
           bottomNavigationData?.map((data, index) => (
             <BottomNavigationAction
               key={index}
               sx={{
-                color: "#B6B6B6",
+                color: "var(--light-text-color)",
                 '& path': {
-                  stroke: "#B6B6B6"
+                  stroke: "var(--light-text-color)"
                 },
                 '&.Mui-selected ': {
-                  color: "#fff",
+                  color: "var(--white)",
                   '& path': {
-                    stroke: "#fff"
+                    stroke: "var(--white)"
                   }
                 },
               }}

@@ -5,7 +5,7 @@ export const CircleIconLink = ({
   icon,
   height = "38px",
   width = height,
-  backgroundColor = "#639599",
+  backgroundColor = "var(--primary-tint)",
   ...props
 }) => {
   return (

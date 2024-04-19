@@ -112,7 +112,7 @@ export const Footer = () => {
               <CircleIconLink
                 key={index}
                 link={social.link}
-                icon={<social.iconName borderSize={0} fillColor={"#1b4b66"} />}
+                icon={<social.iconName borderSize={0} fillColor={"var(--primary)"} />}
               />
             ))}
           </Box>

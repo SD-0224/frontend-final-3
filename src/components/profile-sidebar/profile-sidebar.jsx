@@ -33,7 +33,7 @@ export function SideBar({ SidebarOptions }) {
   return (
     <Box
       sx={{
-        bgcolor: "#F1F1F1",
+        bgcolor: "var(--grey)",
         borderRadius: "10px",
       }}
     >

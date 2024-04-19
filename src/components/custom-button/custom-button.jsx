@@ -7,10 +7,10 @@ export function CustomButton({
   endIcon,
   label,
   borderRadius = "8px",
-  color = "#1B4B66",
+  color = "var(--primary)",
   fontSize = "16px",
   fontWeight = "500",
-  textColor = "#FFFFFF",
+  textColor = "var(--white)",
   padding = "6px 18px",
 }) {
   const isContained = variant === "contained";
@@ -39,11 +39,11 @@ export function CustomButton({
   };
 
   const startIconProps = startIcon && {
-    borderColor: isHovered ? "#639599" : startIcon.props.borderColor,
+    borderColor: isHovered ? "var(--primary-tint)" : startIcon.props.borderColor,
   };
 
   const endIconProps = endIcon && {
-    borderColor: isHovered ? "#639599" : endIcon.props.borderColor,
+    borderColor: isHovered ? "var(--primary-tint)" : endIcon.props.borderColor,
   };
 
   return (
@@ -61,12 +61,12 @@ export function CustomButton({
         textTransform: "none",
         "&:hover": {
           ...(isContained
-            ? { backgroundColor: "#639599", boxShadow: "unset" }
+            ? { backgroundColor: "var(--primary-tint)", boxShadow: "unset" }
             : {
-                color: "#639599",
-                borderColor: "#1B4B66",
-                backgroundColor: "unset",
-              }),
+              color: "var(--primary-tint)",
+              borderColor: "var(--primary)",
+              backgroundColor: "unset",
+            }),
         },
       }}
       onMouseEnter={handleMouseEnter}

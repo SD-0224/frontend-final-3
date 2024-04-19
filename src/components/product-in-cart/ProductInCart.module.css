@@ -15,12 +15,12 @@
 }
 
 .title {
-    font-weight: 500;
-    color: #171520;
+    font-weight: var(--medium-font-weight);
+    color: var(--high-emphasis-text-color);
 }
 
 .subtitle {
-    color: #626262;
+    color: var(--low-emphasis-text-color);
 }
 
 .rightSide {
@@ -33,7 +33,7 @@
 
 .removeButton {
     transition: 0.3s all;
-    color: #626262;
+    color: var(--low-emphasis-text-color);
     border: 0;
     outline: 0;
     background-color: unset;
@@ -44,7 +44,7 @@
 }
 
 .removeButton:hover {
-    color: #171520;
+    color: var(--high-emphasis-text-color);
 }
 
 .removeButton:active {
@@ -52,7 +52,7 @@
 }
 
 .price {
-    color: #171520;
+    color: var(--high-emphasis-text-color);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: var(--medium-font-weight);
 }

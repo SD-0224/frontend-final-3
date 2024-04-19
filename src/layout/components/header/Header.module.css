@@ -5,7 +5,7 @@
     padding: 30px 20px;
     position: sticky;
     top: 0;
-    background-color: #fff;
+    background-color: var(--white);
     transition: 0.5s all;
     z-index: 9999;
 }
@@ -24,9 +24,9 @@
 
 .navigationLink {
     text-decoration: none;
-    color: #171520;
+    color: var(--high-emphasis-text-color);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: var(--medium-font-weight);
 }
 
 .opertaionsSection {
@@ -41,7 +41,7 @@
     align-items: center;
     gap: 20px;
     font-size: 24px;
-    color: #1B4B66;
+    color: var(--primary);
 }
 
 .shoppingContainer {
@@ -51,11 +51,11 @@
 
 .dot {
     position: absolute;
-    background-color: #FF8C4B;
+    background-color: var(--highlight);
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    border: 2px solid #fff;
+    border: 2px solid var(--white);
     right: 2px;
     top: 4px;
 }
@@ -67,7 +67,7 @@
     left: 0;
     right: 0;
     z-index: 99999;
-    border-top: 1px solid #ffffff21;
+    border-top: 1px solid var(--white);
     display: none !important;
 }
 

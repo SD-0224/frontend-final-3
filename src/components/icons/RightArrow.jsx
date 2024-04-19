@@ -1,7 +1,7 @@
 export const RightArrow = function ({
   width = 16,
   height = 11,
-  borderColor = "#13101E",
+  borderColor = "var(--dark)",
   borderSize = 2,
   fillColor = "none",
   ...props

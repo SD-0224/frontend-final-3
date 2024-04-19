@@ -10,7 +10,7 @@ export function AccordionComponent({ title, children }) {
       <Accordion defaultExpanded sx={{ boxShadow: 0 }}>
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon sx={{ color: "#13101E", fontSize: "2rem" }} />
+            <ExpandMoreIcon sx={{ color: "var(--dark)", fontSize: "2rem" }} />
           }
           aria-controls="accordion-content"
           sx={{

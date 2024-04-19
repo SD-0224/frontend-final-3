@@ -6,9 +6,9 @@
 }
 
 .quantityText {
-    color: #13101E;
+    color: var(--dark);
     font-size: 20px;
-    font-weight: 500;
+    font-weight: var(--medium-font-weight);
     line-height: 26px;
 }
 
@@ -16,7 +16,7 @@
     display: flex;
     align-items: stretch;
     border-radius: 4px;
-    border: 1px solid #1B4B66;
+    border: 1px solid var(--primary);
     overflow: hidden;
 }
 
@@ -45,14 +45,14 @@
 }
 
 /* Chrome, Safari, Edge, Opera */
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
     -moz-appearance: textfield;
 }
 

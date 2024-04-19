@@ -1,7 +1,7 @@
 export const Facebook = function ({
   width = 14,
   height = 27,
-  borderColor = "#13101E",
+  borderColor = "var(--dark)",
   borderSize = 2,
   fillColor = "none",
   ...props

@@ -31,11 +31,10 @@ export function StaticBanner() {
             "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
           }
           title="15% OFF & more"
-          backgroundColor="#F1F1F1"
+          backgroundColor="var(--grey)"
           color="#A53F64"
           marginRight={{ xs: "20px", md: "32px" }}
         />
-
         <CategoryBanner
           variant="dual"
           imageSrc={
@@ -43,7 +42,7 @@ export function StaticBanner() {
           }
           title="Popular in community!"
           backgroundColor="#C4C4C4"
-          color="#1B4B66"
+          color="var(--primary)"
         />
       </Box>
     </Box>

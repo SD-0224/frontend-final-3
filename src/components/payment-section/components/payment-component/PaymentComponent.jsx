@@ -29,7 +29,7 @@ export function PaymentComponent({ paymentMethod }) {
         sx={{
           marginTop: "16px",
           fontSize: "16px",
-          color: "#171520",
+          color: "var(--high-emphasis-text-color)",
           fontWeight: "600",
         }}
       >

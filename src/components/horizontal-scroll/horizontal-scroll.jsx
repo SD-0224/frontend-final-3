@@ -1,7 +1,7 @@
 import { Typography, Box } from "@mui/material";
 
 export function HorizontalScroll({
-  color = "#13101E",
+  color = "var(--dark)",
   title,
   fontSize = "34px",
   padding = 0,

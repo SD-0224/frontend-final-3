@@ -9,7 +9,7 @@ const textContainerStyles = {
   top: { xs: "20px", sm: "25px", md: "30px", lg: "42px" },
   borderRadius: "24px",
   backgroundColor: "rgba(222, 222, 222, 0.7)",
-  color: "#1B4B66",
+  color: "var(--primary)",
   width: "100%",
 };
 
@@ -63,7 +63,7 @@ export function CategoryTitles({ title, subtitle }) {
 
       <Box sx={{ position: "absolute", left: "47px", bottom: "16px" }}>
         <CustomButton
-          startIcon={<RightArrow borderColor={"#ffffff"} />}
+          startIcon={<RightArrow borderColor={"var(--white)"} />}
           label="See More"
           variant="contained"
           padding="10px 65px"

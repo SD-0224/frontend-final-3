@@ -4,14 +4,14 @@
   justify-content: space-between;
   align-items: center;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: var(--bold-font-weight)
 }
 
 .fontColor1B4B66 {
-  color: #1b4b66;
-  border-color: #1b4b66;
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
 .fontColor13101E {
-  color: #13101e;
+  color: var(--dark);
 }
