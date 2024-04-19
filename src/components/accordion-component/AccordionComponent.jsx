@@ -15,7 +15,7 @@ export function AccordionComponent({ title, children }) {
           aria-controls="accordion-content"
           sx={{
             fontSize: "20px",
-            fontWeight: 600,
+            fontWeight: "var(--semi-bold-font-weight)",
             paddingBottom: "8px",
             borderBottom: 1,
             borderColor: "rgba(0,0,0,0.12)",
