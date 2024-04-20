@@ -16,14 +16,16 @@ export function AccordionComponent({ title, children }) {
           sx={{
             fontSize: "20px",
             fontWeight: "var(--semi-bold-font-weight)",
-            paddingBottom: "8px",
+            padding: "0 0 8px",
             borderBottom: 1,
             borderColor: "rgba(0,0,0,0.12)",
+            my: "13px",
             ".MuiAccordionSummary-content.Mui-expanded": {
               margin: 0,
             },
             "&.Mui-expanded": {
               minHeight: "unset",
+              maxHeight: "26px",
             },
           }}
         >
