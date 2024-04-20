@@ -31,7 +31,7 @@ export function AccordionComponent({ title, children }) {
         >
           {title}
         </AccordionSummary>
-        <AccordionDetails>{children}</AccordionDetails>
+        <AccordionDetails sx={{ padding: "0" }}>{children}</AccordionDetails>
       </Accordion>
     </div>
   );
