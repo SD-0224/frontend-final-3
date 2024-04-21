@@ -7,7 +7,8 @@ export function HorizontalScroll({
   padding = 0,
   fontWeight = "500",
   backgroundColor,
-  titleMarginBottom,
+  titleMarginBottom = "32px",
+  gap = "40px",
   imagesContainerStyles,
   children,
 }) {
@@ -16,6 +17,7 @@ export function HorizontalScroll({
     overflowX: "auto",
     scrollbarWidth: "none",
     msOverflowStyle: "none",
+    gap,
     "&::-webkit-scrollbar": {
       display: "none",
     },
