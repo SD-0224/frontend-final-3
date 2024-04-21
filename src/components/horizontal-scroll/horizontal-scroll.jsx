@@ -15,6 +15,7 @@ export function HorizontalScroll({
   const imagesContainer = {
     display: "flex",
     overflowX: "auto",
+    overflowY: "hidden",
     scrollbarWidth: "none",
     msOverflowStyle: "none",
     gap,
