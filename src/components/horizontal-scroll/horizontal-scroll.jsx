@@ -19,9 +19,7 @@ export function HorizontalScroll({
     "&::-webkit-scrollbar": {
       display: "none",
     },
-    "& > :not(style)": {
-      ...imagesContainerStyles,
-    },
+    ...imagesContainerStyles,
   };
 
   return (
