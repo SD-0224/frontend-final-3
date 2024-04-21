@@ -1,5 +1,5 @@
 import styles from "./NewArrivalsProductCard.module.css";
-import { ProductCardTop } from "../../../../components/product-card-top";
+import { ProductCardTop } from "../../../../../../components/product-card-top";
 
 export const NewArrivalsProductCard = function ({
   image,
