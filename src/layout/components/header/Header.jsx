@@ -96,6 +96,21 @@ export const Header = () => {
     },
   ]
 
+  const productsInCart = [
+    {
+      title: "Coach",
+      subtitle: "Leather Coach Bag",
+      price: 50,
+      quantityValue: 5
+    },
+    {
+      title: "Coach",
+      subtitle: "Leather Coach Bag",
+      price: 50,
+      quantityValue: 5
+    },
+  ]
+  
   return (
     <>
       <header className={styles.header} style={{ boxShadow: isScrolled ? "0px 0px 20px 0px rgba(0,0,0,0.1)" : "unset" }}>
@@ -135,7 +150,7 @@ export const Header = () => {
           <KeyboardBackspaceRoundedIcon />
           <span>Back</span>
         </button>
-        
+
         <ProductInCart title={"ferass"} subtitle={"is the son"} price={50} />
         <Divider sx={{ marginTop: "50px", marginBottom: "24px" }} />
 
