@@ -57,7 +57,7 @@ export const CustomDrawer = ({ toggleDrawer, open }) => {
                     price={product.price}
                     quantityValue={product.quantityValue}
                 />
-                <Divider sx={{ marginTop: "50px", marginBottom: "24px" }} />
+                <Divider sx={{ marginTop: "50px", marginBottom: "24px", '@media (max-width: 600px)': { marginTop: "12px" } }} />
             </Fragment>
         ));
     }, []);
