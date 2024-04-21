@@ -44,6 +44,23 @@
     color: #1B4B66;
 }
 
+.userOperations svg {
+    cursor: pointer;
+}
+
+.userOperations svg path {
+    stroke: #1B4B66;
+    transition: 0.3s all;
+}
+
+.userOperations svg:hover path {
+    stroke: #247eb2;
+}
+
+.userOperations svg:active path {
+    stroke: #1B4B66;
+}
+
 .shoppingContainer {
     position: relative;
     display: flex;
@@ -69,82 +86,6 @@
     z-index: 99999;
     border-top: 1px solid #ffffff21;
     display: none !important;
-}
-
-.closeDrawer {
-    border: 0;
-    background-color: transparent;
-    display: inline-flex;
-    width: fit-content;
-    align-items: center;
-    gap: 20px;
-    color: #1B4B66;
-    font-weight: 500;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.2s all;
-    margin-bottom: 40px;
-}
-
-.closeDrawer:hover {
-    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
-    color: #2e96d2;
-}
-
-
-.continueShopping {
-    display: inline-block;
-    margin: auto;
-    text-decoration: underline;
-    font-weight: 500;
-    font-size: 14px;
-    cursor: pointer;
-    transition: 0.2s all;
-    border: 0;
-    outline: unset;
-    background-color: transparent;
-    color: #1B4B66;
-}
-
-.continueShopping:hover {
-    color: #2e96d2;
-}
-
-
-.financialDetails {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 14px;
-}
-
-.total {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-
-.check {
-    border: 0;
-    outline: 0;
-    background-color: transparent;
-    color: #1B4B66;
-    font-size: 14px;
-    font-weight: 600;
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%) translateX(-25%);
-    cursor: pointer;
-    transition: 0.3s all;
-}
-
-.check:hover {
-    color: #2e96d2;
-}
-
-.check:active {
-    color: #1B4B66;
 }
 
 @media (max-width: 1000px) {
