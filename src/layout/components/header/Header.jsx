@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./Header.module.css";
 import { CustomInput } from "../../../components/custom-input";
 import {
@@ -12,7 +13,7 @@ import { ShoppingBag, Profile, Category, Home } from "../../../components/icons"
 import { BottomNavigation, BottomNavigationAction, Box, Divider } from '@mui/material';
 import KeyboardBackspaceRoundedIcon from '@mui/icons-material/KeyboardBackspaceRounded';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 import Drawer from '@mui/material/Drawer';
 import { ProductInCart } from '../../../components/product-in-cart';
@@ -110,7 +111,23 @@ export const Header = () => {
       quantityValue: 5
     },
   ]
-  
+
+  const memoizedProductsInCart = useMemo(() => {
+    return productsInCart?.map((product, index) => (
+      <>
+        <ProductInCart key={index} title={product.title} subtitle={product.subtitle} price={product.price} quantityValue={product.quantityValue} />
+        <Divider sx={{
+          marginTop: "50px", marginBottom: "24px",
+          '@media (max-width: 600px)': {
+            '&': { marginTop: "24px" },
+          }
+        }
+        }
+        />
+      </>
+    ));
+  }, [productsInCart]);
+
   return (
     <>
       <header className={styles.header} style={{ boxShadow: isScrolled ? "0px 0px 20px 0px rgba(0,0,0,0.1)" : "unset" }}>
@@ -151,8 +168,7 @@ export const Header = () => {
           <span>Back</span>
         </button>
 
-        <ProductInCart title={"ferass"} subtitle={"is the son"} price={50} />
-        <Divider sx={{ marginTop: "50px", marginBottom: "24px" }} />
+        {memoizedProductsInCart}
 
         <Box sx={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "12px" }}>
           <Box className={styles.financialDetails}>
@@ -164,7 +180,7 @@ export const Header = () => {
             <span>${"2.00"}</span>
           </Box>
           <Box className={`${styles.financialDetails} ${styles.total}`}>
-            <span>Subtotal:</span>
+            <span>Total:</span>
             <span>${"111.38"}</span>
           </Box>
         </Box>
