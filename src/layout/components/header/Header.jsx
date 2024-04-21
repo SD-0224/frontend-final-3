@@ -17,26 +17,10 @@ import { useState, useEffect, useMemo } from "react";
 
 import Drawer from '@mui/material/Drawer';
 import { ProductInCart } from '../../../components/product-in-cart';
+import { CustomButton } from '../../../components/custom-button';
 
 export const Header = () => {
   const linksArr = ["Handbags", "Watches", "Skincare", "Jewellery", "Apparels"];
-
-  const productsInCartArr = [
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      price: 50,
-      quantityValue: 5
-    },
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      price: 50,
-      quantityValue: 5
-    },
-  ];
-
-  const [productsInCart, setProductInCart] = useState([]);
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -71,10 +55,6 @@ export const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    setProductInCart(productsInCartArr)
-  }, [productsInCartArr])
 
   const drawerStyles = {
     zIndex: 99999,
@@ -120,20 +100,33 @@ export const Header = () => {
   ]
 
   const memoizedProductsInCart = useMemo(() => {
+    const productsInCart = [
+      {
+        title: "Coach",
+        subtitle: "Leather Coach Bag",
+        price: 50,
+        quantityValue: 5
+      },
+      {
+        title: "Coach",
+        subtitle: "Leather Coach Bag",
+        price: 50,
+        quantityValue: 5
+      },
+    ];
+  
     return productsInCart?.map((product, index) => (
-      <>
-        <ProductInCart key={index} title={product.title} subtitle={product.subtitle} price={product.price} quantityValue={product.quantityValue} />
-        <Divider sx={{
-          marginTop: "50px", marginBottom: "24px",
-          '@media (max-width: 600px)': {
-            '&': { marginTop: "24px" },
-          }
-        }
-        }
+      <React.Fragment key={index}>
+        <ProductInCart 
+          title={product.title} 
+          subtitle={product.subtitle} 
+          price={product.price} 
+          quantityValue={product.quantityValue} 
         />
-      </>
+        <Divider sx={{ marginTop: "50px", marginBottom: "24px" }} />
+      </React.Fragment>
     ));
-  }, [productsInCart]);
+  }, []);
 
   return (
     <>
@@ -196,6 +189,8 @@ export const Header = () => {
           <CustomInput type={"text"} placeholder={"Apply Coupon Code"} style={{ width: "90%", margin: "auto" }} />
           <button type="button" className={styles.check}>CHECK</button>
         </Box>
+
+        <CustomButton label={"Place Order"} />
 
         <button className={styles.continueShopping} onClick={toggleDrawer(false)}>
           <span>Continue Shopping</span>
