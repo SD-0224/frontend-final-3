@@ -2,22 +2,16 @@ import React from "react";
 import styles from "./Header.module.css";
 import { CustomInput } from "../../../components/custom-input";
 import {
-  PersonOutline,
-  FavoriteBorder,
-  ShoppingBagOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
 
-import { ShoppingBag, Profile, Category, Home } from "../../../components/icons";
+import { ShoppingBag, Profile, Heart, Category, Home } from "../../../components/icons";
 
-import { BottomNavigation, BottomNavigationAction, Box, Divider } from '@mui/material';
-import KeyboardBackspaceRoundedIcon from '@mui/icons-material/KeyboardBackspaceRounded';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
+import { CustomDrawer } from "./components/custom-drawer";
 
-import Drawer from '@mui/material/Drawer';
-import { ProductInCart } from '../../../components/product-in-cart';
-import { CustomButton } from '../../../components/custom-button';
 
 export const Header = () => {
   const linksArr = ["Handbags", "Watches", "Skincare", "Jewellery", "Apparels"];
@@ -28,13 +22,12 @@ export const Header = () => {
 
   const [open, setOpen] = useState(false);
 
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  };
-
-  const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
   };
 
   useEffect(() => {
@@ -55,26 +48,6 @@ export const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const drawerStyles = {
-    zIndex: 99999,
-    '& .MuiDrawer-paper': {
-      padding: "20px 40px 10px",
-      width: "420px",
-      top: "80px",
-      height: "fit-content",
-      maxHeight: "calc(100vh - 80px)",
-      overflow: "auto",
-    },
-    '@media (max-width: 768px)': {
-      '& .MuiDrawer-paper': {
-        padding: "8px",
-        width: "260px",
-        top: "60px",
-        maxHeight: 'calc(100vh - 60px)',
-      }
-    }
-  }
 
   const bottomNavigationData = [
     {
@@ -99,35 +72,6 @@ export const Header = () => {
     },
   ]
 
-  const memoizedProductsInCart = useMemo(() => {
-    const productsInCart = [
-      {
-        title: "Coach",
-        subtitle: "Leather Coach Bag",
-        price: 50,
-        quantityValue: 5
-      },
-      {
-        title: "Coach",
-        subtitle: "Leather Coach Bag",
-        price: 50,
-        quantityValue: 5
-      },
-    ];
-  
-    return productsInCart?.map((product, index) => (
-      <React.Fragment key={index}>
-        <ProductInCart 
-          title={product.title} 
-          subtitle={product.subtitle} 
-          price={product.price} 
-          quantityValue={product.quantityValue} 
-        />
-        <Divider sx={{ marginTop: "50px", marginBottom: "24px" }} />
-      </React.Fragment>
-    ));
-  }, []);
-
   return (
     <>
       <header className={styles.header} style={{ boxShadow: isScrolled ? "0px 0px 20px 0px rgba(0,0,0,0.1)" : "unset" }}>
@@ -151,51 +95,17 @@ export const Header = () => {
             icon={<SearchOutlined />}
           />
           <div className={styles.userOperations}>
-            <FavoriteBorder />
-            <PersonOutline />
-            <div className={styles.shoppingContainer}>
+            <Heart />
+            <Profile />
+            <div className={styles.shoppingContainer} onClick={toggleDrawer(true)}>
               <div className={styles.dot}></div>
-              <ShoppingBagOutlined />
+              <ShoppingBag />
             </div>
           </div>
         </section>
       </header>
-      <button onClick={toggleDrawer(true)}>Open drawer</button>
 
-      <Drawer className={styles.drawer} open={open} onClose={toggleDrawer(false)} sx={drawerStyles} anchor={"right"}>
-        <button className={styles.closeDrawer} onClick={toggleDrawer(false)}>
-          <KeyboardBackspaceRoundedIcon />
-          <span>Back</span>
-        </button>
-
-        {memoizedProductsInCart}
-
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "24px", '@media (max-width: 600px)': { marginBottom: "12px" } }}>
-          <Box className={styles.financialDetails}>
-            <span>Subtotal:</span>
-            <span>${"109.38"}</span>
-          </Box>
-          <Box className={styles.financialDetails}>
-            <span>Tax:</span>
-            <span>${"2.00"}</span>
-          </Box>
-          <Box className={`${styles.financialDetails} ${styles.total}`}>
-            <span>Total:</span>
-            <span>${"111.38"}</span>
-          </Box>
-        </Box>
-
-        <Box sx={{ position: "relative", marginBottom: "24px", '@media (max-width: 600px)': { marginBottom: "12px" } }}>
-          <CustomInput type={"text"} placeholder={"Apply Coupon Code"} style={{ width: "90%", margin: "auto" }} />
-          <button type="button" className={styles.check}>CHECK</button>
-        </Box>
-
-        <CustomButton label={"Place Order"} />
-
-        <button className={styles.continueShopping} onClick={toggleDrawer(false)}>
-          <span>Continue Shopping</span>
-        </button>
-      </Drawer>
+      <CustomDrawer toggleDrawer={toggleDrawer} open={open} />
 
       <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "#1b4b66" }} value={value} onChange={handleChange}>
         {
@@ -216,6 +126,7 @@ export const Header = () => {
               }}
               label={data.label}
               value={data.value}
+              onClick={data.value === "bag" ? toggleDrawer(true) : null}
               icon={<data.icon />}
             />
           ))
