@@ -9,7 +9,7 @@ import {
 
 import { ShoppingBag, Profile, Category, Home } from "../../../components/icons";
 
-import { BottomNavigation, BottomNavigationAction, Divider } from '@mui/material';
+import { BottomNavigation, BottomNavigationAction, Box, Divider } from '@mui/material';
 import KeyboardBackspaceRoundedIcon from '@mui/icons-material/KeyboardBackspaceRounded';
 
 import { useState, useEffect } from "react";
@@ -135,8 +135,25 @@ export const Header = () => {
           <KeyboardBackspaceRoundedIcon />
           <span>Back</span>
         </button>
+        
         <ProductInCart title={"ferass"} subtitle={"is the son"} price={50} />
-        <Divider sx={{marginTop: "50px", marginBottom:"24px"}}/>
+        <Divider sx={{ marginTop: "50px", marginBottom: "24px" }} />
+
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "12px" }}>
+          <Box className={styles.financialDetails}>
+            <span>Subtotal:</span>
+            <span>${"109.38"}</span>
+          </Box>
+          <Box className={styles.financialDetails}>
+            <span>Tax:</span>
+            <span>${"2.00"}</span>
+          </Box>
+          <Box className={`${styles.financialDetails} ${styles.total}`}>
+            <span>Subtotal:</span>
+            <span>${"111.38"}</span>
+          </Box>
+        </Box>
+
         <button className={styles.continueShopping} onClick={toggleDrawer(false)}>
           <span>Continue Shopping</span>
         </button>
