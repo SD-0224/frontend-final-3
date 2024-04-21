@@ -1,0 +1,62 @@
+.closeDrawer {
+    border: 0;
+    background-color: transparent;
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 20px;
+    color: #1B4B66;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s all;
+    margin-bottom: 40px;
+}
+
+.closeDrawer:hover {
+    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+    color: #2e96d2;
+}
+
+
+.continueShopping {
+    display: inline-block;
+    margin: auto;
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s all;
+    border: 0;
+    outline: unset;
+    background-color: transparent;
+    color: #1B4B66;
+    margin-top: 34px;
+}
+
+.continueShopping:hover {
+    color: #2e96d2;
+}
+
+.check {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: #1B4B66;
+    font-size: 14px;
+    font-weight: 600;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%) translateX(-25%);
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.check:hover {
+    color: #2e96d2;
+}
+
+.check:active {
+    color: #1B4B66;
+}
