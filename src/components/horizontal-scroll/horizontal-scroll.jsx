@@ -4,7 +4,7 @@ export function HorizontalScroll({
   color = "var(--dark)",
   title,
   fontSize = "34px",
-  padding = 0,
+  padding = "32px 24px",
   fontWeight = "500",
   backgroundColor,
   titleMarginBottom = "32px",
