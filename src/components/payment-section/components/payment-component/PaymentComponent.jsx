@@ -12,8 +12,6 @@ export function PaymentComponent({ paymentMethod }) {
     setSelectedValue(event.target.value);
   };
 
-  console.log(selectedValue);
-
   return (
     <Sheet
       component="label"
