@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Sheet, Typography } from "@mui/joy";
 import styles from "./PaymentComponent.module.css";
+import { CustomRadioButton } from "../../../custom-radio-button";
 
 export function PaymentComponent({ paymentMethod }) {
   const { title, src } = paymentMethod;
@@ -17,13 +18,7 @@ export function PaymentComponent({ paymentMethod }) {
       key={title}
       className={styles.paymentMethodContainer}
     >
-      <input
-        type="radio"
-        name="radio"
-        value={title}
-        onChange={handleChange}
-        className={styles.input}
-      ></input>
+      <CustomRadioButton {...{ handleChange, title }} />
       <img alt={title} src={src} className={styles.paymentMethodImg} />
       <Typography
         sx={{
