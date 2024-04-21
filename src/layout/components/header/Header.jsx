@@ -35,7 +35,7 @@ export const Header = () => {
       quantityValue: 5
     },
   ];
-  
+
   const [productsInCart, setProductInCart] = useState([]);
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -177,7 +177,7 @@ export const Header = () => {
 
         {memoizedProductsInCart}
 
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "12px" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "24px", '@media (max-width: 600px)': { marginBottom: "12px" } }}>
           <Box className={styles.financialDetails}>
             <span>Subtotal:</span>
             <span>${"109.38"}</span>
@@ -192,9 +192,9 @@ export const Header = () => {
           </Box>
         </Box>
 
-        <Box sx={{ position: "relative" }}>
+        <Box sx={{ position: "relative", marginBottom: "24px", '@media (max-width: 600px)': { marginBottom: "12px" } }}>
           <CustomInput type={"text"} placeholder={"Apply Coupon Code"} style={{ width: "90%", margin: "auto" }} />
-          <button type="button">CHECK</button>
+          <button type="button" className={styles.check}>CHECK</button>
         </Box>
 
         <button className={styles.continueShopping} onClick={toggleDrawer(false)}>
