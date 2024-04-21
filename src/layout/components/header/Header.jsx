@@ -21,11 +21,29 @@ import { ProductInCart } from '../../../components/product-in-cart';
 export const Header = () => {
   const linksArr = ["Handbags", "Watches", "Skincare", "Jewellery", "Apparels"];
 
+  const productsInCartArr = [
+    {
+      title: "Coach",
+      subtitle: "Leather Coach Bag",
+      price: 50,
+      quantityValue: 5
+    },
+    {
+      title: "Coach",
+      subtitle: "Leather Coach Bag",
+      price: 50,
+      quantityValue: 5
+    },
+  ];
+  
+  const [productsInCart, setProductInCart] = useState([]);
+
   const [isScrolled, setIsScrolled] = useState(false);
 
   const [value, setValue] = useState('recents');
 
   const [open, setOpen] = useState(false);
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -53,6 +71,10 @@ export const Header = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    setProductInCart(productsInCartArr)
+  }, [productsInCartArr])
 
   const drawerStyles = {
     zIndex: 99999,
@@ -94,21 +116,6 @@ export const Header = () => {
       icon: ShoppingBag,
       label: "Bag",
       value: "bag"
-    },
-  ]
-
-  const productsInCart = [
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      price: 50,
-      quantityValue: 5
-    },
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      price: 50,
-      quantityValue: 5
     },
   ]
 
@@ -183,6 +190,11 @@ export const Header = () => {
             <span>Total:</span>
             <span>${"111.38"}</span>
           </Box>
+        </Box>
+
+        <Box sx={{ position: "relative" }}>
+          <CustomInput type={"text"} placeholder={"Apply Coupon Code"} style={{ width: "90%", margin: "auto" }} />
+          <button type="button">CHECK</button>
         </Box>
 
         <button className={styles.continueShopping} onClick={toggleDrawer(false)}>
