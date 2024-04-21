@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import { ProductImage } from "../../../product-image";
 import { CustomRadioButton } from "../../../custom-radio-button";
+import styles from "./PaymentBottom.module.css";
 
 export function PaymentBottom() {
   const [selectedValue, setSelectedValue] = useState("");
@@ -15,17 +16,20 @@ export function PaymentBottom() {
       sx={{
         border: "1px solid var(--primary)",
         borderRadius: "8px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "40px",
       }}
     >
-      <Box
-        component="label"
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "11px 26px 19px 11px",
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "center", gap: "11px" }}>
+      <Box component="label" className={styles.paymentBottomItem}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: "11px",
+            marginBottom: "12px",
+          }}
+        >
           <Box
             sx={{
               width: "68px",
@@ -45,7 +49,14 @@ export function PaymentBottom() {
             Google Pay
           </Typography>
         </Box>
-        <CustomRadioButton title={"Google Pay"} handleChange={handleChange} />
+        <Box
+          sx={{ display: "flex", flexDirection: "column", gap: "8px" }}
+        ></Box>
+        <CustomRadioButton
+          title={"Google Pay"}
+          handleChange={handleChange}
+          className={styles.input}
+        />
       </Box>
     </Box>
   );

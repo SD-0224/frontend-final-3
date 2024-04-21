@@ -1,0 +1,14 @@
+.input {
+  position: relative;
+  top: 25px;
+}
+
+.paymentBottomItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 26px 19px 11px;
+}
+
+.paymentBottomItem:has(input:checked) {
+  background-color: rgb(75, 155, 161, 8%);
+}
