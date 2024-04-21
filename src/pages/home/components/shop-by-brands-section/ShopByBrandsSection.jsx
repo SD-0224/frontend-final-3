@@ -7,7 +7,7 @@ export const ShopByBrandsSection = function ({ brands }) {
     <SectionContainer padding="0px">
       <HorizontalScroll title="Shop By Brands" gap="46px">
         {brands?.map((brand) => (
-          <ProductImage src={brand.image} width="168px" />
+          <ProductImage key={brand.id} src={brand.image} width="168px" />
         ))}
       </HorizontalScroll>
     </SectionContainer>
