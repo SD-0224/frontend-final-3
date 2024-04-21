@@ -60,3 +60,9 @@
 .check:active {
     color: #1B4B66;
 }
+
+@media (max-width: 600px) {
+    .continueShopping{
+        margin-top: 24px;
+    }
+}
