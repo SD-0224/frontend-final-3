@@ -1,5 +1,5 @@
 import styles from "./HandpickedCard.module.css";
-import { ProductImage } from "../../../../components/product-image";
+import { ProductImage } from "../../../../../../components/product-image";
 
 export const HandpickedCard = function ({
   image,

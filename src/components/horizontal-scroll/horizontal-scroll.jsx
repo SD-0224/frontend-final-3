@@ -4,24 +4,25 @@ export function HorizontalScroll({
   color = "var(--dark)",
   title,
   fontSize = "34px",
-  padding = 0,
+  padding = "32px 24px",
   fontWeight = "500",
   backgroundColor,
-  titleMarginBottom,
+  titleMarginBottom = "32px",
+  gap = "40px",
   imagesContainerStyles,
   children,
 }) {
   const imagesContainer = {
     display: "flex",
     overflowX: "auto",
+    overflowY: "hidden",
     scrollbarWidth: "none",
     msOverflowStyle: "none",
+    gap,
     "&::-webkit-scrollbar": {
       display: "none",
     },
-    "& > :not(style)": {
-      ...imagesContainerStyles,
-    },
+    ...imagesContainerStyles,
   };
 
   return (
