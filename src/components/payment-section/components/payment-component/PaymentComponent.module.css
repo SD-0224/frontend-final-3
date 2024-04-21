@@ -16,3 +16,10 @@
 .paymentMethodImg {
   margin-top: 40px;
 }
+
+.input {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  z-index: 99999;
+}

@@ -18,7 +18,10 @@ export function PaymentComponent({ paymentMethod }) {
       key={title}
       className={styles.paymentMethodContainer}
     >
-      <CustomRadioButton {...{ handleChange, title }} />
+      <CustomRadioButton
+        {...{ handleChange, title }}
+        className={styles.input}
+      />
       <img alt={title} src={src} className={styles.paymentMethodImg} />
       <Typography
         sx={{
