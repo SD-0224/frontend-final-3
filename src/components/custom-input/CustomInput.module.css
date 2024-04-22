@@ -1,41 +1,45 @@
 .inputWrapp {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .inputLabel {
-    font-weight: var(--semi-bold-font-weight);
+  font-weight: var(--semi-bold-font-weight);
 }
 
 .inputContainer {
-    background-color: var(--grey);
-    padding: 1rem;
-    display: flex;
-    gap: 8px;
-    font-weight: var(--semi-bold-font-weight);
-    width: 100%;
-    border-radius: 8px;
+  background-color: var(--grey);
+  padding: 1rem;
+  display: flex;
+  gap: 8px;
+  font-weight: var(--semi-bold-font-weight);
+  width: 100%;
 }
 
 .inputContainer input {
-    border: 0;
-    outline: 0;
-    background-color: transparent;
-    width: -webkit-fill-available;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  width: -webkit-fill-available;
 }
 
 .inputContainer input::placeholder {
-    color: var(--low-emphasis-text-color);
-    font-weight: var(--semi-bold-font-weight);
+  color: var(--low-emphasis-text-color);
+  font-weight: var(--semi-bold-font-weight);
+}
+
+.inputContainer input.grey::placeholder {
+  color: #b6b6b6;
+  font-weight: var(--regular-font-weight);
 }
 
 @media (max-width: 768px) {
-    .inputContainer {
-        padding: 0.5rem;
-    }
+  .inputContainer {
+    padding: 0.5rem;
+  }
 
-    .inputContainer input::placeholder {
-        font-size: 10px;
-    }
+  .inputContainer input::placeholder {
+    font-size: 10px;
+  }
 }
