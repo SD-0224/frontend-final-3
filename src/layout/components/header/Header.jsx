@@ -107,7 +107,7 @@ export const Header = () => {
 
       <CustomDrawer toggleDrawer={toggleDrawer} open={open} />
 
-      <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "#1b4b66" }} value={value} onChange={handleChange}>
+      <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "var(--primary)" }} value={value} onChange={handleChange}>
         {
           bottomNavigationData?.map((data, index) => (
             <BottomNavigationAction
