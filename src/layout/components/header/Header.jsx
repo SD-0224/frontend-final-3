@@ -1,17 +1,17 @@
+import React from "react";
 import styles from "./Header.module.css";
 import { CustomInput } from "../../../components/custom-input";
 import {
-  PersonOutline,
-  FavoriteBorder,
-  ShoppingBagOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
 
-import { ShoppingBag, Profile, Category, Home } from "../../../components/icons";
+import { ShoppingBag, Profile, Heart, Category, Home } from "../../../components/icons";
 
-import BottomNavigation from '@mui/material/BottomNavigation';
-import BottomNavigationAction from '@mui/material/BottomNavigationAction';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
+
 import { useState, useEffect } from "react";
+import { CustomDrawer } from "./components/custom-drawer";
+
 
 export const Header = () => {
   const linksArr = ["Handbags", "Watches", "Skincare", "Jewellery", "Apparels"];
@@ -19,6 +19,12 @@ export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const [value, setValue] = useState('recents');
+
+  const [open, setOpen] = useState(false);
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -64,7 +70,40 @@ export const Header = () => {
       label: "Bag",
       value: "bag"
     },
-  ]
+  ];
+
+  const FinancialDetails = [
+    {
+      title: "Subtotal",
+      amount: 109.38,
+      isTotal: false,
+    },
+    {
+      title: "Tax",
+      amount: 2.00,
+      isTotal: false,
+    },
+    {
+      title: "Total",
+      amount: 111.38,
+      isTotal: true,
+    },
+  ];
+
+  const productsInCart = [
+    {
+      title: "Coach",
+      subtitle: "Leather Coach Bag",
+      price: 50,
+      quantity: 5
+    },
+    {
+      title: "Coach",
+      subtitle: "Leather Coach Bag",
+      price: 50,
+      quantity: 5
+    },
+  ];
 
   return (
     <>
@@ -89,15 +128,18 @@ export const Header = () => {
             icon={<SearchOutlined />}
           />
           <div className={styles.userOperations}>
-            <FavoriteBorder />
-            <PersonOutline />
-            <div className={styles.shoppingContainer}>
+            <Heart />
+            <Profile />
+            <div className={styles.shoppingContainer} onClick={toggleDrawer(true)}>
               <div className={styles.dot}></div>
-              <ShoppingBagOutlined />
+              <ShoppingBag />
             </div>
           </div>
         </section>
       </header>
+
+      <CustomDrawer toggleDrawer={toggleDrawer} open={open} FinancialDetailsArr={FinancialDetails} productsInCartArr={productsInCart} />
+
       <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "var(--primary)" }} value={value} onChange={handleChange}>
         {
           bottomNavigationData?.map((data, index) => (
@@ -117,6 +159,7 @@ export const Header = () => {
               }}
               label={data.label}
               value={data.value}
+              onClick={data.value === "bag" ? toggleDrawer(true) : null}
               icon={<data.icon />}
             />
           ))

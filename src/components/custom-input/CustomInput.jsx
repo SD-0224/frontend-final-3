@@ -2,7 +2,7 @@ import styles from './CustomInput.module.css';
 
 export const CustomInput = ({ label, id, type, placeholder, value, onChange, icon, ...props }) => {
     return (
-        <div className={styles.inputWrapp}>
+        <div className={styles.inputWrapp} {...props}>
             {label &&
                 <label htmlFor={id} className={styles.inputLabel}>
                     {label}
