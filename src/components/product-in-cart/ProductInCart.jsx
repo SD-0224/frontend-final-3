@@ -3,7 +3,7 @@ import { ProductImage } from '../product-image';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import { QuantityCounter } from '../quantity-counter';
 
-export const ProductInCart = ({ drawer = true, title, subtitle, price, quantityValue }) => {
+export const ProductInCart = ({ drawer = true, title, subtitle, price, quantity }) => {
     return (
         <div className={styles.container}>
             <div className={styles.productData}>
@@ -12,7 +12,7 @@ export const ProductInCart = ({ drawer = true, title, subtitle, price, quantityV
                     <span className={styles.title}>{title}</span>
                     <span className={styles.subtitle}>{subtitle}</span>
                     {
-                        drawer && <QuantityCounter quantityValue={quantityValue} showText={false} />
+                        drawer && <QuantityCounter quantity={quantity} showText={false} />
                     }
                     {
                         !drawer && <span>Qty- 1</span>
