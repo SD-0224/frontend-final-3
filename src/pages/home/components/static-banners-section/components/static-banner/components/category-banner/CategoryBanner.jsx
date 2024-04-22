@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
-import { ProductImage } from "../../../product-image";
-import { CircleIconLink } from "../../../circle-icon-link";
-import { RightArrow } from "../../../icons";
+import { ProductImage } from "../../../../../../../../components/product-image";
+import { CircleIconLink } from "../../../../../../../../components/circle-icon-link";
+import { RightArrow } from "../../../../../../../../components/icons";
 
 export function CategoryBanner({
   variant = "dual",
