@@ -11,7 +11,7 @@ import { CustomButton } from '../../../../../components/custom-button';
 import { CustomInput } from '../../../../../components/custom-input';
 import { FinancialDetails } from '../financial-details';
 
-export const CustomDrawer = ({ toggleDrawer, open }) => {
+export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsArr }) => {
 
     const drawerStyles = {
         zIndex: 99999,
@@ -63,27 +63,10 @@ export const CustomDrawer = ({ toggleDrawer, open }) => {
     }, []);
 
     const memoizedFinancialDetails = useMemo(() => {
-        const FinancialDetailsArr = [
-            {
-                title: "Subtotal",
-                amount: 109.38,
-                isTotal: false,
-            },
-            {
-                title: "Tax",
-                amount: 2.00,
-                isTotal: false,
-            },
-            {
-                title: "Total",
-                amount: 111.38,
-                isTotal: true,
-            },
-        ]
         return FinancialDetailsArr?.map((data, index) => (
             <FinancialDetails key={index} title={data.title} amount={data.amount} isTotal={data.isTotal} />
         ));
-    }, []);
+    }, [FinancialDetailsArr]);
 
     return (
         <Drawer className={styles.drawer} open={open} onClose={toggleDrawer(false)} sx={drawerStyles} anchor={"right"}>
