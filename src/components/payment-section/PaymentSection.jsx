@@ -2,8 +2,9 @@ import * as React from "react";
 import { FormControl, RadioGroup } from "@mui/joy";
 import { PaymentComponent } from "./components/payment-component";
 import { AccordionComponent } from "../accordion-component";
+import { PaymentBottom } from "./components/payment-bottom";
 
-export function PaymentSection({ paymentMethods }) {
+export function PaymentSection({ paymentMethods, paymentDetail }) {
   return (
     <AccordionComponent title={"Payment"}>
       <FormControl>
@@ -14,13 +15,14 @@ export function PaymentSection({ paymentMethods }) {
           width="100%"
           sx={{ gap: "20px", flexWrap: "wrap", justifyContent: "center" }}
         >
-          {paymentMethods.map((method) => (
+          {paymentMethods?.map((method) => (
             <>
               <PaymentComponent key={method.title} paymentMethod={method} />
             </>
           ))}
         </RadioGroup>
       </FormControl>
+      <PaymentBottom paymentDetail={paymentDetail} />
     </AccordionComponent>
   );
 }

@@ -30,7 +30,7 @@
 }
 
 .inputContainer input.grey::placeholder {
-  color: #b6b6b6;
+  color: var(--light-text-color);
   font-weight: var(--regular-font-weight);
 }
 

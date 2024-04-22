@@ -1,0 +1,41 @@
+.input {
+  position: relative;
+  top: 25px;
+}
+
+.inputChecked {
+  position: relative;
+  top: 88px;
+}
+
+.itemContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 11px 26px 19px 11px;
+}
+
+.itemContainer:has(input[name="paymentitemradio"]:checked) {
+  background-color: rgb(75, 155, 161, 8%);
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.itemTitle {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.itemImgWrapper {
+  width: 68px;
+  height: 69px;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  background-color: var(--white);
+  padding-top: 12px;
+  padding-left: 12px;
+}
