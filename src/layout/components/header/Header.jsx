@@ -70,7 +70,25 @@ export const Header = () => {
       label: "Bag",
       value: "bag"
     },
-  ]
+  ];
+
+  const FinancialDetailsArr = [
+    {
+      title: "Subtotal",
+      amount: 109.38,
+      isTotal: false,
+    },
+    {
+      title: "Tax",
+      amount: 2.00,
+      isTotal: false,
+    },
+    {
+      title: "Total",
+      amount: 111.38,
+      isTotal: true,
+    },
+  ];
 
   return (
     <>
@@ -105,7 +123,7 @@ export const Header = () => {
         </section>
       </header>
 
-      <CustomDrawer toggleDrawer={toggleDrawer} open={open} />
+      <CustomDrawer toggleDrawer={toggleDrawer} open={open} FinancialDetailsData={FinancialDetailsArr} />
 
       <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "var(--primary)" }} value={value} onChange={handleChange}>
         {
