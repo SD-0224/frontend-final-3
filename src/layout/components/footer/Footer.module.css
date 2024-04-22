@@ -5,8 +5,8 @@
 }
 
 .accordionDetails {
-    background: #1B4B66;
-    color: #fff;
+    background: var(--primary);
+    color: var(--white);
     padding: 30px 60px !important;
     display: flex;
     flex-wrap: wrap;

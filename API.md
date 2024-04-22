@@ -5,14 +5,15 @@ const product = {
 	id:string,
 	image:URL,
 	title:string,
-	subtitle:string,
+	shortSubtitle:string => 1 - 4 words,
+	longSubtitle:string => 1 - 15 words,
 	description:string,
 	categoryId:string,
 	createdAt:number => Date.now(),
 	reviews: [
 		{
 			userId:string,
-			rating:number => 0 - 5
+			rating:float => 0.0 - 5
 			review:string,
 		}
 	],
@@ -72,10 +73,6 @@ API:
 
 /categories/:id
 
-/categories/:id/brands
-
-/categories/:id/brands/:id
-
 /brands/
 
 /brands/:id
@@ -91,4 +88,15 @@ API:
 /products/category/:id
 
 /products/brand/:id
+
+/products/new-arrivals => any product created in the last 3 months
+
+/products/handpicked => any products that have an average rating higher than 4.5 and is less than 100$
+
+/products/limited-edition => any products that are less than 20 in stock
+
+/products/on-sale => any products that have a discount of 15% or more
+
+/products/popular => any products that have a rating of 4.5 or more
+
 ```

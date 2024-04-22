@@ -7,7 +7,7 @@ export const ProductImage = function ({
   height = width,
 }) {
   return (
-    <div style={{ width, height }}>
+    <div style={{ width, height, flexShrink: 0 }}>
       <img
         {...{ src }}
         className={styles.productImage}

@@ -10,7 +10,7 @@ import {
   Twitter,
   Youtube,
 } from "../../../components/icons";
-import { CircleIconLink } from "./components/circle-icon-link";
+import { CircleIconLink } from "../../../components/circle-icon-link";
 import { CopyrightBox } from "./components/copyright";
 import { LocationBox } from "./components/location";
 import styles from "./Footer.module.css";
@@ -84,7 +84,11 @@ export const Footer = () => {
   }, []);
 
   return (
-    <Accordion defaultExpanded={isMobile} className={styles.accordion} sx={{ boxShadow: "unset", '&.Mui-expanded::before': { opacity: 1 } }}>
+    <Accordion
+      defaultExpanded={isMobile}
+      className={styles.accordion}
+      sx={{ boxShadow: "unset", "&.Mui-expanded::before": { opacity: 1 } }}
+    >
       {isMobile && (
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -108,7 +112,7 @@ export const Footer = () => {
               <CircleIconLink
                 key={index}
                 link={social.link}
-                icon={<social.iconName borderSize={0} fillColor={"#1b4b66"} />}
+                icon={<social.iconName borderSize={0} fillColor={"var(--primary)"} />}
               />
             ))}
           </Box>

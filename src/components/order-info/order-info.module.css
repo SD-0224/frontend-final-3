@@ -1,10 +1,12 @@
 .title {
   font-size: 20px;
   margin-bottom: 8px;
+  font-weight: var(--semi-bold-font-weight);
 }
 
 .seperator {
-  margin-bottom: 35px;
+  margin-bottom: 32px;
+  color: rgba(0, 0, 0, 0.12);
 }
 
 .tableContainer {
@@ -12,18 +14,18 @@
   justify-content: space-between;
   margin-bottom: 12px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: var(--medium-font-weight);
 }
 
 .lightFont {
-  color: #626262;
+  color: var(--low-emphasis-text-color);
 }
 
 .darkFont {
-  color: #171520;
+  color: var(--high-emphasis-text-color);
 }
 
 .bold {
-  font-weight: bold;
-  color: #171520;
+  font-weight: var(--semi-bold-font-weight);
+  color: var(--high-emphasis-text-color);
 }

@@ -1,7 +1,7 @@
 export const Category = function ({
     width = 24,
     height = 24,
-    borderColor = "#13101E",
+    borderColor = "var(--dark)",
     borderSize = 2,
     fillColor = "none",
     ...props

@@ -1,0 +1,21 @@
+.tabList {
+  background-color: var(--grey);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.tab {
+  color: var(--low-emphasis-text-color);
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: var(--medium-font-weight);
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  line-height: 20px;
+}

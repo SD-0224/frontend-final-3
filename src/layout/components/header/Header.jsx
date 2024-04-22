@@ -146,14 +146,14 @@ export const Header = () => {
             <BottomNavigationAction
               key={index}
               sx={{
-                color: "#B6B6B6",
+                color: "var(--light-text-color)",
                 '& path': {
-                  stroke: "#B6B6B6"
+                  stroke: "var(--light-text-color)"
                 },
                 '&.Mui-selected ': {
-                  color: "#fff",
+                  color: "var(--white)",
                   '& path': {
-                    stroke: "#fff"
+                    stroke: "var(--white)"
                   }
                 },
               }}
