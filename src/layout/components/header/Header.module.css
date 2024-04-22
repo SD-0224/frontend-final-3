@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 20px;
+    padding: 18px 20px;
     position: sticky;
     top: 0;
     background-color: var(--white);
@@ -42,6 +42,23 @@
     gap: 20px;
     font-size: 24px;
     color: var(--primary);
+}
+
+.userOperations svg {
+    cursor: pointer;
+}
+
+.userOperations svg path {
+    stroke: #1B4B66;
+    transition: 0.3s all;
+}
+
+.userOperations svg:hover path {
+    stroke: #247eb2;
+}
+
+.userOperations svg:active path {
+    stroke: #1B4B66;
 }
 
 .shoppingContainer {
