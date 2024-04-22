@@ -62,6 +62,29 @@ export const CustomDrawer = ({ toggleDrawer, open }) => {
         ));
     }, []);
 
+    const memoizedFinancialDetails = useMemo(() => {
+        const FinancialDetailsArr = [
+            {
+                title: "Subtotal",
+                amount: 109.38,
+                isTotal: false,
+            },
+            {
+                title: "Tax",
+                amount: 2.00,
+                isTotal: false,
+            },
+            {
+                title: "Total",
+                amount: 111.38,
+                isTotal: true,
+            },
+        ]
+        return FinancialDetailsArr?.map((data, index) => (
+            <FinancialDetails key={index} title={data.title} amount={data.amount} isTotal={data.isTotal} />
+        ));
+    }, []);
+
     return (
         <Drawer className={styles.drawer} open={open} onClose={toggleDrawer(false)} sx={drawerStyles} anchor={"right"}>
             <button className={styles.closeDrawer} onClick={toggleDrawer(false)}>
@@ -72,9 +95,7 @@ export const CustomDrawer = ({ toggleDrawer, open }) => {
             {memoizedProductsInCart}
 
             <Box sx={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "24px", '@media (max-width: 600px)': { marginBottom: "12px" } }}>
-                <FinancialDetails title={"Subtotal"} amount={109.38} total={false} />
-                <FinancialDetails title={"Tax"} amount={2.00} total={false} />
-                <FinancialDetails title={"Total"} amount={111.38} total={true} />
+                {memoizedFinancialDetails}
             </Box>
 
             <Box sx={{ position: "relative", marginBottom: "24px", '@media (max-width: 600px)': { marginBottom: "12px" } }}>
