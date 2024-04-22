@@ -9,9 +9,9 @@ import KeyboardBackspaceRoundedIcon from '@mui/icons-material/KeyboardBackspaceR
 import { ProductInCart } from '../../../../../components/product-in-cart';
 import { CustomButton } from '../../../../../components/custom-button';
 import { CustomInput } from '../../../../../components/custom-input';
-import { FinancialDetails } from '../financial-details';
+import { FinancialDetails } from '../financial-details'
 
-export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsData }) => {
+export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsArr, productsInCartArr }) => {
 
     const drawerStyles = {
         zIndex: 99999,
@@ -34,39 +34,24 @@ export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsData }) => {
     }
 
     const memoizedProductsInCart = useMemo(() => {
-        const productsInCart = [
-            {
-                title: "Coach",
-                subtitle: "Leather Coach Bag",
-                price: 50,
-                quantityValue: 5
-            },
-            {
-                title: "Coach",
-                subtitle: "Leather Coach Bag",
-                price: 50,
-                quantityValue: 5
-            },
-        ];
-
-        return productsInCart?.map((product, index) => (
+        return productsInCartArr?.map((product, index) => (
             <Fragment key={index}>
                 <ProductInCart
                     title={product.title}
                     subtitle={product.subtitle}
                     price={product.price}
-                    quantityValue={product.quantityValue}
+                    quantity={product.quantity}
                 />
                 <Divider sx={{ marginTop: "50px", marginBottom: "24px", '@media (max-width: 600px)': { marginTop: "12px" } }} />
             </Fragment>
         ));
-    }, []);
+    }, [productsInCartArr]);
 
     const memoizedFinancialDetails = useMemo(() => {
-        return FinancialDetailsData?.map((data, index) => (
+        return FinancialDetailsArr?.map((data, index) => (
             <FinancialDetails key={index} title={data.title} amount={data.amount} isTotal={data.isTotal} />
         ));
-    }, [FinancialDetailsData]);
+    }, [FinancialDetailsArr]);
 
     return (
         <Drawer className={styles.drawer} open={open} onClose={toggleDrawer(false)} sx={drawerStyles} anchor={"right"}>
