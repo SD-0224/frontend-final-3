@@ -72,7 +72,7 @@ export const Header = () => {
     },
   ];
 
-  const FinancialDetailsArr = [
+  const FinancialDetails = [
     {
       title: "Subtotal",
       amount: 109.38,
@@ -87,6 +87,21 @@ export const Header = () => {
       title: "Total",
       amount: 111.38,
       isTotal: true,
+    },
+  ];
+
+  const productsInCart = [
+    {
+      title: "Coach",
+      subtitle: "Leather Coach Bag",
+      price: 50,
+      quantity: 5
+    },
+    {
+      title: "Coach",
+      subtitle: "Leather Coach Bag",
+      price: 50,
+      quantity: 5
     },
   ];
 
@@ -123,7 +138,7 @@ export const Header = () => {
         </section>
       </header>
 
-      <CustomDrawer toggleDrawer={toggleDrawer} open={open} FinancialDetailsData={FinancialDetailsArr} />
+      <CustomDrawer toggleDrawer={toggleDrawer} open={open} FinancialDetailsArr={FinancialDetails} productsInCartArr={productsInCart} />
 
       <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "var(--primary)" }} value={value} onChange={handleChange}>
         {
