@@ -42,7 +42,7 @@ export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsArr, products
                     price={product.price}
                     quantity={product.quantity}
                 />
-                <Divider sx={{ marginTop: "50px", marginBottom: "24px", '@media (max-width: 600px)': { marginTop: "12px" } }} />
+                <Divider sx={{ marginTop: "50px", marginBottom: "24px", '@media (max-width: 768px)': { marginTop: "12px" } }} />
             </Fragment>
         ));
     }, [productsInCartArr]);
@@ -62,11 +62,11 @@ export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsArr, products
 
             {memoizedProductsInCart}
 
-            <Box sx={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "24px", '@media (max-width: 600px)': { marginBottom: "12px" } }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "24px", '@media (max-width: 768px)': { marginBottom: "12px" } }}>
                 {memoizedFinancialDetails}
             </Box>
 
-            <Box sx={{ position: "relative", marginBottom: "24px", '@media (max-width: 600px)': { marginBottom: "12px" } }}>
+            <Box sx={{ position: "relative", marginBottom: "24px", '@media (max-width: 768px)': { marginBottom: "12px" } }}>
                 <CustomInput type={"text"} placeholder={"Apply Coupon Code"} style={{ width: "90%", margin: "auto" }} />
                 <button type="button" className={styles.check}>CHECK</button>
             </Box>
