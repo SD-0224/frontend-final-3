@@ -15,7 +15,7 @@ export const ProductInCart = ({ drawer = true, title, subtitle, price, quantity 
                         drawer && <QuantityCounter quantity={quantity} showText={false} />
                     }
                     {
-                        !drawer && <span>Qty- 1</span>
+                        !drawer && <span>Qty- {quantity}</span>
                     }
                 </div>
             </div>
