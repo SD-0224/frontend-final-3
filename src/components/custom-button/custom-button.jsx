@@ -1,5 +1,6 @@
 import Button from "@mui/material/Button";
 import React, { useState } from "react";
+import { useMediaQuery } from "@mui/material";
 
 export function CustomButton({
   variant = "contained",
@@ -12,12 +13,14 @@ export function CustomButton({
   fontWeight = "500",
   textColor = "var(--white)",
   padding = "6px 18px",
+  ...props
 }) {
   const isContained = variant === "contained";
   const [isHovered, setIsHovered] = useState(false);
 
   const outlinedButton = {
     color: color,
+    border: "2px solid",
     borderColor: color,
   };
 
@@ -39,12 +42,19 @@ export function CustomButton({
   };
 
   const startIconProps = startIcon && {
-    borderColor: isHovered ? "var(--primary-tint)" : startIcon.props.borderColor,
+    borderColor: isHovered
+      ? "var(--primary-tint)"
+      : startIcon.props.borderColor,
   };
 
   const endIconProps = endIcon && {
     borderColor: isHovered ? "var(--primary-tint)" : endIcon.props.borderColor,
   };
+
+  const isXsScreen =
+    useMediaQuery("(max-width:599px)") && (startIcon || endIcon);
+
+  const xsPadding = startIcon || endIcon ? "10px 0 10px 10px" : "5px";
 
   return (
     <Button
@@ -57,22 +67,23 @@ export function CustomButton({
         width: "100%",
         fontSize: fontSize,
         fontWeight: fontWeight,
-        padding: padding,
+        padding: { xs: xsPadding, sm: padding },
         textTransform: "none",
         "&:hover": {
           ...(isContained
             ? { backgroundColor: "var(--primary-tint)", boxShadow: "unset" }
             : {
-              color: "var(--primary-tint)",
-              borderColor: "var(--primary)",
-              backgroundColor: "unset",
-            }),
+                color: "var(--primary-tint)",
+                borderColor: "var(--primary)",
+                backgroundColor: "unset",
+              }),
         },
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      {...props}
     >
-      {label}
+      {!isXsScreen && label}
     </Button>
   );
 }
