@@ -4,8 +4,8 @@
     border-collapse: collapse;
 }
 
-.table thead {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+.table td:has(hr) {
+    padding: 0;
 }
 
 .table :is(th, td) {
@@ -26,14 +26,16 @@
     font-size: 16px;
 }
 
-.table tbody::before {
+.table tbody.mainBody::before {
     content: '';
     display: block;
     height: 24px;
 }
-.table tbody tr{
+
+.table tbody tr:not(tr:has(hr)) {
     border-bottom: 20px solid transparent;
 }
+
 .operations {
     display: flex;
     flex-direction: column;
@@ -63,4 +65,10 @@
 
 .removeButton:active {
     transform: translateY(0.25em);
+}
+
+@media (max-width: 600px) {
+    .table :is(td, th) {
+        font-size: 14px;
+    }
 }

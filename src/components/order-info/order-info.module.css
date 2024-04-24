@@ -4,9 +4,9 @@
   font-weight: var(--semi-bold-font-weight);
 }
 
-.seperator {
-  margin-bottom: 32px;
-  color: rgba(0, 0, 0, 0.12);
+.small {
+  font-size: 16px;
+  color: var(--low-emphasis-text-color);
 }
 
 .tableContainer {
