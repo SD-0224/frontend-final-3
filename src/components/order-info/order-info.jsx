@@ -1,6 +1,6 @@
 import styles from "./order-info.module.css";
 import { Box, Divider } from "@mui/material";
-export function OrderInfo({ title, orderInfo }) {
+export function OrderInfo({ title, orderInfo, isTitleSmall = false }) {
   const getRowFontWeight = (index) => {
     return index === orderInfo.length - 1 ? styles.bold : "";
   };
@@ -10,9 +10,8 @@ export function OrderInfo({ title, orderInfo }) {
   };
   return (
     <Box>
-      <h1 className={styles.title}>{title}</h1>
-      <Divider sx={{ marginBottom: "30px" }} />
-
+      <h1 className={`${styles.title} ${isTitleSmall ? styles.small : null}`}>{title}</h1>
+      {!isTitleSmall && <Divider sx={{ marginBottom: "30px" }} />}
       {orderInfo?.map(([detail, amount], index) => (
         <div
           key={index}
