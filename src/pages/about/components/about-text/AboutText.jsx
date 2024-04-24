@@ -3,21 +3,21 @@ import { Box, Typography } from "@mui/material";
 const overflowHidden = {
   overflow: "hidden",
   display: "-webkit-box",
-  WebkitLineClamp: 10,
+  WebkitLineClamp: 6,
   WebkitBoxOrient: "vertical",
 };
 
 export function AboutText({
   typographyContainer,
-  isUpperLetters = false,
   isoverflowHidden = true,
   gap = "8px",
   color = "var(--high-emphasis-text-color)",
-  fonstSize = 20,
+  fontSize = 20,
+  xsFontSize = fontSize,
   lineHeight = "26px",
+  title = "About",
+  description = "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. ",
 }) {
-  const text = "About";
-
   return (
     <Box
       display={"flex"}
@@ -29,13 +29,13 @@ export function AboutText({
     >
       <Typography
         variant="h1"
-        fontSize={fonstSize}
+        fontSize={{ xs: xsFontSize, sm: fontSize }}
         fontWeight={"var(--semi-bold-font-weight)"}
         fontFamily={"Inter"}
         color={color}
-        lineHeight={lineHeight}
+        lineHeight={{ xs: "26px", sm: lineHeight }}
       >
-        {isUpperLetters ? text.toUpperCase() : text}
+        {title}
       </Typography>
       <Typography
         fontSize={16}
@@ -46,11 +46,7 @@ export function AboutText({
           ...(isoverflowHidden ? overflowHidden : null),
         }}
       >
-        Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply
-        dummy text of the printing. Lorem Ipsum is simply dummy text of the
-        printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum
-        is simply dummy text of the printing. Lorem Ipsum is simply dummy text
-        of the printing.
+        {description}
       </Typography>
     </Box>
   );

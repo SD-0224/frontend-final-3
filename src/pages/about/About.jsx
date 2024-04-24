@@ -8,34 +8,42 @@ export function About() {
   return (
     <Box display={"flex"} flexDirection={"column"} gap={"40px"}>
       <BannerImage
-        imageSrc={
-          "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
-        }
+        imageSrc={"images/about/banner.png"}
+        title={"ABOUT"}
+        description={"Lorem Ipsum is simply dummy text of the printing."}
+      />
+      <AboutHeadline
+        title={"About"}
         description={
-          "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing."
+          "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. "
         }
       />
-      <AboutHeadline />
       <SectionContainer paddingX="20px">
         <AboutCategory
-          imageSrc={
-            "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
+          imageSrc={"images/about/bags.png"}
+          title={"About"}
+          description={
+            "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. "
           }
         />
       </SectionContainer>
       <SectionContainer paddingX="20px">
         <AboutCategory
-          imageSrc={
-            "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
-          }
+          imageSrc={"images/about/watches.png"}
+          title={"About"}
           imgPosition="left"
+          description={
+            "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. "
+          }
         />
       </SectionContainer>
 
       <SectionContainer paddingX="20px">
         <AboutCategory
-          imageSrc={
-            "https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60"
+          imageSrc={"images/about/glasses.png"}
+          title={"About"}
+          description={
+            "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. "
           }
         />
       </SectionContainer>

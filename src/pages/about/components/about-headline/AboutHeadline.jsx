@@ -7,6 +7,11 @@ const typographyContainer = {
   margin: "auto",
 };
 
-export function AboutHeadline() {
-  return <AboutText {...{ typographyContainer }} isoverflowHidden={false} />;
+export function AboutHeadline({ title, description }) {
+  return (
+    <AboutText
+      {...{ typographyContainer, title, description }}
+      isoverflowHidden={false}
+    />
+  );
 }

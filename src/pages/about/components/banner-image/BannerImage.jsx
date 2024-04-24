@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { ProductImage } from "../../../../components/product-image";
 import { AboutText } from "../about-text";
 
@@ -7,14 +7,14 @@ const typographyContainer = {
   position: "absolute",
   left: "55%",
   top: 0,
-  padding: "20px 64px 20px 33px",
+  padding: { xs: "20px 64px 20px 10px", sm: "20px 64px 20px 33px" },
   justifyContent: "center",
 };
 
-export function BannerImage({ imageSrc }) {
+export function BannerImage({ imageSrc, title, description }) {
   return (
     <Box
-      height={{ xs: "200px", md: "350px", lg: "400px" }}
+      height={{ xs: "200px", sm: "250px", md: "350px", lg: "400px" }}
       position={"relative"}
       alignItems={"center"}
       display={"flex"}
@@ -26,12 +26,12 @@ export function BannerImage({ imageSrc }) {
         borderRadius="0"
       />
       <AboutText
-        {...{ typographyContainer }}
+        {...{ typographyContainer, title, description }}
         gap={"12px"}
-        fonstSize={50}
+        fontSize={50}
+        xsFontSize={30}
         color="var(--dark)"
         lineHeight="61px"
-        isUpperLetters={true}
       />
     </Box>
   );
