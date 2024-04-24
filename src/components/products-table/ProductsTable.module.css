@@ -4,8 +4,8 @@
     border-collapse: collapse;
 }
 
-.table thead {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+.table td:has(hr) {
+    padding: 0;
 }
 
 .table :is(th, td) {
@@ -31,9 +31,11 @@
     display: block;
     height: 24px;
 }
-.table tbody tr{
+
+.table tbody tr {
     border-bottom: 20px solid transparent;
 }
+
 .operations {
     display: flex;
     flex-direction: column;
