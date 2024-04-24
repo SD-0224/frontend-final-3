@@ -2,7 +2,6 @@ import styles from './ProductsTable.module.css'
 import { ProductInCart } from '../product-in-cart';
 import { useMemo } from 'react';
 import { Divider } from '@mui/material';
-import { Padding } from '@mui/icons-material';
 
 export const ProductsTable = ({ products }) => {
 
@@ -32,12 +31,14 @@ export const ProductsTable = ({ products }) => {
                     <th>Subtotal</th>
                 </tr>
             </thead>
-            <tr>
-                <td colSpan={4}>
-                    <Divider />
-                </td>
-            </tr>
             <tbody>
+                <tr>
+                    <td colSpan={4}>
+                        <Divider />
+                    </td>
+                </tr>
+            </tbody>
+            <tbody className={styles.mainBody}>
                 {memoizedProducts}
             </tbody>
         </table>
