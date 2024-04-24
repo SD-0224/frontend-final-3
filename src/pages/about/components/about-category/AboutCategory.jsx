@@ -16,7 +16,6 @@ export function AboutCategory({
   const isXsScreen = useMediaQuery("(max-width:600px)");
   const isRight = imgPosition === "right";
   const imgWidth = isXsScreen ? "100%" : "54%";
-  console.log(imgWidth);
   const Image = (
     <ProductImage
       height="100%"
