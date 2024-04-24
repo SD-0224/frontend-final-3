@@ -4,6 +4,11 @@
   font-weight: var(--semi-bold-font-weight);
 }
 
+.small {
+  font-size: 16px;
+  color: var(--low-emphasis-text-color);
+}
+
 .tableContainer {
   display: flex;
   justify-content: space-between;
