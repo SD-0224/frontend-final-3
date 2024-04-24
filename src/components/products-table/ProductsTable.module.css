@@ -32,7 +32,7 @@
     height: 24px;
 }
 
-.table tbody tr {
+.table tbody tr:not(tr:has(hr)) {
     border-bottom: 20px solid transparent;
 }
 
@@ -65,4 +65,10 @@
 
 .removeButton:active {
     transform: translateY(0.25em);
+}
+
+@media (max-width: 600px) {
+    .table :is(td, th) {
+        font-size: 14px;
+    }
 }
