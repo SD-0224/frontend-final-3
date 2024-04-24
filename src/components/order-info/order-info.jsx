@@ -1,6 +1,6 @@
 import styles from "./order-info.module.css";
-
-export function OrderInfo({ title, orderInfo }) {
+import { Box, Divider } from "@mui/material";
+export function OrderInfo({ title, orderInfo, isTitleSmall = false }) {
   const getRowFontWeight = (index) => {
     return index === orderInfo.length - 1 ? styles.bold : "";
   };
@@ -9,11 +9,10 @@ export function OrderInfo({ title, orderInfo }) {
     return index === orderInfo.length - 1 ? styles.darkFont : styles.lightFont;
   };
   return (
-    <>
-      <h1 className={styles.title}>{title}</h1>
-      <hr className={styles.seperator} />
-
-      {orderInfo.map(([detail, amount], index) => (
+    <Box>
+      <h1 className={`${styles.title} ${isTitleSmall ? styles.small : null}`}>{title}</h1>
+      {!isTitleSmall && <Divider sx={{ marginBottom: "30px" }} />}
+      {orderInfo?.map(([detail, amount], index) => (
         <div
           key={index}
           className={`${styles.tableContainer} ${getRowFontWeight(index)}`}
@@ -22,6 +21,6 @@ export function OrderInfo({ title, orderInfo }) {
           <div className={styles.darkFont}>{amount}</div>
         </div>
       ))}
-    </>
+    </Box>
   );
 }
