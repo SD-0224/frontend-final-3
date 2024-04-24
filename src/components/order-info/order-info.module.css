@@ -4,11 +4,6 @@
   font-weight: var(--semi-bold-font-weight);
 }
 
-.seperator {
-  margin-bottom: 32px;
-  color: rgba(0, 0, 0, 0.12);
-}
-
 .tableContainer {
   display: flex;
   justify-content: space-between;
