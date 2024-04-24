@@ -5,7 +5,7 @@ import { RightArrow } from "../../../../../icons";
 const textContainerStyles = {
   position: "absolute",
   left: "44%",
-  height: { xs: "170px", sm: "200px", md: "280px", lg: "316px" },
+  height: { xs: "160px", sm: "200px", md: "280px", lg: "316px" },
   top: { xs: "20px", sm: "25px", md: "30px", lg: "42px" },
   borderRadius: "24px",
   backgroundColor: "rgba(222, 222, 222, 0.7)",
@@ -65,7 +65,6 @@ export function CategoryTitles({ title, subtitle }) {
         <CustomButton
           startIcon={<RightArrow borderColor={"var(--white)"} />}
           label="See More"
-          variant="contained"
           padding="10px 65px"
         />
       </Box>
