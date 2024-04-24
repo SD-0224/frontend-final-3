@@ -4,6 +4,7 @@
     font-weight: 600;
     line-height: 44px;
     margin-bottom: 24px;
+    text-transform: capitalize;
 }
 
 @media (max-width: 600px) {
