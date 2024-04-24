@@ -11,7 +11,7 @@ export function OrderInfo({ title, orderInfo }) {
   return (
     <Box>
       <h1 className={styles.title}>{title}</h1>
-      <Divider/>
+      <Divider sx={{ marginBottom: "30px" }} />
 
       {orderInfo?.map(([detail, amount], index) => (
         <div
