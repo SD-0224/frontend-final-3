@@ -4,47 +4,37 @@ import { BannerImage } from "./components/banner-image";
 import { AboutCategory } from "./components/about-category";
 import { SectionContainer } from "../../components/section-container";
 
+const title = "About";
+const description =
+  "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. ";
+
 export function About() {
   return (
     <Box display={"flex"} flexDirection={"column"} gap={"40px"}>
       <BannerImage
         imageSrc={"images/about/banner.png"}
-        title={"ABOUT"}
-        description={"Lorem Ipsum is simply dummy text of the printing."}
+        title={title.toUpperCase()}
+        description={description}
       />
-      <AboutHeadline
-        title={"About"}
-        description={
-          "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. "
-        }
-      />
+      <AboutHeadline {...{ title, description }} />
       <SectionContainer paddingX="20px">
         <AboutCategory
           imageSrc={"images/about/bags.png"}
-          title={"About"}
-          description={
-            "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. "
-          }
+          {...{ title, description }}
         />
       </SectionContainer>
       <SectionContainer paddingX="20px">
         <AboutCategory
           imageSrc={"images/about/watches.png"}
-          title={"About"}
           imgPosition="left"
-          description={
-            "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. "
-          }
+          {...{ title, description }}
         />
       </SectionContainer>
 
       <SectionContainer paddingX="20px">
         <AboutCategory
           imageSrc={"images/about/glasses.png"}
-          title={"About"}
-          description={
-            "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. "
-          }
+          {...{ title, description }}
         />
       </SectionContainer>
     </Box>
