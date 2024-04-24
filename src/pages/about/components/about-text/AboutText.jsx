@@ -9,7 +9,7 @@ const overflowHidden = {
 
 export function AboutText({
   typographyContainer,
-  isoverflowHidden = true,
+  isOverflowHidden = true,
   gap = "8px",
   color = "var(--high-emphasis-text-color)",
   fontSize = 20,
@@ -43,7 +43,7 @@ export function AboutText({
         fontFamily={"Inter"}
         color={"var(--low-emphasis-text-color)"}
         sx={{
-          ...(isoverflowHidden ? overflowHidden : null),
+          ...(isOverflowHidden ? overflowHidden : null),
         }}
       >
         {description}

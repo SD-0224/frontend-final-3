@@ -11,7 +11,7 @@ export function AboutHeadline({ title, description }) {
   return (
     <AboutText
       {...{ typographyContainer, title, description }}
-      isoverflowHidden={false}
+      isOverflowHidden={false}
     />
   );
 }
