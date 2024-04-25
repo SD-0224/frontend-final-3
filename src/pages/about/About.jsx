@@ -16,13 +16,16 @@ export function About() {
         title={title.toUpperCase()}
         description={description}
       />
+
       <AboutHeadline {...{ title, description }} />
+
       <SectionContainer paddingX="20px">
         <AboutCategory
           imageSrc={"images/about/bags.png"}
           {...{ title, description }}
         />
       </SectionContainer>
+
       <SectionContainer paddingX="20px">
         <AboutCategory
           imageSrc={"images/about/watches.png"}
@@ -31,7 +34,7 @@ export function About() {
         />
       </SectionContainer>
 
-      <SectionContainer paddingX="20px">
+      <SectionContainer padding="0 20px 117px 20px">
         <AboutCategory
           imageSrc={"images/about/glasses.png"}
           {...{ title, description }}
