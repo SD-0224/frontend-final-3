@@ -7,10 +7,8 @@ import {
 import { TabNavigation } from "../../../../components/tab-navigation";
 import { SectionContainer } from "../../../../components/section-container";
 import { ProductsTable } from "../../../../components/products-table";
-import { AccordionComponent } from "../../../../components/accordion-component";
-import { OrderInfo } from "../../../../components/order-info";
-import { Verticaltext } from "../../../../components/vertical-text";
 import { CustomButton } from "../../../../components/custom-button";
+import { ItemDetails } from "./components/item-details";
 
 export function ItemsOrdered() {
   const products = [
@@ -59,45 +57,7 @@ export function ItemsOrdered() {
       />
       <SectionContainer padding="0 8px 0 0">
         <ProductsTable products={products} isRemove={false} />
-        <AccordionComponent
-          isExpandIcon={false}
-          title={"Order Information"}
-          expanded={true}
-        >
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: {
-                xs: " 1fr",
-                sm: "1fr 1fr",
-                md: "minmax(0,2fr) minmax(0,1fr) minmax(0,2fr)",
-              },
-              gap: { xs: "20px 30px", sm: "20px 122px", md: "122px" },
-            }}
-          >
-            <OrderInfo
-              isTitleSmall={true}
-              title={"Order Details"}
-              orderInfo={orderDetails}
-            />
-
-            <Verticaltext title={"Payment Details"} info={paymentDetails} />
-            <Box position={"relative"}>
-              <Verticaltext title={"Address Details"} info={addressDetails} />
-              <Box position={"absolute"} right={"0"} top={"27px"}>
-                <CustomButton
-                  label={"Home"}
-                  fontSize="12px"
-                  padding="5px 20px"
-                  borderRadius="4px"
-                  color="var(--grey)"
-                  textColor="#000000"
-                  href="/"
-                />
-              </Box>
-            </Box>
-          </Box>
-        </AccordionComponent>
+        <ItemDetails {...{ orderDetails, paymentDetails, addressDetails }} />
       </SectionContainer>
       <Box
         sx={{
