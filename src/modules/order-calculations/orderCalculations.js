@@ -5,10 +5,13 @@ export const calcDiscount = ((products) => {
     let totalDisount = 0;
 
     products?.map((product) => {
-        const finalPrice = product.price * product.discount;
-        const discountPercantage = product.discount / 100;
+        if (product.discount) {
+            const discountPercantage = product.discount / 100;
+            const finalPrice = product.price * discountPercantage;
 
-        return totalDisount += finalPrice * discountPercantage;
+            totalDisount += finalPrice;
+        }
+        return totalDisount
     })
 
     return totalDisount.toFixed(FIXED_DIGITES);
@@ -18,9 +21,8 @@ export const calcSubTotal = ((products) => {
     let subTotal = 0;
 
     products?.map((product) => {
-        const finalPrice = product.price * product.discount;
 
-        return subTotal += finalPrice;
+        return subTotal += product.price;
     })
 
     return subTotal.toFixed(FIXED_DIGITES);
