@@ -31,7 +31,7 @@ export function About() {
         />
       </SectionContainer>
 
-      <SectionContainer paddingX="20px">
+      <SectionContainer padding="0 20px 117px 20px">
         <AboutCategory
           imageSrc={"images/about/glasses.png"}
           {...{ title, description }}
