@@ -59,7 +59,11 @@ export function ItemsOrdered() {
       />
       <SectionContainer padding="0 8px 0 0">
         <ProductsTable products={products} isRemove={false} />
-        <AccordionComponent isOpen={true} title={"Order Information"}>
+        <AccordionComponent
+          isExpandIcon={false}
+          title={"Order Information"}
+          expanded={true}
+        >
           <Box
             sx={{
               display: "grid",
