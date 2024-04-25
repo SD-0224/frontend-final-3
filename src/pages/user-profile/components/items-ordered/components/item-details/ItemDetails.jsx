@@ -16,7 +16,6 @@ export function ItemDetails({ orderDetails, paymentDetails, addressDetails }) {
           display: "grid",
           gridTemplateColumns: {
             xs: " 1fr",
-            sm: "1fr 1fr",
             md: "minmax(0,2fr) minmax(0,1fr) minmax(0,2fr)",
           },
           gap: { xs: "20px 30px", sm: "20px 122px", md: "122px" },
