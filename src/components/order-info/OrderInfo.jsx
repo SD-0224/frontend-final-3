@@ -6,7 +6,9 @@ export function OrderInfo({ title, orderInfo, isTitleSmall = false }) {
   };
 
   const getRowFontColor = (index) => {
-    return index === orderInfo.length - 1 ? styles.darkFont : styles.lightFont;
+    return index === orderInfo.length - 1 || isTitleSmall
+      ? styles.darkFont
+      : styles.lightFont;
   };
   return (
     <Box>
