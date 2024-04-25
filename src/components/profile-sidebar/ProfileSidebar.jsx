@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Tabs, Box, Tab } from "@mui/material";
 import { RightChevron } from "../icons";
-import styles from "./profile-sidebar.module.css";
+import styles from "./ProfileSidebar.module.css";
 import { getSelectedColor } from "./components/tab-content-styles";
 
 export function SideBar({ SidebarOptions }) {

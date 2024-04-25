@@ -1,1 +1,1 @@
-export * from "./horizontal-scroll";
+export * from "./HorizontalScroll";

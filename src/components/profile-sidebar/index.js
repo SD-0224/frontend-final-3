@@ -1,1 +1,1 @@
-export * from "./profile-sidebar";
+export * from "./ProfileSidebar";
