@@ -176,6 +176,38 @@ const category = {
 }
 ```
 
+## /orders/
+
+```
+[{
+    orderId:string,
+	products:[{
+		productId:string,
+		quantity:number,
+	}],
+	date:number => Date.now(),
+	category:string => "cancelled" | "completed" | "processing",
+	status: string => "paid" | "unpaid",
+	address: Address
+}]
+```
+
+## /orders/:id
+
+```
+{
+    orderId:string,
+	products:[{
+		productId:string,
+		quantity:number,
+	}],
+	date:number => Date.now(),
+	category:string => "cancelled" | "completed" | "processing",
+	status: string => "paid" | "unpaid",
+	address: Address
+}
+```
+
 ## /products/
 
 ```
