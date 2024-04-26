@@ -419,3 +419,25 @@ const category = {
 	discountPercentage:number => 0 - 100,
 }]
 ```
+
+## /products/search/:query => _any product that has the query in it's name or in it's brand's name_
+
+```
+[{
+	id:string,
+	smallImageUrl:URL => 400 x 400,
+	title:string,
+	shortSubtitle:string => 1 - 4 words,
+	createdAt:number => Date.now(),
+	reviews: [
+		{
+			userId:string,
+			rating:float => 0.0 - 5
+			content:string,
+		}
+	],
+	price:float => up to 2 decimal points,
+	discountPercentage:number => 0 - 100,
+	brandId:string,
+}]
+```
