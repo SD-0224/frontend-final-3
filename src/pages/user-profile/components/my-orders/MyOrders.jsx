@@ -4,7 +4,7 @@ import { OrdersTable } from "./components/orders-table/OrdersTable";
 import styles from "./MyOrders.module.css";
 import { TabNavigation } from "../../../../components/tab-navigation";
 
-export function MyOrders() {
+export function MyOrders({ titles, tabs, orders }) {
   const titlesGrid = {
     paddingRight: { xs: "0", md: "67px" },
     paddingLeft: { xs: "0", md: "24px" },
@@ -18,25 +18,6 @@ export function MyOrders() {
     border: 0,
   };
 
-  const titles = ["", "Order ID", "Date", "Price", "Status"];
-
-  const tabs = ["Completed", "Processing", "Cancelled"];
-
-  const orders = [
-    {
-      id: "#1234756789",
-      date: "September 5, 2020",
-      price: "$100.50",
-      status: "unpaid",
-    },
-    {
-      id: "#1234756789",
-      date: "September 5, 2020",
-      price: "$218.50",
-      status: "Paid",
-    },
-  ];
-
   return (
     <Box className={styles.myOrdersContainer}>
       <TabNavigation
@@ -46,14 +27,20 @@ export function MyOrders() {
       />
       <Box className={styles.gridsContainer}>
         <OrdersGrid gridStyles={titlesGrid}>
-          {titles.map((title) => {
-            return <Typography className={styles.titles}>{title}</Typography>;
+          {titles.map((title, index) => {
+            return (
+              <Typography key={title} className={styles.titles}>
+                {title}
+              </Typography>
+            );
           })}
         </OrdersGrid>
 
         <Box className={styles.orderTableContainer}>
-          {orders.map((order, index) => {
-            return <OrdersTable key={index} {...{ ordertablegrid, order }} />;
+          {orders.map((order) => {
+            return (
+              <OrdersTable key={order.id} {...{ ordertablegrid, order }} />
+            );
           })}
         </Box>
       </Box>
