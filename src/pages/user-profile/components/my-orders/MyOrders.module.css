@@ -1,0 +1,31 @@
+.myOrdersContainer,
+.gridsContainer,
+.orderTableContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.myOrdersContainer {
+  gap: 40px;
+}
+
+.gridsContainer {
+  gap: 24px;
+}
+
+.orderTableContainer {
+  gap: 17px;
+  margin-right: 43px;
+}
+
+.titles {
+  font-size: 16;
+  font-weight: var(--medium-font-weight);
+  color: var(--low-emphasis-text-color);
+}
+
+@media (max-width: 900px) {
+  .orderTableContainer {
+    margin-right: 0;
+  }
+}
