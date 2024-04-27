@@ -3,7 +3,6 @@ import { Tabs, Box, Tab } from "@mui/material";
 import { RightChevron } from "../icons";
 import styles from "./ProfileSidebar.module.css";
 import { getSelectedColor } from "./components/tab-content-styles";
-import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
