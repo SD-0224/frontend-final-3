@@ -8,6 +8,7 @@ export const CustomInput = ({
   value,
   onChange,
   icon,
+  required,
   borderRadius = "8px",
   border = "0",
   isGrey = false,
@@ -35,6 +36,7 @@ export const CustomInput = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          required={required}
         />
       </div>
     </div>
