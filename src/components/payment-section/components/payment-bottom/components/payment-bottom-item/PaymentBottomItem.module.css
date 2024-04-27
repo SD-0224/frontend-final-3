@@ -12,6 +12,12 @@
   display: flex;
   justify-content: space-between;
   padding: 11px 26px 19px 11px;
+  transition: 0.2s all;
+  cursor: pointer;
+}
+
+.itemContainer:hover {
+  background-color: rgba(75, 155, 161, 0.058);
 }
 
 .itemContainer:has(input[name="paymentitemradio"]:checked) {
