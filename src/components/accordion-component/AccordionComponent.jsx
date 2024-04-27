@@ -4,13 +4,21 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-export function AccordionComponent({ title, children }) {
+export function AccordionComponent({
+  title,
+  children,
+  isExpanded = true,
+  isExpandIcon = false,
+  ...props
+}) {
   return (
     <div>
-      <Accordion defaultExpanded sx={{ boxShadow: 0 }}>
+      <Accordion defaultExpanded={isExpanded} sx={{ boxShadow: 0 }} {...props}>
         <AccordionSummary
           expandIcon={
-            <ExpandMoreIcon sx={{ color: "var(--dark)", fontSize: "2rem" }} />
+            isExpandIcon && (
+              <ExpandMoreIcon sx={{ color: "var(--dark)", fontSize: "2rem" }} />
+            )
           }
           aria-controls="accordion-content"
           sx={{
