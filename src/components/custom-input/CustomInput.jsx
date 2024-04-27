@@ -14,7 +14,7 @@ export const CustomInput = ({
   ...props
 }) => {
   return (
-    <div className={styles.inputWrapp}>
+    <div className={styles.inputWrapp} {...props}>
       {label && (
         <label htmlFor={id} className={styles.inputLabel}>
           {label}
