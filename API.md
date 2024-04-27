@@ -190,7 +190,7 @@ const category = {
 }
 ```
 
-## /orders/user/:userId
+## /orders/user/:userId => _get all orders of a specific user_
 
 ```
 [{
