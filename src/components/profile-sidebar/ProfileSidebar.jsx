@@ -36,11 +36,12 @@ function a11yProps(index) {
   };
 }
 
-export function SideBar({ SidebarOptions }) {
+export function ProfileSidebar({ SidebarOptions, titleSetter }) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    titleSetter(newValue);
   };
 
   const memoizedTabs = useMemo(() => {
