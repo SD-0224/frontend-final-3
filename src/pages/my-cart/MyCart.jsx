@@ -55,8 +55,8 @@ export const MyCart = () => {
         <Box className={styles.orderInfo}>
           <OrderInfo title={"Order Summary"} orderInfo={orderDetails} />
           <Box className={styles.operations}>
-            <CustomButton label={"Place Order"} />
-            <CustomButton label={"Continue Shopping"} variant="outlined" />
+            <CustomButton href='/checkout' label={"Place Order"} />
+            <CustomButton href='/' label={"Continue Shopping"} variant="outlined" />
           </Box>
         </Box>
       </Box>
