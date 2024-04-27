@@ -29,7 +29,7 @@ TabPanel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-function a11yProps(index) {
+function getTabIndexProp(index) {
   return {
     id: `vertical-tab-${index}`,
     'aria-controls': `vertical-tabpanel-${index}`,
@@ -71,7 +71,7 @@ export function ProfileSidebar({ SidebarOptions, titleSetter }) {
       <Tab
         key={index}
         sx={TabStyles}
-        {...a11yProps(index)}
+        {...getTabIndexProp(index)}
         label={
           <div
             className={`${styles.tabLabel}`}
