@@ -13,7 +13,7 @@ export function PaymentSection({ paymentMethods, paymentDetail }) {
           defaultValue="payments"
           orientation="horizontal"
           width="100%"
-          sx={{ gap: "20px", flexWrap: "wrap", justifyContent: "center" }}
+          sx={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "20px", flexWrap: "wrap", justifyContent: "center" }}
         >
           {paymentMethods?.map((method) => (
             <>
