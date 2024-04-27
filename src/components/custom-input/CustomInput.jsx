@@ -8,13 +8,14 @@ export const CustomInput = ({
   value,
   onChange,
   icon,
+  required,
   borderRadius = "8px",
   border = "0",
   isGrey = false,
   ...props
 }) => {
   return (
-    <div className={styles.inputWrapp}>
+    <div className={styles.inputWrapp} {...props}>
       {label && (
         <label htmlFor={id} className={styles.inputLabel}>
           {label}
@@ -35,6 +36,7 @@ export const CustomInput = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          required={required}
         />
       </div>
     </div>
