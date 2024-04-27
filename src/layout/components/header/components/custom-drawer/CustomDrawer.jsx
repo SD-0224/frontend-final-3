@@ -71,7 +71,7 @@ export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsArr, products
                 <button type="button" className={styles.check}>CHECK</button>
             </Box>
 
-            <CustomButton label={"Place Order"} />
+            <CustomButton label={"Place Order"} href="/checkout"/>
 
             <button className={styles.continueShopping} onClick={toggleDrawer(false)}>
                 <span>Continue Shopping</span>
