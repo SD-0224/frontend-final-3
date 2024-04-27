@@ -17,7 +17,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: 1 }}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -123,7 +123,7 @@ export function SideBar({ SidebarOptions }) {
       {
         SidebarOptions?.map((option, index) => {
           return (
-            <TabPanel value={value} index={index}>
+            <TabPanel value={value} index={index} key={index}>
               {option.component}
             </TabPanel>
           )
