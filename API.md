@@ -134,16 +134,6 @@ const category = {
     	rating:float => 0.0 - 5,
     	content:string,
     }},
-    orders:{[orderId]:{
-    	products:[{
-    		productId:string,
-    		quantity:number,
-    	}],
-    	date:number => Date.now(),
-    	category:string => "cancelled" | "completed" | "processing",
-    	status: string => "paid" | "unpaid",
-    	address: Address
-    }}
 
 }]
 ```
@@ -162,16 +152,6 @@ const category = {
 	reviews:{[productId]:{
 		rating:float => 0.0 - 5,
 		content:string,
-	}},
-	orders:{[orderId]:{
-		products:[{
-			productId:string,
-			quantity:number,
-		}],
-		date:number => Date.now(),
-		category:string => "cancelled" | "completed" | "processing",
-		status: string => "paid" | "unpaid",
-		address: Address
 	}}
 }
 ```
@@ -206,6 +186,22 @@ const category = {
 	status: string => "paid" | "unpaid",
 	address: Address
 }
+```
+
+## /orders/user/:userId
+
+```
+[{
+    orderId:string,
+	products:[{
+		productId:string,
+		quantity:number,
+	}],
+	date:number => Date.now(),
+	category:string => "cancelled" | "completed" | "processing",
+	status: string => "paid" | "unpaid",
+	address: Address
+}]
 ```
 
 ## /products/
