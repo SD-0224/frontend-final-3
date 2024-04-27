@@ -21,7 +21,7 @@ export function CustomButton({
 
   const outlinedButton = {
     color: color,
-    border: "2px solid",
+    border: "1px solid",
     borderColor: color,
   };
 
