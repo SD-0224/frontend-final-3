@@ -4,8 +4,8 @@ import styles from './BorderedBottomTitle.module.css';
 export const BorderedBottomTitle = ({ title, ...props }) => {
     return (
         <h1 className={styles.BorderedBottomTitle} {...props}>
-            <spa>{title}</spa>
-            <Divider />
+            <span>{title}</span>
+            <Divider sx={{ marginTop: "5px" }} />
         </h1>
     )
 }
