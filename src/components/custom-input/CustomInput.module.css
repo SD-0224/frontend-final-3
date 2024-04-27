@@ -6,6 +6,7 @@
 
 .inputLabel {
   font-weight: var(--semi-bold-font-weight);
+  position: relative;
 }
 
 .inputContainer {
@@ -15,6 +16,15 @@
   gap: 8px;
   font-weight: var(--semi-bold-font-weight);
   width: 100%;
+  position: relative;
+}
+
+.inputWrapp:has(input:required) .inputLabel::before {
+  content: "*";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #B00020;
 }
 
 .inputContainer input {
