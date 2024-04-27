@@ -130,7 +130,7 @@ export const Header = () => {
           />
           <div className={styles.userOperations}>
             <Heart />
-            <Link to={'/user-profile'}>
+            <Link to={'/user-profile'} className={styles.navigationLink}>
               <Profile />
             </Link>
             <div className={styles.shoppingContainer} onClick={toggleDrawer(true)}>
