@@ -4,7 +4,7 @@ import { Home } from "../pages/home";
 import { About } from "../pages/about";
 import { MyCart } from '../pages/my-cart';
 import { UserProfile } from '../pages/user-profile';
-import { CheckoutPage } from '../pages/checkout-page';
+import { CheckoutPage } from '../pages/checkout';
 
 export const MainRouter = function () {
   return (
