@@ -130,11 +130,6 @@ const category = {
 	mobile:number,
 	email:string,
 	address:{[addressId]: Address},
-    reviews:{[productId]:{
-    	rating:float => 0.0 - 5,
-    	content:string,
-    }},
-
 }]
 ```
 
@@ -149,11 +144,53 @@ const category = {
 	mobile:number,
 	email:string,
 	address:{[addressId]:Address},
-	reviews:{[productId]:{
-		rating:float => 0.0 - 5,
-		content:string,
-	}}
 }
+```
+
+## /reviews/
+
+```
+[{
+    id:string,
+    userId:string,
+    productId:string,
+    rating:float => 0.0 - 5,
+    content:string,
+}]
+```
+
+## /reviews/:id
+
+```
+{
+    id:string,
+    userId:string,
+    productId:string,
+    rating:float => 0.0 - 5,
+    content:string,
+}
+```
+
+## /reviews/user/:userId => _get all reviews for a specific user_
+
+```
+[{
+    id:string,
+    productId:string,
+    rating:float => 0.0 - 5,
+    content:string,
+}]
+```
+
+## /reviews/product/:productId => _get all reviews for a specific product_
+
+```
+[{
+    id:string,
+    userId:string,
+    rating:float => 0.0 - 5,
+    content:string,
+}]
 ```
 
 ## /orders/
