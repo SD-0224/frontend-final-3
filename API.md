@@ -161,6 +161,7 @@ const category = {
 ```
 [{
     orderId:string,
+    userId:string,
 	products:[{
 		productId:string,
 		quantity:number,
@@ -177,6 +178,7 @@ const category = {
 ```
 {
     orderId:string,
+    userId:string,
 	products:[{
 		productId:string,
 		quantity:number,
