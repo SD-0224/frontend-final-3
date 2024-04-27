@@ -10,7 +10,7 @@ export function CustomButton({
   borderRadius = "8px",
   color = "var(--primary)",
   fontSize = "16px",
-  fontWeight = "500",
+  fontWeight = "var(--medium-font-weight)",
   textColor = "var(--white)",
   padding = "6px 18px",
   children,
@@ -28,6 +28,7 @@ export function CustomButton({
   const containedButton = {
     backgroundColor: color,
     color: textColor,
+    boxShadow: 0,
   };
 
   const handleMouseEnter = () => {
@@ -65,7 +66,6 @@ export function CustomButton({
       sx={{
         ...(isContained ? containedButton : outlinedButton),
         borderRadius: borderRadius,
-        width: "100%",
         fontSize: fontSize,
         fontWeight: fontWeight,
         padding: { xs: xsPadding, sm: padding },
