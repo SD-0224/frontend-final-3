@@ -13,6 +13,7 @@ export function CustomButton({
   fontWeight = "500",
   textColor = "var(--white)",
   padding = "6px 18px",
+  children,
   ...props
 }) {
   const isContained = variant === "contained";
@@ -73,10 +74,10 @@ export function CustomButton({
           ...(isContained
             ? { backgroundColor: "var(--primary-tint)", boxShadow: "unset" }
             : {
-                color: "var(--primary-tint)",
-                borderColor: "var(--primary)",
-                backgroundColor: "unset",
-              }),
+              color: "var(--primary-tint)",
+              borderColor: "var(--primary)",
+              backgroundColor: "unset",
+            }),
         },
       }}
       onMouseEnter={handleMouseEnter}
@@ -84,6 +85,7 @@ export function CustomButton({
       {...props}
     >
       {!isXsScreen && label}
+      {children}
     </Button>
   );
 }
