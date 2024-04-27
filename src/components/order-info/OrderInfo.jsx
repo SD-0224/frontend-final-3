@@ -1,6 +1,6 @@
 import styles from "./OrderInfo.module.css";
 import { Box, Divider } from "@mui/material";
-export function OrderInfo({ title, orderInfo, isTitleSmall = false }) {
+export function OrderInfo({ title, orderInfo, isTitleSmall = false, children }) {
   const getRowFontWeight = (index) => {
     return index === orderInfo.length - 1 ? styles.bold : "";
   };
@@ -25,6 +25,7 @@ export function OrderInfo({ title, orderInfo, isTitleSmall = false }) {
           <div className={styles.darkFont}>{amount}</div>
         </div>
       ))}
+      {children}
     </Box>
   );
 }
