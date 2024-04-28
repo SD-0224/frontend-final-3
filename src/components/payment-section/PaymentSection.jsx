@@ -16,9 +16,7 @@ export function PaymentSection({ paymentMethods, paymentDetail }) {
           sx={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "20px", flexWrap: "wrap", justifyContent: "center" }}
         >
           {paymentMethods?.map((method) => (
-            <>
-              <PaymentComponent key={method.title} paymentMethod={method} />
-            </>
+            <PaymentComponent key={method.title} paymentMethod={method} />
           ))}
         </RadioGroup>
       </FormControl>

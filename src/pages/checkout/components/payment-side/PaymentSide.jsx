@@ -21,7 +21,7 @@ export const PaymentSide = ({ addressInputs, paymentMethods, paymentDetail }) =>
             <AccordionComponent title={"Add New Address"} isExpanded={true}>
                 <Box sx={gridStyles}>
                     {addressInputs?.map(input => (
-                        <CustomInput {...input} />
+                        <CustomInput key={input.label} {...input} />
                     ))}
                 </Box>
             </AccordionComponent>

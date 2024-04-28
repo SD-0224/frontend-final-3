@@ -19,9 +19,9 @@ export function PaymentBottom({ paymentDetail }) {
         gap: "40px",
       }}
     >
-      {paymentDetail?.map(({ title, src }) => {
+      {paymentDetail?.map(({ title, src }, index) => {
         return (
-          <PaymentBottomItem {...{ handleChange, selectedValue, title, src }} />
+          <PaymentBottomItem key={title} {...{ handleChange, selectedValue, title, src }} />
         );
       })}
     </Box>
