@@ -7,28 +7,17 @@ import { OrderInfo } from "../../components/order-info/OrderInfo";
 import { calcDiscount, calcSubTotal, calcTotal } from "../../modules/order-calculations";
 import { ProductInCart } from "../../components/product-in-cart";
 import { CustomButton } from '../../components/custom-button';
+import { PaymentSide } from "./components/payment-side/PaymentSide";
+import { OrderSide } from "./components/order-side/OrderSide";
 export const CheckoutPage = () => {
 
-    const gridStyles = {
-        mainGrid: {
-            display: "grid",
-            gridTemplateColumns: "3fr 2fr",
-            gap: "70px",
-            '@media (max-width: 768px)': {
-                '&': {
-                    gridTemplateColumns: "1fr"
-                }
-            }
-        },
-        grid: {
-            display: "grid",
-            gridTemplateColumns: "repeat(2,1fr)",
-            gap: "20px 30px",
-            paddingBlock: "24px",
-            '@media (max-width: 600px)': {
-                '&': {
-                    gridTemplateColumns: "1fr"
-                }
+    const mainContainer = {
+        display: "grid",
+        gridTemplateColumns: "3fr 2fr",
+        gap: "70px",
+        '@media (max-width: 768px)': {
+            '&': {
+                gridTemplateColumns: "1fr"
             }
         }
     }
@@ -95,7 +84,7 @@ export const CheckoutPage = () => {
             title: "Amazon Pay",
             src: "/amazonpay.png",
         },
-    ]
+    ];
 
     const paymentDetail = [
         {
@@ -110,7 +99,8 @@ export const CheckoutPage = () => {
             title: "Paytm",
             src: "/paytm.png",
         },
-    ]
+    ];
+
     const products = [
         {
             title: "Coach",
@@ -142,46 +132,9 @@ export const CheckoutPage = () => {
     return (
         <Box sx={{ padding: "20px" }}>
             <PageTitle title={"Checkout"} />
-            <Box sx={gridStyles.mainGrid}>
-
-                <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-                    <AccordionComponent title={"Add New Address"} isExpanded={true}>
-                        <Box sx={gridStyles.grid}>
-                            {addressInputs?.map(input => (
-                                <CustomInput {...input} />
-                            ))}
-                        </Box>
-                    </AccordionComponent>
-
-                    <PaymentSection paymentDetail={paymentDetail} paymentMethods={paymentMethods} />
-
-                    <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <CustomButton href={"/my-cart"} variant="outlined" label={"Back to Cart"} style={{ border: "0px", textDecoration: "underline" }} />
-                        <CustomButton href={"/user-profile"} variant="contained" label={"Next"} />
-                    </Box>
-                </Box>
-
-                <Box sx={{ display: "flex", flexDirection: "column", gap: "60px", height: "fit-content", maxHeight: "fit-content", position: "sticky", top: "130px" }}>
-                    <OrderInfo title={"Order Summary"}>
-                        <Box sx={{
-                            display: 'flex',
-                            flexDirection: "column",
-                            gap: "24px",
-                        }}>
-                            {products?.map((product, index) => (
-                                <ProductInCart
-                                    key={index}
-                                    drawer={false}
-                                    title={product.title}
-                                    subtitle={product.subtitle}
-                                    quantity={product.quantity}
-                                />
-                            ))}
-                        </Box>
-                    </OrderInfo>
-                    <OrderInfo title={"Order Details"} orderInfo={orderDetails} />
-                </Box>
-
+            <Box sx={mainContainer}>
+                <PaymentSide addressInputs={addressInputs} paymentDetail={paymentDetail} paymentMethods={paymentMethods} />
+                <OrderSide orderDetails={orderDetails} products={products} />
             </Box>
         </Box>
     )
