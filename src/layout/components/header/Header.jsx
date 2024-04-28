@@ -11,6 +11,7 @@ import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 
 import { useState, useEffect } from "react";
 import { CustomDrawer } from "./components/custom-drawer";
+import { Link } from "react-router-dom";
 
 
 export const Header = () => {
@@ -109,14 +110,14 @@ export const Header = () => {
     <>
       <header className={styles.header} style={{ boxShadow: isScrolled ? "0px 0px 20px 0px rgba(0,0,0,0.1)" : "unset" }}>
         <section className={styles.navigationSection}>
-          <a href="#" className={styles.logo}>
+          <Link to="/" className={styles.logo}>
             <img src={"./logo.png"} alt="Logo" width={100} />
-          </a>
+          </Link>
           <div className={styles.navigationLinks}>
             {linksArr.map((text, index) => (
-              <a href="#" className={styles.navigationLink} key={index}>
+              <Link to="#" className={styles.navigationLink} key={index}>
                 {text}
-              </a>
+              </Link>
             ))}
           </div>
         </section>
@@ -129,7 +130,9 @@ export const Header = () => {
           />
           <div className={styles.userOperations}>
             <Heart />
-            <Profile />
+            <Link to={'/user-profile'} className={styles.navigationLink}>
+              <Profile />
+            </Link>
             <div className={styles.shoppingContainer} onClick={toggleDrawer(true)}>
               <div className={styles.dot}></div>
               <ShoppingBag />

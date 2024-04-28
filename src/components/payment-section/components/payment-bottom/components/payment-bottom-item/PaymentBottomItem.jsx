@@ -12,7 +12,7 @@ export function PaymentBottomItem({ handleChange, selectedValue, title, src }) {
       <Box className={styles.itemContent}>
         <Box className={styles.itemTitle}>
           <Box className={styles.itemImgWrapper}>
-            <ProductImage width={"44px"} src={src} />
+            <ProductImage width={"auto"} src={src} />
           </Box>
           <Typography fontSize={16} fontWeight={"var(--medium-font-weight)"}>
             {title}

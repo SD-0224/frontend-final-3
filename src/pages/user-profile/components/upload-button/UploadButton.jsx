@@ -1,4 +1,4 @@
-import { CustomButton } from "../../../../components/custom-button"
+import { CustomButton } from "../../../../components/custom-button";
 import { styled } from '@mui/material/styles';
 export const UploadButton = ({ ...props }) => {
     const VisuallyHiddenInput = styled('input')({
