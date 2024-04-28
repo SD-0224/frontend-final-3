@@ -1,12 +1,6 @@
 import { Box } from "@mui/material";
 import { PageTitle } from "../../components/page-title/PageTitle";
-import { AccordionComponent } from "../../components/accordion-component/AccordionComponent";
-import { CustomInput } from "../../components/custom-input";
-import { PaymentSection } from "../../components/payment-section/PaymentSection";
-import { OrderInfo } from "../../components/order-info/OrderInfo";
 import { calcDiscount, calcSubTotal, calcTotal } from "../../modules/order-calculations";
-import { ProductInCart } from "../../components/product-in-cart";
-import { CustomButton } from '../../components/custom-button';
 import { PaymentSide } from "./components/payment-side/PaymentSide";
 import { OrderSide } from "./components/order-side/OrderSide";
 export const CheckoutPage = () => {
