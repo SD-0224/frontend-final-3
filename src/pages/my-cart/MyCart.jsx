@@ -15,14 +15,14 @@ export const MyCart = () => {
     {
       title: "Coach",
       subtitle: "Leather Coach Bag",
-      quantity: 1,
+      quantity: 3,
       price: 54.69,
       discount: 20,
     },
     {
       title: "Coach",
       subtitle: "Leather Coach Bag",
-      quantity: 1,
+      quantity: 5,
       price: 54.69,
       discount: 30,
     },
@@ -55,8 +55,12 @@ export const MyCart = () => {
         <Box className={styles.orderInfo}>
           <OrderInfo title={"Order Summary"} orderInfo={orderDetails} />
           <Box className={styles.operations}>
-            <CustomButton href='/checkout' label={"Place Order"} />
-            <CustomButton href='/' label={"Continue Shopping"} variant="outlined" />
+            <CustomButton href="/checkout" label={"Place Order"} />
+            <CustomButton
+              href="/"
+              label={"Continue Shopping"}
+              variant="outlined"
+            />
           </Box>
         </Box>
       </Box>

@@ -18,4 +18,15 @@
   display: flex;
   justify-content: center;
   line-height: 20px;
+  min-width: 120px;
+}
+
+@media (max-width: 600px) {
+  .tabList {
+    gap: 0;
+    padding: 12px !important;
+  }
+  .tab {
+    width: 100%;
+  }
 }

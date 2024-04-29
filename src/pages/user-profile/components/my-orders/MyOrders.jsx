@@ -3,7 +3,6 @@ import { OrdersGrid } from "./components/orders-grid/OrdersGrid";
 import { OrdersTable } from "./components/orders-table/OrdersTable";
 import styles from "./MyOrders.module.css";
 import { TabNavigation } from "../../../../components/tab-navigation";
-import { ItemsOrdered } from "../items-ordered/ItemsOrdered";
 import { useState } from "react";
 
 const titlesGrid = {
@@ -53,26 +52,28 @@ export function MyOrders({ onOrderClick }) {
         tabsPadding="12px 18px"
         handleTabClick={setorderCategory}
       />
-      <Box className={styles.gridsContainer}>
-        <OrdersGrid gridStyles={titlesGrid}>
-          {titles.map((title) => {
-            return (
-              <Typography key={title} className={styles.titles}>
-                {title}
-              </Typography>
-            );
-          })}
-        </OrdersGrid>
+      <Box className={styles.tableContainer}>
+        <Box className={styles.gridsContainer}>
+          <OrdersGrid gridStyles={titlesGrid}>
+            {titles.map((title) => {
+              return (
+                <Typography key={title} className={styles.titles}>
+                  {title}
+                </Typography>
+              );
+            })}
+          </OrdersGrid>
 
-        <Box className={styles.orderTableContainer}>
-          {orders.map((order) => {
-            return (
-              <OrdersTable
-                key={order.id}
-                {...{ ordertablegrid, order, onOrderClick }}
-              />
-            );
-          })}
+          <Box className={styles.orderTableContainer}>
+            {orders.map((order) => {
+              return (
+                <OrdersTable
+                  key={order.id}
+                  {...{ ordertablegrid, order, onOrderClick }}
+                />
+              );
+            })}
+          </Box>
         </Box>
       </Box>
     </Box>

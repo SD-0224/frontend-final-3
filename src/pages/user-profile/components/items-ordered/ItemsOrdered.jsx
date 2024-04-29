@@ -69,12 +69,12 @@ export function ItemsOrdered() {
         tabsPadding="12px 18px"
         handleTabClick={() => console.log("tab clicked")}
       />
-      <SectionContainer padding="0 8px 0 0">
-        <Box sx={{ maxHeight: "30vh", overflowY: "auto" }}>
-          <ProductsTable products={products} isRemove={false} />
-        </Box>
-        <ItemDetails {...{ orderDetails, paymentDetails, addressDetails }} />
-      </SectionContainer>
+      <Box
+        sx={{ maxHeight: "30vh", overflowY: "auto", scrollbarWidth: "thin" }}
+      >
+        <ProductsTable products={products} isRemove={false} />
+      </Box>
+      <ItemDetails {...{ orderDetails, paymentDetails, addressDetails }} />
       <Box
         sx={{
           display: "flex",

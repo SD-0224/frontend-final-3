@@ -32,12 +32,17 @@ function getTabIndexProps(index) {
   };
 }
 
-export function ProfileSidebar({ SidebarOptions, titleSetter }) {
+export function ProfileSidebar({
+  SidebarOptions,
+  titleSetter,
+  setselectedOrderId,
+}) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
     titleSetter(newValue);
+    setselectedOrderId("");
   };
 
   const memoizedTabs = useMemo(() => {

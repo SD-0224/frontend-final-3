@@ -56,6 +56,7 @@ export const UserProfile = () => {
       component: null,
     },
   ];
+
   useEffect(() => {
     if (selectedOrderId) setTitle(`Order${selectedOrderId}`);
   }, [selectedOrderId]);
@@ -89,8 +90,10 @@ export const UserProfile = () => {
             alignItems={"center"}
             justifyContent={"right"}
             gap={"8px"}
-            padding={"8px 16px"}
-            width={"360px"}
+            maxWidth={"360px"}
+            width={{ sm: "auto", md: "360px" }}
+            marginBottom={"12px"}
+            paddingInlineEnd={"16px"}
           >
             <LeftChevron />
             <CustomInput
@@ -101,7 +104,11 @@ export const UserProfile = () => {
           </Box>
         )}
       </Box>
-      <ProfileSidebar SidebarOptions={buttonList} titleSetter={titleSetter} />
+      <ProfileSidebar
+        SidebarOptions={buttonList}
+        titleSetter={titleSetter}
+        {...{ setselectedOrderId }}
+      />
     </Box>
   );
 };

@@ -32,25 +32,23 @@ export function TabNavigation({
   };
 
   return (
-    <div>
-      <Tabs
-        onChange={handleChange}
-        defaultValue={0}
-        aria-label="Tabs Navigations"
-        selectionFollowsFocus
-      >
-        <TabsList style={{ padding: tabsPadding }} className={styles.tabList}>
-          {titles.map((title, index) => (
-            <Tab
-              value={index}
-              style={{ padding: tabPadding }}
-              className={styles.tab}
-            >
-              {title}
-            </Tab>
-          ))}
-        </TabsList>
-      </Tabs>
-    </div>
+    <Tabs
+      onChange={handleChange}
+      defaultValue={0}
+      aria-label="Tabs Navigations"
+      selectionFollowsFocus
+    >
+      <TabsList style={{ padding: tabsPadding }} className={styles.tabList}>
+        {titles.map((title, index) => (
+          <Tab
+            value={index}
+            style={{ padding: tabPadding }}
+            className={styles.tab}
+          >
+            {title}
+          </Tab>
+        ))}
+      </TabsList>
+    </Tabs>
   );
 }
