@@ -11,3 +11,4 @@ export * from "./Location";
 export * from "./Category";
 export * from "./Home";
 export * from "./Star";
+export * from "./LeftChevron";

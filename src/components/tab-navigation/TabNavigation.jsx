@@ -22,11 +22,13 @@ export function TabNavigation({
   titles,
   tabPadding = "6px 18px",
   tabsPadding = "8px 16px",
+  handleTabClick,
 }) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    handleTabClick(titles[newValue]);
   };
 
   return (

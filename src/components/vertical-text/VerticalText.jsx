@@ -2,8 +2,20 @@ import { Box, Typography } from "@mui/material";
 
 export function Verticaltext({ title, info }) {
   return (
-    <Box sx={{ display: "flex", position: "relative" }}>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+    <Box
+      sx={{
+        display: "flex",
+        position: "relative",
+        justifyContent: { xs: "start", lg: "center" },
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "8px",
+        }}
+      >
         <Typography
           variant="h1"
           sx={{

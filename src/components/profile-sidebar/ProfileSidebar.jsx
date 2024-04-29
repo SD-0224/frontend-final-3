@@ -3,7 +3,7 @@ import { Tabs, Box, Tab } from "@mui/material";
 import { RightChevron } from "../icons";
 import styles from "./ProfileSidebar.module.css";
 import { getSelectedColor } from "./components/tab-content-styles";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
   return (
@@ -14,11 +14,7 @@ function TabPanel(props) {
       aria-labelledby={`vertical-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 1 }}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 0 }}>{children}</Box>}
     </div>
   );
 }
@@ -32,7 +28,7 @@ TabPanel.propTypes = {
 function getTabIndexProps(index) {
   return {
     id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
+    "aria-controls": `vertical-tabpanel-${index}`,
   };
 }
 
@@ -48,7 +44,7 @@ export function ProfileSidebar({ SidebarOptions, titleSetter }) {
     const TabStyles = {
       padding: "24px 10px",
       maxWidth: "none",
-      '& .MuiTouchRipple-root': {
+      "& .MuiTouchRipple-root": {
         width: "3px",
         height: "56px",
         maxHeight: "100%",
@@ -60,11 +56,11 @@ export function ProfileSidebar({ SidebarOptions, titleSetter }) {
         top: "50%",
         transform: "translateY(-50%)",
       },
-      '&.Mui-selected': {
-        '& .MuiTouchRipple-root': {
+      "&.Mui-selected": {
+        "& .MuiTouchRipple-root": {
           opacity: "1",
           visibility: "visible",
-        }
+        },
       },
     };
     return SidebarOptions?.map((option, index) => (
@@ -86,11 +82,15 @@ export function ProfileSidebar({ SidebarOptions, titleSetter }) {
   }, [SidebarOptions, value]);
 
   return (
-    <Box sx={{
-      display: "grid", gridTemplateColumns: "280px 1fr", gap: "22px", alignItems: "start",
-      '@media (max-width: 768px)':
-        { '&': { gridTemplateColumns: "1fr" } }
-    }}>
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "280px 1fr",
+        gap: "22px",
+        alignItems: "start",
+        "@media (max-width: 768px)": { "&": { gridTemplateColumns: "1fr" } },
+      }}
+    >
       <Tabs
         orientation="vertical"
         value={value}
@@ -99,12 +99,12 @@ export function ProfileSidebar({ SidebarOptions, titleSetter }) {
         sx={{
           borderRadius: "10px",
           backgroundColor: "var(--grey)",
-          '@media (max-width: 768px)': {
-            '.MuiTabs-flexContainerVertical': {
+          "@media (max-width: 768px)": {
+            ".MuiTabs-flexContainerVertical": {
               flexDirection: "row",
-              overflow: "auto"
-            }
-          }
+              overflow: "auto",
+            },
+          },
         }}
         TabIndicatorProps={{
           style: {
@@ -120,15 +120,13 @@ export function ProfileSidebar({ SidebarOptions, titleSetter }) {
       >
         {memoizedTabs}
       </Tabs>
-      {
-        SidebarOptions?.map((option, index) => {
-          return (
-            <TabPanel value={value} index={index} key={index}>
-              {option.component}
-            </TabPanel>
-          )
-        })
-      }
+      {SidebarOptions?.map((option, index) => {
+        return (
+          <TabPanel value={value} index={index} key={index}>
+            {option.component}
+          </TabPanel>
+        );
+      })}
     </Box>
   );
 }
