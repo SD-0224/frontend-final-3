@@ -3,6 +3,13 @@ import { OrdersGrid } from "../orders-grid";
 import { RightChevron } from "../../../../../../components/icons";
 
 export function OrdersTable({ ordertablegrid, order, onOrderClick }) {
+  const date = new Date(order.createdAt);
+  const formattedDate = date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
   return (
     <OrdersGrid gridStyles={ordertablegrid}>
       <Checkbox
@@ -19,7 +26,7 @@ export function OrdersTable({ ordertablegrid, order, onOrderClick }) {
         {order.id}
       </Typography>
       <Typography width={"80%"} sx={{ overflow: "hidden" }}>
-        {order.date}
+        {formattedDate}
       </Typography>
       <Typography sx={{ textWrap: "wrap" }}>{order.price}</Typography>
       <Typography color={"var(--primary)"}>{order.status}</Typography>

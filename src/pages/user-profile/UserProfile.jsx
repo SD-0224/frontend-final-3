@@ -10,11 +10,13 @@ import { ItemsOrdered } from "./components/items-ordered/ItemsOrdered";
 import { CustomInput } from "../../components/custom-input";
 import { LeftChevron } from "../../components/icons";
 import { useNavigate } from "react-router-dom";
+import { fetchData } from "../../components/fetch-url/FetchUrl";
 
 export const UserProfile = () => {
   const [title, setTitle] = useState("Personal Information");
   const [selectedOrderId, setselectedOrderId] = useState(null);
   const navigate = useNavigate();
+  const [orders, setOrders] = useState();
 
   const titleSetter = (num) => {
     setTitle(buttonList[num].label);
@@ -39,7 +41,7 @@ export const UserProfile = () => {
       component: selectedOrderId ? (
         <ItemsOrdered itemId={selectedOrderId} />
       ) : (
-        <MyOrders onOrderClick={handleOrderClick} />
+        <MyOrders orders={orders} onOrderClick={handleOrderClick} />
       ),
     },
     {
@@ -59,6 +61,18 @@ export const UserProfile = () => {
       component: null,
     },
   ];
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const fetchedData = await fetchData("orders");
+        setOrders(fetchedData);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchDataAsync();
+  }, []);
 
   useEffect(() => {
     if (selectedOrderId) setTitle(`Order${selectedOrderId}`);
