@@ -22,19 +22,19 @@ const titles = ["", "Order ID", "Date", "Price", "Status"];
 
 const orders = [
   {
-    id: "#1713080945276",
+    id: "17130945276",
     status: "unpaid",
     date: "September 5, 2020",
     price: "$218.00",
   },
   {
-    id: "#1713080945502",
+    id: "1713080945502",
     status: "unpaid",
     date: "September 5, 2020",
     price: "$218.00",
   },
   {
-    id: "#1713080945502",
+    id: "113080945502",
     status: "unpaid",
     date: "September 5, 2020",
     price: "$218.00",

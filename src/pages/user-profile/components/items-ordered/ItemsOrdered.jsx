@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
 import { TabNavigation } from "../../../../components/tab-navigation";
-import { SectionContainer } from "../../../../components/section-container";
 import { ProductsTable } from "../../../../components/products-table";
 import { CustomButton } from "../../../../components/custom-button";
 import { ItemDetails } from "./components/item-details";

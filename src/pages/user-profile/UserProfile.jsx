@@ -9,10 +9,12 @@ import { MyOrders } from "./components/my-orders/MyOrders";
 import { ItemsOrdered } from "./components/items-ordered/ItemsOrdered";
 import { CustomInput } from "../../components/custom-input";
 import { LeftChevron } from "../../components/icons";
+import { useNavigate } from "react-router-dom";
 
 export const UserProfile = () => {
   const [title, setTitle] = useState("Personal Information");
   const [selectedOrderId, setselectedOrderId] = useState(null);
+  const navigate = useNavigate();
 
   const titleSetter = (num) => {
     setTitle(buttonList[num].label);
@@ -20,6 +22,7 @@ export const UserProfile = () => {
 
   const handleOrderClick = (OrderId) => {
     setselectedOrderId(OrderId);
+    navigate(`/user-profile?id=${OrderId}`);
   };
 
   const buttonList = [
@@ -59,7 +62,13 @@ export const UserProfile = () => {
 
   useEffect(() => {
     if (selectedOrderId) setTitle(`Order${selectedOrderId}`);
+    else navigate(`/user-profile`);
   }, [selectedOrderId]);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    setselectedOrderId(urlParams.get("id"));
+  }, [window.location.search]);
 
   return (
     <Box

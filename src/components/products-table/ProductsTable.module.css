@@ -30,7 +30,7 @@ thead {
   position: sticky;
   top: 0;
   background-color: var(--white);
-  box-shadow: 1px 1px 70px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 70px 0px rgba(0, 0, 0, 0.1);
 }
 
 .table tbody.mainBody::before {
