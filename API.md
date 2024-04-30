@@ -200,8 +200,8 @@ const category = {
     id:string,
     userId:string,
 	products:[{
-		productId:string,
-		quantity:number,
+		product:Product,
+		orderQuantity:number => 1 - 50 (random),
 	}],
 	date:number => Date.now(),
 	category:string => "cancelled" | "completed" | "processing",
@@ -217,8 +217,8 @@ const category = {
     id:string,
     userId:string,
 	products:[{
-		productId:string,
-		quantity:number,
+		product:Product,
+		orderQuantity:number => 1 - 50 (random),
 	}],
 	date:number => Date.now(),
 	category:string => "cancelled" | "completed" | "processing",
@@ -233,8 +233,8 @@ const category = {
 [{
     id:string,
 	products:[{
-		productId:string,
-		quantity:number,
+		product:Product,
+		orderQuantity:number => 1 - 50 (random),
 	}],
 	date:number => Date.now(),
 	category:string => "cancelled" | "completed" | "processing",
