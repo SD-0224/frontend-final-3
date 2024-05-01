@@ -17,6 +17,13 @@ export function PaymentComponent({ paymentMethod }) {
       component="label"
       key={title}
       className={styles.paymentMethodContainer}
+      sx={{
+        cursor: "pointer", 
+        transition: "0.2s all", 
+        "&:hover": {
+          borderColor: "var(--primary)",
+        }
+      }}
     >
       <CustomRadioButton
         {...{ handleChange, title }}

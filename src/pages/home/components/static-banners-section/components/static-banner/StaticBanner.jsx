@@ -22,14 +22,17 @@ export function StaticBanner() {
         color="#97451F"
       />
 
-      <Box display={"flex"} justifyContent={"space-between"}>
+      <Box
+        display={"flex"}
+        flexDirection={{ xs: "column", md: "row" }}
+        gap={{ xs: "20px", md: "32px" }}
+      >
         <CategoryBanner
           variant="dual"
           imageSrc="/images/static-banner/onsale.png"
           title="15% OFF & more"
           backgroundColor="var(--grey)"
           color="#A53F64"
-          marginRight={{ xs: "20px", md: "32px" }}
         />
         <CategoryBanner
           variant="dual"
