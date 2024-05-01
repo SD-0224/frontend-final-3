@@ -1,5 +1,12 @@
 .cardTopContainer {
+  display: flex;
+  flex-direction: column;
   width: min-content;
+}
+
+.cardDetails {
+  display: grid;
+  flex-grow: 1;
 }
 
 .cardDetails>* {
@@ -14,7 +21,7 @@
 
 .title {
   font-size: 16px;
-  font-weight: var(--medium-font-weight)
+  font-weight: var(--medium-font-weight);
 }
 
 .subtitle {
