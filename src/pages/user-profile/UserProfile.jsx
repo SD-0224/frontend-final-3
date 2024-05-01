@@ -17,6 +17,7 @@ export const UserProfile = () => {
   const [selectedOrderId, setselectedOrderId] = useState(null);
   const navigate = useNavigate();
   const [orders, setOrders] = useState();
+  const [orderData, setOrderData] = useState();
 
   const titleSetter = (num) => {
     setTitle(buttonList[num].label);
@@ -39,7 +40,7 @@ export const UserProfile = () => {
     {
       label: "My Orders",
       component: selectedOrderId ? (
-        <ItemsOrdered itemId={selectedOrderId} />
+        <ItemsOrdered {...{ orderData }} itemId={selectedOrderId} />
       ) : (
         <MyOrders orders={orders} onOrderClick={handleOrderClick} />
       ),
@@ -75,8 +76,18 @@ export const UserProfile = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedOrderId) setTitle(`Order${selectedOrderId}`);
-    else navigate(`/user-profile`);
+    if (selectedOrderId) {
+      setTitle(`Order#${selectedOrderId}`);
+      const fetchDataAsync = async () => {
+        try {
+          const fetchedData = await fetchData(`orders/${selectedOrderId}`);
+          setOrderData(fetchedData);
+        } catch (error) {
+          console.log(error.message);
+        }
+      };
+      fetchDataAsync();
+    } else navigate(`/user-profile`);
   }, [selectedOrderId]);
 
   useEffect(() => {

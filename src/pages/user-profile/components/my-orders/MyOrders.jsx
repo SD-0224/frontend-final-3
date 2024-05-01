@@ -4,6 +4,11 @@ import { OrdersTable } from "./components/orders-table/OrdersTable";
 import styles from "./MyOrders.module.css";
 import { TabNavigation } from "../../../../components/tab-navigation";
 import { useEffect, useState, useRef } from "react";
+import {
+  calcDiscount,
+  calcSubTotal,
+  calcTotal,
+} from "../../../../modules/order-calculations";
 
 const titlesGrid = {
   paddingRight: { xs: "0", md: "67px" },
@@ -23,15 +28,34 @@ const titles = ["", "Order ID", "Date", "Price", "Status"];
 export function MyOrders({ orders, onOrderClick }) {
   const [orderCategory, setorderCategory] = useState("completed");
   const [displayedOrders, setDisplayedOrders] = useState(20);
+  const [filteredOrders, setFilteredOrders] = useState([]);
   const orderTableRef = useRef(null);
+  console.log(orders);
+
+  const calcOrderTotal = (products) => {
+    let subTotal = calcSubTotal(products);
+    let discount = calcDiscount(products);
+    let total = calcTotal(subTotal, discount);
+    return "$" + total;
+  };
+
+  useEffect(() => {
+    if (orderCategory) {
+      const filtered = orders?.filter(
+        (order) => order.category === orderCategory.toLowerCase()
+      );
+      setFilteredOrders(filtered);
+    } else {
+      setFilteredOrders(orders);
+    }
+  }, [orderCategory, orders]);
 
   const handleScroll = () => {
     const container = orderTableRef.current;
     if (container) {
       const scrollPosition = container.scrollTop + container.clientHeight;
       const tableHeight = container.scrollHeight;
-
-      if (Math.floor(scrollPosition) === tableHeight) {
+      if (Math.abs(scrollPosition - tableHeight) <= 20) {
         fetchMoreOrders();
       }
     }
@@ -80,16 +104,14 @@ export function MyOrders({ orders, onOrderClick }) {
             })}
           </OrdersGrid>
 
-          <Box
-            className={styles.orderTableContainer}
-            ref={orderTableRef} // Set ref to the orderTableContainer
-          >
-            {orders?.slice(0, displayedOrders)?.map((order) => {
+          <Box className={styles.orderTableContainer} ref={orderTableRef}>
+            {filteredOrders?.slice(0, displayedOrders)?.map((order) => {
               return (
                 <Box>
                   <OrdersTable
                     key={order.id}
                     {...{ ordertablegrid, order, onOrderClick }}
+                    total={calcOrderTotal(order.products)}
                   />
                 </Box>
               );

@@ -9,37 +9,12 @@ import {
   calcTotal,
 } from "../../../../modules/order-calculations";
 
-export function ItemsOrdered() {
-  const products = [
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      quantity: 1,
-      price: 54.69,
-      discount: 20,
-    },
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      quantity: 1,
-      price: 54.69,
-      discount: 20,
-    },
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      quantity: 1,
-      price: 54.69,
-      discount: 20,
-    },
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      quantity: 1,
-      price: 54.69,
-      discount: 20,
-    },
-  ];
+export function ItemsOrdered({ orderData = [] }) {
+  const { streetAddress, pinCode, city, state } = orderData
+    ? orderData.address
+    : "";
+
+  const products = orderData.products || [];
 
   let subTotal = calcSubTotal(products);
   let discount = calcDiscount(products);
@@ -54,12 +29,7 @@ export function ItemsOrdered() {
 
   const paymentDetails = ["Cash on Delivery"];
 
-  const addressDetails = [
-    "Vincent Lobo",
-    "3068  Woodlawn Drive",
-    "Milwaukee",
-    "414-672-5388",
-  ];
+  const addressDetails = [state, city, streetAddress, pinCode];
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
       <TabNavigation
@@ -71,7 +41,13 @@ export function ItemsOrdered() {
       <Box
         sx={{ maxHeight: "30vh", overflowY: "auto", scrollbarWidth: "thin" }}
       >
-        <ProductsTable products={products} isRemove={false} />
+        {products && (
+          <ProductsTable
+            products={products}
+            isRemove={false}
+            isItemOrdered={false}
+          />
+        )}
       </Box>
       <ItemDetails {...{ orderDetails, paymentDetails, addressDetails }} />
       <Box

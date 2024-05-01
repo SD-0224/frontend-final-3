@@ -2,7 +2,7 @@ import { Box, Checkbox, Typography } from "@mui/material";
 import { OrdersGrid } from "../orders-grid";
 import { RightChevron } from "../../../../../../components/icons";
 
-export function OrdersTable({ ordertablegrid, order, onOrderClick }) {
+export function OrdersTable({ ordertablegrid, order, onOrderClick, total }) {
   const date = new Date(order.createdAt);
   const formattedDate = date.toLocaleDateString("en-US", {
     month: "long",
@@ -28,7 +28,7 @@ export function OrdersTable({ ordertablegrid, order, onOrderClick }) {
       <Typography width={"80%"} sx={{ overflow: "hidden" }}>
         {formattedDate}
       </Typography>
-      <Typography sx={{ textWrap: "wrap" }}>{order.price}</Typography>
+      <Typography sx={{ textWrap: "wrap" }}>{total}</Typography>
       <Typography color={"var(--primary)"}>{order.status}</Typography>
       <Box
         textAlign={"end"}
