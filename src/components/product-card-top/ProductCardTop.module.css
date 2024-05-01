@@ -18,13 +18,3 @@
   justify-content: space-between;
   margin-top: 8px;
 }
-
-.title {
-  font-size: 16px;
-  font-weight: var(--medium-font-weight);
-}
-
-.subtitle {
-  font-size: 14px;
-  color: var(--low-emphasis-text-color);
-}
