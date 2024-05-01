@@ -17,7 +17,6 @@ export const MainRouter = function () {
           <Route path="/my-cart" element={<MyCart />} />
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/about" element={<About />} />
-          <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="*" element={<h1>404 Page Not Found</h1>} />
         </Route>
