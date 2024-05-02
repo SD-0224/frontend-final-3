@@ -198,6 +198,7 @@ const category = {
 ```
 [{
     id:string,
+    orderNumber: number => 9 digits (random),
     userId:string,
 	products:[{
 		product:Product,
@@ -215,6 +216,7 @@ const category = {
 ```
 {
     id:string,
+    orderNumber: number => 9 digits (random),
     userId:string,
 	products:[{
 		product:Product,
@@ -232,6 +234,7 @@ const category = {
 ```
 [{
     id:string,
+    orderNumber: number => 9 digits (random),
 	products:[{
 		product:Product,
 		orderQuantity:number => 1 - 50 (random),
