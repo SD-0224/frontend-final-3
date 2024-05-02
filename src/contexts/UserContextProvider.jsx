@@ -19,7 +19,8 @@ export const UserContextProvider = ({ children }) => {
         if (user !== null) {
             localStorage.setItem('user', JSON.stringify([user[0]]));
         }
-        return JSON.parse(localStorage.getItem('user'))[0]
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        return storedUser ? storedUser[0] : null; // Handle case where storedUser is null
     }, [user]);
 
     return (
