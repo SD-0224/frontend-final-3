@@ -3,7 +3,13 @@ import { PageTitle } from "../../components/page-title/PageTitle";
 import { calcDiscount, calcSubTotal, calcTotal } from "../../modules/order-calculations";
 import { PaymentSide } from "./components/payment-side/PaymentSide";
 import { OrderSide } from "./components/order-side/OrderSide";
+import { useProductsContext, useUserContext } from "../../contexts";
+
 export const CheckoutPage = () => {
+    const products = useProductsContext();
+    const user = useUserContext();
+    const addressKeys = Object.keys(user.address);
+    const addressData = user.address[addressKeys];
 
     const mainContainer = {
         display: "grid",
@@ -19,10 +25,11 @@ export const CheckoutPage = () => {
     const addressInputs = [
         {
             label: "Full Name",
-            id: "firstName",
+            id: "fullName",
             placeholder: "Enter Name",
             type: "text",
             required: true,
+            value: addressData.fullName,
         },
         {
             label: "Mobile Number",
@@ -30,6 +37,7 @@ export const CheckoutPage = () => {
             placeholder: "+11",
             type: "text",
             required: true,
+            value: addressData.mobileNumber,
         },
         {
             label: "Street Address",
@@ -37,6 +45,7 @@ export const CheckoutPage = () => {
             placeholder: "Enter Address",
             type: "text",
             required: true,
+            value: addressData.streetAddress,
         },
         {
             label: "State",
@@ -44,6 +53,7 @@ export const CheckoutPage = () => {
             placeholder: "Enter State",
             type: "text",
             required: true,
+            value: addressData.state,
         },
         {
             label: "City",
@@ -51,6 +61,7 @@ export const CheckoutPage = () => {
             placeholder: "Enter City",
             type: "text",
             required: true,
+            value: addressData.city,
         },
         {
             label: "Pin Code",
@@ -58,6 +69,7 @@ export const CheckoutPage = () => {
             placeholder: "Enter Pin Code",
             type: "text",
             required: true,
+            value: addressData.pinCode,
         },
     ];
 
@@ -92,23 +104,6 @@ export const CheckoutPage = () => {
         {
             title: "Paytm",
             src: "/paytm.png",
-        },
-    ];
-
-    const products = [
-        {
-            title: "Coach",
-            subtitle: "Leather Coach Bag",
-            quantity: 1,
-            price: 54.69,
-            discount: 20,
-        },
-        {
-            title: "Coach",
-            subtitle: "Leather Coach Bag",
-            quantity: 1,
-            price: 54.69,
-            discount: 30,
         },
     ];
 
