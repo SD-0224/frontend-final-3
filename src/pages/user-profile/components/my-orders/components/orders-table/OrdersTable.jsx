@@ -33,7 +33,7 @@ export function OrdersTable({ ordertablegrid, order, onOrderClick, total }) {
       <Box
         textAlign={"end"}
         alignContent={"center"}
-        onClick={() => onOrderClick(order.id)}
+        onClick={() => onOrderClick(order.id, order.orderNumber)}
       >
         <RightChevron borderColor="var(--low-emphasis-text-color)" />
       </Box>

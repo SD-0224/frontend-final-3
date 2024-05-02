@@ -10,9 +10,11 @@ import {
 } from "../../../../modules/order-calculations";
 
 export function ItemsOrdered({ orderData = [] }) {
-  const { streetAddress, pinCode, city, state } = orderData
-    ? orderData.address
-    : "";
+  const { address = {} } = orderData || {};
+  const pinCode = address.pinCode || "";
+  const streetAddress = address.streetAddress || "";
+  const city = address.city || "";
+  const state = address.state || "";
 
   const products = orderData.products || [];
 

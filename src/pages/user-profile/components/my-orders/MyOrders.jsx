@@ -30,7 +30,6 @@ export function MyOrders({ orders, onOrderClick }) {
   const [displayedOrders, setDisplayedOrders] = useState(20);
   const [filteredOrders, setFilteredOrders] = useState([]);
   const orderTableRef = useRef(null);
-  console.log(orders);
 
   const calcOrderTotal = (products) => {
     let subTotal = calcSubTotal(products);

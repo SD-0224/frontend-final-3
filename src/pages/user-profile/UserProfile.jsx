@@ -9,12 +9,14 @@ import { MyOrders } from "./components/my-orders/MyOrders";
 import { ItemsOrdered } from "./components/items-ordered/ItemsOrdered";
 import { CustomInput } from "../../components/custom-input";
 import { LeftChevron } from "../../components/icons";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { fetchData } from "../../components/fetch-url/FetchUrl";
+import { Routes, Route } from "react-router-dom";
 
 export const UserProfile = () => {
   const [title, setTitle] = useState("Personal Information");
   const [selectedOrderId, setselectedOrderId] = useState(null);
+  const [orderNumber, setOrderNumber] = useState(null);
   const navigate = useNavigate();
   const [orders, setOrders] = useState();
   const [orderData, setOrderData] = useState();
@@ -23,43 +25,33 @@ export const UserProfile = () => {
     setTitle(buttonList[num].label);
   };
 
-  const handleOrderClick = (OrderId) => {
+  const handleOrderClick = (OrderId, orderNumber) => {
     setselectedOrderId(OrderId);
-    navigate(`/user-profile?id=${OrderId}`);
+    setOrderNumber(orderNumber);
+    navigate(`/user-profile/my-orders/order#${orderNumber}`);
   };
 
   const buttonList = [
     {
       label: "Personal Information",
-      component: <UserInformation />,
     },
     {
       label: "Refer and Earn",
-      component: null,
     },
     {
       label: "My Orders",
-      component: selectedOrderId ? (
-        <ItemsOrdered {...{ orderData }} itemId={selectedOrderId} />
-      ) : (
-        <MyOrders orders={orders} onOrderClick={handleOrderClick} />
-      ),
     },
     {
       label: "My Wishlist",
-      component: null,
     },
     {
       label: "My Reviews",
-      component: null,
     },
     {
       label: "My Address Book",
-      component: null,
     },
     {
       label: "My Saved Cards",
-      component: null,
     },
   ];
 
@@ -77,7 +69,7 @@ export const UserProfile = () => {
 
   useEffect(() => {
     if (selectedOrderId) {
-      setTitle(`Order#${selectedOrderId}`);
+      setTitle(`Order#${orderNumber}`);
       const fetchDataAsync = async () => {
         try {
           const fetchedData = await fetchData(`orders/${selectedOrderId}`);
@@ -87,7 +79,7 @@ export const UserProfile = () => {
         }
       };
       fetchDataAsync();
-    } else navigate(`/user-profile`);
+    }
   }, [selectedOrderId]);
 
   useEffect(() => {
@@ -138,11 +130,31 @@ export const UserProfile = () => {
           </Box>
         )}
       </Box>
-      <ProfileSidebar
-        SidebarOptions={buttonList}
-        titleSetter={titleSetter}
-        {...{ setselectedOrderId }}
-      />
+      <Box display={"flex"} flexDirection={{ xs: "column", md: "row" }}>
+        <ProfileSidebar
+          SidebarOptions={buttonList}
+          titleSetter={titleSetter}
+          {...{ setselectedOrderId }}
+        />
+        <Outlet />
+        <Box sx={{ flex: 1 }}>
+          <Routes>
+            <Route
+              path="my-orders"
+              element={
+                <MyOrders orders={orders} onOrderClick={handleOrderClick} />
+              }
+            />
+            <Route
+              path="my-orders/order"
+              element={
+                <ItemsOrdered {...{ orderData }} itemId={selectedOrderId} />
+              }
+            />
+            <Route index element={<UserInformation />} />
+          </Routes>
+        </Box>
+      </Box>
     </Box>
   );
 };

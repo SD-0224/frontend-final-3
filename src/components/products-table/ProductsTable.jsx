@@ -12,7 +12,6 @@ export const ProductsTable = ({
   const memoizedProducts = useMemo(() => {
     return products?.map((product, index) => (
       <tr key={index}>
-        {console.log(product)}
         <td>
           <ProductInCart
             isItemOrdered={isItemOrdered}
