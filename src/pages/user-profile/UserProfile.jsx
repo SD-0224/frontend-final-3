@@ -82,11 +82,6 @@ export const UserProfile = () => {
     }
   }, [selectedOrderId]);
 
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    setselectedOrderId(urlParams.get("id"));
-  }, [window.location.search]);
-
   return (
     <Box
       sx={{

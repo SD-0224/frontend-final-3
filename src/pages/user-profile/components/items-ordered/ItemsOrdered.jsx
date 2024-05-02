@@ -32,6 +32,7 @@ export function ItemsOrdered({ orderData = [] }) {
   const paymentDetails = ["Cash on Delivery"];
 
   const addressDetails = [state, city, streetAddress, pinCode];
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
       <TabNavigation
