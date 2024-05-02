@@ -11,23 +11,10 @@ import {
 } from "../../modules/order-calculations";
 import { Link } from "react-router-dom";
 
+import { useDataContext } from "../../contexts";
+
 export const MyCart = () => {
-  const products = [
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      quantity: 3,
-      price: 54.69,
-      discount: 20,
-    },
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      quantity: 5,
-      price: 54.69,
-      discount: 30,
-    },
-  ];
+  const products = useDataContext();
 
   let subTotal = calcSubTotal(products);
   let discount = calcDiscount(products);
