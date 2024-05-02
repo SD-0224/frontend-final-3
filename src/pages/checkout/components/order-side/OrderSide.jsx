@@ -22,6 +22,7 @@ export const OrderSide = ({ orderDetails, products }) => {
                 }}>
                     {products?.map((product, index) => (
                         <ProductInCart
+                            src={product.smallImageUrl}
                             key={index}
                             drawer={false}
                             title={product.title}
