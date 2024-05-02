@@ -3,4 +3,5 @@
   color: var(--primary);
   font-weight: var(--semi-bold-font-weight);
   margin: 44px 0px;
+  width: 100%;
 }
