@@ -1,0 +1,22 @@
+.breadcrumbs {
+    padding-inline-start: 20px;
+    margin-block: 20px;
+}
+
+.breadcrumbs a {
+    font-weight: 500;
+    line-height: 18px;
+    text-decoration: none;
+    color: var(--primary);
+    text-transform: capitalize;
+}
+
+.breadcrumbs a:visited {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.breadcrumbs li:last-child a {
+    color: #626262;
+    pointer-events: none;
+}
