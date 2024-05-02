@@ -1,12 +1,14 @@
-import styles from "./CategoryProducts.module.css";
 import { ProductCard } from "../product-card";
+import { Grid } from "@mui/material";
 
 export const CategoryProducts = function ({ products }) {
   return (
-    <div className={styles.productsContainer}>
+    <Grid container spacing={4}>
       {products?.map((product) => (
-        <ProductCard key={product.id} {...product} />
+        <Grid item key={product.id}>
+          <ProductCard {...product} />
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 };
