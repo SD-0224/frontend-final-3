@@ -5,8 +5,10 @@ import { CustomButton } from '../../../../components/custom-button';
 import Avatar from '@mui/material/Avatar';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { UploadButton } from '../upload-button';
+import { useUserContext } from '../../../../contexts';
 
 export const UserInformation = () => {
+    const user = useUserContext();
 
     const styles = {
         marginBlock: "24px",
@@ -30,6 +32,7 @@ export const UserInformation = () => {
             type: "text",
             span: 1,
             required: true,
+            value: user.firstName,
         },
         {
             label: "Last Name",
@@ -37,6 +40,7 @@ export const UserInformation = () => {
             type: "text",
             span: 1,
             required: true,
+            value: user.lastName,
         },
         {
             label: "Email",
@@ -44,6 +48,7 @@ export const UserInformation = () => {
             type: "email",
             span: 2,
             required: true,
+            value: user.email,
         },
         {
             label: "Mobile Number",
@@ -51,6 +56,7 @@ export const UserInformation = () => {
             type: "text",
             span: 1,
             required: false,
+            value: "+11",
         },
         {
             label: null,
@@ -58,6 +64,7 @@ export const UserInformation = () => {
             type: "number",
             span: 1,
             required: false,
+            value: user.mobile,
         },
         {
             label: "Date of birth",
