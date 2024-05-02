@@ -28,7 +28,7 @@ export function TabNavigation({
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    handleTabClick(titles[newValue]);
+    handleTabClick && handleTabClick(titles[newValue]);
   };
 
   return (

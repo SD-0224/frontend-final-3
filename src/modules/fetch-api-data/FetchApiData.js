@@ -1,7 +1,7 @@
-export async function fetchData(path) {
+export async function fetchApiData(endpoint) {
   try {
     const response = await fetch(
-      `https://backend-final-3.onrender.com/api/${path}`
+      `https://backend-final-3.onrender.com/api/${endpoint}`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch data");

@@ -10,12 +10,12 @@ import { ItemsOrdered } from "./components/items-ordered/ItemsOrdered";
 import { CustomInput } from "../../components/custom-input";
 import { LeftChevron } from "../../components/icons";
 import { Outlet, useNavigate } from "react-router-dom";
-import { fetchData } from "../../components/fetch-url/FetchUrl";
+import { fetchApiData } from "../../modules/fetch-api-data/FetchApiData";
 import { Routes, Route } from "react-router-dom";
 
 export const UserProfile = () => {
   const [title, setTitle] = useState("Personal Information");
-  const [selectedOrderId, setselectedOrderId] = useState(null);
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
   const [orderNumber, setOrderNumber] = useState(null);
   const navigate = useNavigate();
   const [orders, setOrders] = useState();
@@ -26,7 +26,7 @@ export const UserProfile = () => {
   };
 
   const handleOrderClick = (OrderId, orderNumber) => {
-    setselectedOrderId(OrderId);
+    setSelectedOrderId(OrderId);
     setOrderNumber(orderNumber);
     navigate(`/user-profile/my-orders/order#${orderNumber}`);
   };
@@ -58,8 +58,8 @@ export const UserProfile = () => {
   useEffect(() => {
     const fetchDataAsync = async () => {
       try {
-        const fetchedData = await fetchData("orders");
-        setOrders(fetchedData);
+        const fetchedOrders = await fetchApiData("orders");
+        setOrders(fetchedOrders);
       } catch (error) {
         console.log(error.message);
       }
@@ -72,8 +72,10 @@ export const UserProfile = () => {
       setTitle(`Order#${orderNumber}`);
       const fetchDataAsync = async () => {
         try {
-          const fetchedData = await fetchData(`orders/${selectedOrderId}`);
-          setOrderData(fetchedData);
+          const fetchedOrderItems = await fetchApiData(
+            `orders/${selectedOrderId}`
+          );
+          setOrderData(fetchedOrderItems);
         } catch (error) {
           console.log(error.message);
         }
@@ -129,7 +131,7 @@ export const UserProfile = () => {
         <ProfileSidebar
           SidebarOptions={buttonList}
           titleSetter={titleSetter}
-          {...{ setselectedOrderId }}
+          {...{ setSelectedOrderId }}
         />
         <Outlet />
         <Box sx={{ flex: 1 }}>

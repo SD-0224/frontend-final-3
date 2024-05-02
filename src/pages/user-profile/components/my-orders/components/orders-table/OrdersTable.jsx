@@ -2,7 +2,7 @@ import { Box, Checkbox, Typography } from "@mui/material";
 import { OrdersGrid } from "../orders-grid";
 import { RightChevron } from "../../../../../../components/icons";
 
-export function OrdersTable({ ordertablegrid, order, onOrderClick, total }) {
+export function OrdersTable({ orderTableGrid, order, onOrderClick, total }) {
   const date = new Date(order.createdAt);
   const formattedDate = date.toLocaleDateString("en-US", {
     month: "long",
@@ -11,7 +11,7 @@ export function OrdersTable({ ordertablegrid, order, onOrderClick, total }) {
   });
 
   return (
-    <OrdersGrid gridStyles={ordertablegrid}>
+    <OrdersGrid gridStyles={orderTableGrid}>
       <Checkbox
         sx={{
           alignItems: "start",

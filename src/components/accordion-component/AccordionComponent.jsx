@@ -8,7 +8,7 @@ export function AccordionComponent({
   title,
   children,
   isExpanded = true,
-  isExpandIcon = false,
+  showExpandIcon = false,
   ...props
 }) {
   return (
@@ -20,7 +20,7 @@ export function AccordionComponent({
     >
       <AccordionSummary
         expandIcon={
-          isExpandIcon && (
+          showExpandIcon && (
             <ExpandMoreIcon sx={{ color: "var(--dark)", fontSize: "2rem" }} />
           )
         }

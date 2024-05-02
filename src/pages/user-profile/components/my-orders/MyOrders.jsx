@@ -16,7 +16,7 @@ const titlesGrid = {
   borderBottom: "1px solid #0000001F",
 };
 
-const ordertablegrid = {
+const orderTableGrid = {
   padding: { xs: "19px 5px", md: "19px 24px" },
   backgroundColor: "var(--grey)",
   borderRadius: "8px",
@@ -109,7 +109,7 @@ export function MyOrders({ orders, onOrderClick }) {
                 <Box>
                   <OrdersTable
                     key={order.id}
-                    {...{ ordertablegrid, order, onOrderClick }}
+                    {...{ orderTableGrid, order, onOrderClick }}
                     total={calcOrderTotal(order.products)}
                   />
                 </Box>

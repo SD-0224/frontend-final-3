@@ -34,12 +34,18 @@ export function ItemsOrdered({ orderData = [] }) {
   const addressDetails = [state, city, streetAddress, pinCode];
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "40px",
+        marginBottom: "233px",
+      }}
+    >
       <TabNavigation
         titles={["Items Ordered", "Invoices", "Order Shipment"]}
         tabPadding="12px 16px"
         tabsPadding="12px 18px"
-        handleTabClick={() => console.log("tab clicked")}
       />
       <Box
         sx={{ maxHeight: "30vh", overflowY: "auto", scrollbarWidth: "thin" }}

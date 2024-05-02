@@ -3,11 +3,12 @@ import { AccordionComponent } from "../../../../../../components/accordion-compo
 import { OrderInfo } from "../../../../../../components/order-info";
 import { Verticaltext } from "../../../../../../components/vertical-text";
 import { CustomButton } from "../../../../../../components/custom-button";
+import { Link } from "react-router-dom";
 
 export function ItemDetails({ orderDetails, paymentDetails, addressDetails }) {
   return (
     <AccordionComponent
-      isExpandIcon={false}
+      showExpandIcon={false}
       title={"Order Information"}
       expanded={true}
     >
@@ -31,15 +32,16 @@ export function ItemDetails({ orderDetails, paymentDetails, addressDetails }) {
         <Box display={"flex"} justifyContent={"space-between"}>
           <Verticaltext title={"Address Details"} info={addressDetails} />
           <Box position={"relative"} right={"0"} top={"27px"}>
-            <CustomButton
-              label={"Home"}
-              fontSize="12px"
-              padding="5px 20px"
-              borderRadius="4px"
-              color="var(--grey)"
-              textColor="#000000"
-              href="/"
-            />
+            <Link to="/">
+              <CustomButton
+                label={"Home"}
+                fontSize="12px"
+                padding="5px 20px"
+                borderRadius="4px"
+                color="var(--grey)"
+                textColor="#000000"
+              />
+            </Link>
           </Box>
         </Box>
       </Box>

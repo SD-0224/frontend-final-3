@@ -8,33 +8,40 @@ import { useLocation, useNavigate } from "react-router-dom";
 export function ProfileSidebar({
   SidebarOptions,
   titleSetter,
-  setselectedOrderId,
+  setSelectedOrderId,
 }) {
   const [value, setValue] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
 
+  function formatSidebarOptionLabelToPath(option) {
+    return option.label.toLowerCase().split(" ").join("-");
+  }
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
     titleSetter(newValue);
-    setselectedOrderId("");
+    setSelectedOrderId("");
     const newPath =
       newValue !== 0
-        ? SidebarOptions[newValue].label.toLowerCase().split(" ").join("-")
+        ? formatSidebarOptionLabelToPath(SidebarOptions[newValue])
         : "";
     navigate(`/user-profile/${newPath}`);
   };
 
-  useEffect(() => {
+  function updateTabSelection(location, setValue, SidebarOptions) {
     const pathSegments = location.pathname.split("/");
     const newPath = pathSegments[pathSegments.length - 1];
 
     const selectedIndex = SidebarOptions.findIndex((option) =>
-      option.label.toLowerCase().split(" ").join("-").includes(newPath)
+      formatSidebarOptionLabelToPath(option).includes(newPath)
     );
-    if (selectedIndex !== -1) {
-      setValue(selectedIndex);
-    } else setValue(0);
+
+    setValue(selectedIndex !== -1 ? selectedIndex : 0);
+  }
+
+  useEffect(() => {
+    updateTabSelection(location, setValue, SidebarOptions);
   }, [location.pathname]);
 
   const memoizedTabs = useMemo(() => {
