@@ -12,6 +12,8 @@ import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import { useState, useEffect } from "react";
 import { CustomDrawer } from "./components/custom-drawer";
 import { Link } from "react-router-dom";
+import { useProductsContext } from "../../../contexts/ProductsContextProvider";
+import { calcSubTotal } from "../../../modules/order-calculations";
 
 
 export const Header = () => {
@@ -22,6 +24,8 @@ export const Header = () => {
   const [value, setValue] = useState('recents');
 
   const [open, setOpen] = useState(false);
+
+  const productsInCart = useProductsContext();
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -73,36 +77,24 @@ export const Header = () => {
     },
   ];
 
+  const TAX = 2;
+  let subTotal = calcSubTotal(productsInCart);
+
   const FinancialDetails = [
     {
       title: "Subtotal",
-      amount: 109.38,
+      amount: subTotal,
       isTotal: false,
     },
     {
       title: "Tax",
-      amount: 2.00,
+      amount: `${TAX}.00`,
       isTotal: false,
     },
     {
       title: "Total",
-      amount: 111.38,
+      amount: TAX + subTotal,
       isTotal: true,
-    },
-  ];
-
-  const productsInCart = [
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      price: 50,
-      quantity: 5
-    },
-    {
-      title: "Coach",
-      subtitle: "Leather Coach Bag",
-      price: 50,
-      quantity: 5
     },
   ];
 
