@@ -41,6 +41,7 @@ export function TabNavigation({
       <TabsList style={{ padding: tabsPadding }} className={styles.tabList}>
         {titles.map((title, index) => (
           <Tab
+            key={title}
             value={index}
             style={{ padding: tabPadding }}
             className={styles.tab}

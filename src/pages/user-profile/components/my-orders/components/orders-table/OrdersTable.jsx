@@ -23,7 +23,7 @@ export function OrdersTable({ orderTableGrid, order, onOrderClick, total }) {
         }}
       />
       <Typography width={"90%"} sx={{ overflow: "hidden" }}>
-        {order.id}
+        {order.orderNumber}
       </Typography>
       <Typography width={"80%"} sx={{ overflow: "hidden" }}>
         {formattedDate}
