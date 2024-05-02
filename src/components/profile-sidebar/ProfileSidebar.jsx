@@ -28,7 +28,6 @@ export function ProfileSidebar({
   useEffect(() => {
     const pathSegments = location.pathname.split("/");
     const newPath = pathSegments[pathSegments.length - 1];
-    console.log("pathSegments:", pathSegments, "newPth:", newPath);
 
     const selectedIndex = SidebarOptions.findIndex((option) =>
       option.label.toLowerCase().split(" ").join("-").includes(newPath)
