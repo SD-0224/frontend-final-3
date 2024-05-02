@@ -35,7 +35,7 @@ export const ProductsTable = ({
         </td>
       </tr>
     ));
-  }, [products]);
+  }, [products, isRemove]);
 
   return (
     <table className={styles.table}>
