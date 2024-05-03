@@ -5,10 +5,10 @@ import { CustomButton } from '../../../../components/custom-button';
 import Avatar from '@mui/material/Avatar';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { UploadButton } from '../upload-button';
-import { useUserContext } from '../../../../contexts';
+import { useDataContext } from '../../../../contexts';
 
 export const UserInformation = () => {
-    const user = useUserContext();
+    const { user } = useDataContext();
 
     const styles = {
         marginBlock: "24px",
