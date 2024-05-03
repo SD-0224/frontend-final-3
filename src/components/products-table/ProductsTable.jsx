@@ -1,7 +1,6 @@
 import styles from "./ProductsTable.module.css";
 import { ProductInCart } from "../product-in-cart";
 import { useMemo } from "react";
-import { Box } from "@mui/material";
 import { calcSubTotal } from "../../modules/order-calculations";
 
 export const ProductsTable = ({
