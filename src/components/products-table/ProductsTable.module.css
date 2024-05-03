@@ -30,7 +30,16 @@ thead {
   position: sticky;
   top: 0;
   background-color: var(--white);
-  box-shadow: 1px 1px 70px 0px rgba(0, 0, 0, 0.1);
+}
+
+thead::before {
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background-color: #0000001F;
+  height: 1px;
+  width: 100%;
 }
 
 .table tbody.mainBody::before {
