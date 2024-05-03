@@ -3,11 +3,10 @@ import { PageTitle } from "../../components/page-title/PageTitle";
 import { calcDiscount, calcSubTotal, calcTotal } from "../../modules/order-calculations";
 import { PaymentSide } from "./components/payment-side/PaymentSide";
 import { OrderSide } from "./components/order-side/OrderSide";
-import { useProductsContext, useUserContext } from "../../contexts";
+import { useDataContext } from "../../contexts";
 
 export const CheckoutPage = () => {
-    const products = useProductsContext();
-    const user = useUserContext();
+    const { products, user } = useDataContext();
     const addressKeys = Object.keys(user.address);
     const addressData = user.address[addressKeys];
 
