@@ -1,12 +1,12 @@
 import styles from "./ProductsTable.module.css";
 import { ProductInCart } from "../product-in-cart";
 import { useMemo } from "react";
-import { Divider } from "@mui/material";
+import { Box } from "@mui/material";
 import { calcSubTotal } from "../../modules/order-calculations";
 
 export const ProductsTable = ({
   products,
-  isRemove = true,
+  showRemoveButton = true,
   isItemOrdered = true,
 }) => {
   const memoizedProducts = useMemo(() => {
@@ -14,6 +14,7 @@ export const ProductsTable = ({
       <tr key={index}>
         <td>
           <ProductInCart
+            drawer={false}
             isItemOrdered={isItemOrdered}
             src={product.smallImageUrl}
             title={product.title}
@@ -21,12 +22,12 @@ export const ProductsTable = ({
             quantity={product.quantity}
           />
         </td>
-        <td>${product.price}</td>
-        <td>{product.orderQuantity}</td>
+        <td>{product.price}</td>
+        <td>{product.orderQuantity || product.quantity}</td>
         <td>
           <div className={styles.operations}>
             <span>${calcSubTotal([product])}</span>
-            {isRemove && (
+            {showRemoveButton && (
               <button type="button" className={styles.removeButton}>
                 Remove
               </button>
@@ -35,7 +36,7 @@ export const ProductsTable = ({
         </td>
       </tr>
     ));
-  }, [products, isRemove]);
+  }, [isItemOrdered, showRemoveButton, products]);
 
   return (
     <table className={styles.table}>
@@ -47,13 +48,6 @@ export const ProductsTable = ({
           <th>Subtotal</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td colSpan={4}>
-            <Divider />
-          </td>
-        </tr>
-      </tbody>
       <tbody className={styles.mainBody}>{memoizedProducts}</tbody>
     </table>
   );
