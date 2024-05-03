@@ -2,7 +2,7 @@
 .orderTableContainer {
   display: flex;
   flex-direction: column;
-  max-height: 35vh;
+  max-height: 360px;
   overflow-y: auto;
 }
 
