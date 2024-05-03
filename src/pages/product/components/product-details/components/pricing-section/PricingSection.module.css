@@ -1,0 +1,10 @@
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.discountPrice {
+  font-size: 40px;
+  font-weight: var(--bold-font-weight);
+}
