@@ -5,9 +5,10 @@ export const ProductImage = function ({
   borderRadius = "8px",
   width = "280px",
   height = width,
+  maxWidth,
 }) {
   return (
-    <div style={{ width, height, flexShrink: 0 }}>
+    <div style={{ width, height, flexShrink: 0, maxWidth }}>
       <img
         {...{ src }}
         className={styles.productImage}
