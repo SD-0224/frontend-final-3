@@ -4,7 +4,12 @@ import { Heart, ShoppingBag } from "../../../../components/icons";
 import { QuantityCounter } from "../../../../components/quantity-counter";
 
 const buttonProps = {
-  style: { gap: "8px", borderWidth: "2px", width: "240px" },
+  style: {
+    gap: "8px",
+    borderWidth: "2px",
+    maxWidth: "240px",
+    width: "-webkit-fill-available",
+  },
 };
 
 export const ActionsSection = function () {
