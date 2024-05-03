@@ -12,8 +12,8 @@ import { BottomNavigation, BottomNavigationAction } from '@mui/material';
 import { useState, useEffect } from "react";
 import { CustomDrawer } from "./components/custom-drawer";
 import { Link } from "react-router-dom";
-import { useProductsContext } from "../../../contexts/ProductsContextProvider";
 import { calcSubTotal } from "../../../modules/order-calculations";
+import { useDataContext } from "../../../contexts";
 
 
 export const Header = () => {
@@ -25,7 +25,7 @@ export const Header = () => {
 
   const [open, setOpen] = useState(false);
 
-  const productsInCart = useProductsContext();
+  const productsInCart = useDataContext().products;
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
