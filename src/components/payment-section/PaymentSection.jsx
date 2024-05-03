@@ -6,7 +6,7 @@ import { PaymentBottom } from "./components/payment-bottom";
 
 export function PaymentSection({ paymentMethods, paymentDetail }) {
   return (
-    <AccordionComponent title={"Payment"} isExpanded={false}>
+    <AccordionComponent title={"Payment"} isExpanded={false} showExpandIcon={true}>
       <FormControl>
         <RadioGroup
           name="member"
