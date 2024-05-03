@@ -1,2 +1,1 @@
-export * from './ProductsContextProvider';
-export * from './UserContextProvider';
+export * from './DataContextProvider';
