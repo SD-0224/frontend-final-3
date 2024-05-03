@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./CustomInput.module.css";
 
 export const CustomInput = ({
@@ -5,8 +6,8 @@ export const CustomInput = ({
   id,
   type,
   placeholder,
-  value,
-  onChange,
+  value: propValue,
+  onChange: propOnChange,
   icon,
   required,
   borderRadius = "8px",
@@ -14,6 +15,17 @@ export const CustomInput = ({
   isGrey = false,
   ...props
 }) => {
+  // Use useState hook to manage internal state of the input value
+  const [value, setValue] = useState(propValue);
+
+  // Handler function to update internal state and call onChange prop
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    // Call the onChange prop if provided
+    if (propOnChange) {
+      propOnChange(e);
+    }
+  };
   return (
     <div className={styles.inputWrapp} {...props}>
       {label && (
@@ -35,7 +47,7 @@ export const CustomInput = ({
           type={type}
           placeholder={placeholder}
           value={value}
-          onChange={onChange}
+          onChange={handleChange} // Use the internal handleChange function
           required={required}
         />
       </div>
