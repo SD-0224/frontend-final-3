@@ -5,8 +5,8 @@ import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import styles from './breadcrumbs.module.css';
 
 export const Breadcrumbs = () => {
-    const pathNameString = useLocation().pathname;
-    const pathNamesArray = getPathNamesFromUrl(pathNameString);
+    const URL = useLocation();
+    const pathNamesArray = getPathNamesFromUrl(URL);
     let pathnamesHasItems = pathNamesArray.length > 0;
     return (
         <>
@@ -23,6 +23,10 @@ export const Breadcrumbs = () => {
     )
 };
 
-const getPathNamesFromUrl = (pathnames) => {
-    return pathnames.split("/").filter((x) => x).map(item => item.replace("-", " "));
+const getPathNamesFromUrl = (URL) => {
+    let pathnames = URL["pathname"].split("/").filter((x) => x).map(item => item.replace("-", " "));
+    if (URL.hash.length > 0) {
+        pathnames[pathnames.length - 1] += URL.hash;
+    }
+    return pathnames;
 }
