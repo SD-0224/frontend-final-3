@@ -1,0 +1,10 @@
+.buttonsContainer {
+  display: flex;
+  gap: 24px;
+}
+
+.actionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
