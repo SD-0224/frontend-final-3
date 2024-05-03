@@ -1,0 +1,13 @@
+.imagesContainer {
+  display: flex;
+  gap: 31px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
