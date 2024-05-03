@@ -8,6 +8,7 @@ const titleStyle = {
 
 const subtitleStyle = {
   lineHeight: "26px",
+  fontWeight: "var(--semi-bold-font-weight)",
   fontSize: "20px",
 };
 
@@ -17,12 +18,12 @@ const titlesStyles = {
   subtitleStyle,
 };
 
-export const TitlesSection = function ({ title, subtitle }) {
+export const TitlesSection = function ({ title, longSubtitle }) {
   return (
     <ProductTitles
       {...{
         title,
-        subtitle,
+        subtitle: longSubtitle,
         ...titlesStyles,
       }}
     />
