@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import { useDataContext } from "../../contexts";
 
 export const MyCart = () => {
-  const products = useDataContext();
+  const { products } = useDataContext();
 
   let subTotal = calcSubTotal(products);
   let discount = calcDiscount(products);
@@ -39,7 +39,9 @@ export const MyCart = () => {
     >
       <PageTitle title={"my cart"} />
       <Box className={styles.grid}>
-        <ProductsTable products={products} />
+        <Box className={styles.tableContainer}>
+          <ProductsTable products={products} />
+        </Box>
         <Box className={styles.orderInfo}>
           <OrderInfo title={"Order Summary"} orderInfo={orderDetails} />
           <Box className={styles.operations}>
