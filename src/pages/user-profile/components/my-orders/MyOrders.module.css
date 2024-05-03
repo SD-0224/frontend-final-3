@@ -1,16 +1,14 @@
-.myOrdersContainer,
 .gridsContainer,
 .orderTableContainer {
   display: flex;
   flex-direction: column;
-}
-
-.myOrdersContainer {
-  gap: 40px;
+  max-height: 35vh;
+  overflow-y: auto;
 }
 
 .gridsContainer {
   gap: 24px;
+  min-width: 600px;
 }
 
 .orderTableContainer {
@@ -27,5 +25,12 @@
 @media (max-width: 900px) {
   .orderTableContainer {
     margin-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .tableContainer {
+    max-width: calc(100vw - 32px);
+    overflow-x: auto;
   }
 }

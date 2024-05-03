@@ -1,54 +1,54 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Tabs, Box, Tab } from "@mui/material";
 import { RightChevron } from "../icons";
 import styles from "./ProfileSidebar.module.css";
 import { getSelectedColor } from "./components/tab-content-styles";
-import PropTypes from 'prop-types';
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 1 }}>
-          {children}
-        </Box>
-      )}
-    </div>
-  );
-}
+import { useLocation, useNavigate } from "react-router-dom";
 
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function getTabIndexProps(index) {
-  return {
-    id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
-  };
-}
-
-export function ProfileSidebar({ SidebarOptions, titleSetter }) {
+export function ProfileSidebar({
+  SidebarOptions,
+  titleSetter,
+  setSelectedOrderId,
+}) {
   const [value, setValue] = useState(0);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  function formatSidebarOptionLabelToPath(option) {
+    return option.label.toLowerCase().split(" ").join("-");
+  }
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
     titleSetter(newValue);
+    setSelectedOrderId("");
+    const newPath =
+      newValue !== 0
+        ? formatSidebarOptionLabelToPath(SidebarOptions[newValue])
+        : "";
+    navigate(`/user-profile/${newPath}`);
   };
+
+  function updateTabSelection(location, setValue, SidebarOptions) {
+    const pathSegments = location.pathname.split("/");
+    const newPath = pathSegments[pathSegments.length - 1];
+
+    const selectedIndex = SidebarOptions.findIndex((option) =>
+      formatSidebarOptionLabelToPath(option).includes(newPath)
+    );
+
+    setValue(selectedIndex !== -1 ? selectedIndex : 0);
+  }
+
+  useEffect(() => {
+    updateTabSelection(location, setValue, SidebarOptions);
+  }, [location.pathname]);
 
   const memoizedTabs = useMemo(() => {
     const TabStyles = {
       padding: "24px 10px",
       maxWidth: "none",
-      '& .MuiTouchRipple-root': {
+      "& .MuiTouchRipple-root": {
         width: "3px",
         height: "56px",
         maxHeight: "100%",
@@ -60,18 +60,17 @@ export function ProfileSidebar({ SidebarOptions, titleSetter }) {
         top: "50%",
         transform: "translateY(-50%)",
       },
-      '&.Mui-selected': {
-        '& .MuiTouchRipple-root': {
+      "&.Mui-selected": {
+        "& .MuiTouchRipple-root": {
           opacity: "1",
           visibility: "visible",
-        }
+        },
       },
     };
     return SidebarOptions?.map((option, index) => (
       <Tab
         key={index}
         sx={TabStyles}
-        {...getTabIndexProps(index)}
         label={
           <div
             className={`${styles.tabLabel}`}
@@ -86,11 +85,16 @@ export function ProfileSidebar({ SidebarOptions, titleSetter }) {
   }, [SidebarOptions, value]);
 
   return (
-    <Box sx={{
-      display: "grid", gridTemplateColumns: "280px 1fr", gap: "22px", alignItems: "start",
-      '@media (max-width: 768px)':
-        { '&': { gridTemplateColumns: "1fr" } }
-    }}>
+    <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "280px 1fr",
+        gap: "22px",
+        alignItems: "start",
+        marginBottom: { xs: "20px", md: "0" },
+        "@media (max-width: 900px)": { "&": { gridTemplateColumns: "1fr" } },
+      }}
+    >
       <Tabs
         orientation="vertical"
         value={value}
@@ -99,12 +103,12 @@ export function ProfileSidebar({ SidebarOptions, titleSetter }) {
         sx={{
           borderRadius: "10px",
           backgroundColor: "var(--grey)",
-          '@media (max-width: 768px)': {
-            '.MuiTabs-flexContainerVertical': {
+          "@media (max-width: 900px)": {
+            ".MuiTabs-flexContainerVertical": {
               flexDirection: "row",
-              overflow: "auto"
-            }
-          }
+              overflow: "auto",
+            },
+          },
         }}
         TabIndicatorProps={{
           style: {
@@ -120,15 +124,6 @@ export function ProfileSidebar({ SidebarOptions, titleSetter }) {
       >
         {memoizedTabs}
       </Tabs>
-      {
-        SidebarOptions?.map((option, index) => {
-          return (
-            <TabPanel value={value} index={index} key={index}>
-              {option.component}
-            </TabPanel>
-          )
-        })
-      }
     </Box>
   );
 }

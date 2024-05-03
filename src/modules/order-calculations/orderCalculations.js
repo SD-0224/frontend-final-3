@@ -1,33 +1,35 @@
 const DELIVERY_FEE = 12;
 const FIXED_DIGITES = 2;
 
-export const calcDiscount = ((products) => {
-    let totalDisount = 0;
+export const calcDiscount = (products) => {
+  let totalDisount = 0;
 
-    products?.map((product) => {
-        if (product.discount) {
-            const discountPercantage = product.discount / 100;
-            const finalPrice = product.price * discountPercantage;
+  products?.map((product) => {
+    let quantity = product.orderQuantity || product.quantity;
 
-            totalDisount += finalPrice;
-        }
-        return totalDisount
-    })
+    if (product.discountPercentage) {
+      const discountPercantage = product.discountPercentage / 100;
+      const finalPrice = product.price * discountPercantage * quantity;
 
-    return totalDisount.toFixed(FIXED_DIGITES);
-})
+      totalDisount += finalPrice;
+    }
+    return totalDisount;
+  });
 
-export const calcSubTotal = ((products) => {
-    let subTotal = 0;
+  return Number(totalDisount.toFixed(FIXED_DIGITES));
+};
 
-    products?.map((product) => {
+export const calcSubTotal = (products) => {
+  let subTotal = 0;
 
-        return subTotal += product.price;
-    })
+  products?.map((product) => {
+    let quantity = product.orderQuantity || product.quantity;
+    return (subTotal += product.price * quantity);
+  });
 
-    return subTotal.toFixed(FIXED_DIGITES);
-});
+  return Number(subTotal.toFixed(FIXED_DIGITES));
+};
 
-export const calcTotal = ((subTotal, discount) => {
-    return (Number(subTotal) - Number(discount) - DELIVERY_FEE).toFixed(FIXED_DIGITES);
-})
+export const calcTotal = (subTotal, discount) => {
+  return Number(subTotal - discount - DELIVERY_FEE).toFixed(FIXED_DIGITES);
+};

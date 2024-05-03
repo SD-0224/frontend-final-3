@@ -2,9 +2,16 @@ import { Box, Checkbox, Typography } from "@mui/material";
 import { OrdersGrid } from "../orders-grid";
 import { RightChevron } from "../../../../../../components/icons";
 
-export function OrdersTable({ ordertablegrid, order }) {
+export function OrdersTable({ orderTableGrid, order, onOrderClick, total }) {
+  const date = new Date(order.createdAt);
+  const formattedDate = date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+
   return (
-    <OrdersGrid gridStyles={ordertablegrid}>
+    <OrdersGrid gridStyles={orderTableGrid}>
       <Checkbox
         sx={{
           alignItems: "start",
@@ -16,14 +23,18 @@ export function OrdersTable({ ordertablegrid, order }) {
         }}
       />
       <Typography width={"90%"} sx={{ overflow: "hidden" }}>
-        {order.id}
+        {order.orderNumber}
       </Typography>
       <Typography width={"80%"} sx={{ overflow: "hidden" }}>
-        {order.date}
+        {formattedDate}
       </Typography>
-      <Typography sx={{ textWrap: "wrap" }}>{order.price}</Typography>
+      <Typography sx={{ textWrap: "wrap" }}>{total}</Typography>
       <Typography color={"var(--primary)"}>{order.status}</Typography>
-      <Box textAlign={"end"} alignContent={"center"}>
+      <Box
+        textAlign={"end"}
+        alignContent={"center"}
+        onClick={() => onOrderClick(order.id, order.orderNumber)}
+      >
         <RightChevron borderColor="var(--low-emphasis-text-color)" />
       </Box>
     </OrdersGrid>

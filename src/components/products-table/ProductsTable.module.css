@@ -1,74 +1,81 @@
 .table {
-    width: 100%;
-    border: 0;
-    border-collapse: collapse;
+  width: 100%;
+  border: 0;
+  border-collapse: collapse;
 }
 
 .table td:has(hr) {
-    padding: 0;
+  padding: 0;
 }
 
 .table :is(th, td) {
-    padding: 8px;
-    border: 0;
-    text-align: center;
-    vertical-align: top;
+  padding: 8px;
+  border: 0;
+  text-align: center;
+  vertical-align: top;
 }
 
 .table :is(td:first-child, th:first-child) {
-    text-align: start;
+  text-align: start;
 }
 
 .table th {
-    color: #626262;
-    font-weight: 500;
-    line-height: 20px;
-    font-size: 16px;
+  color: #626262;
+  font-weight: 500;
+  line-height: 20px;
+  font-size: 16px;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  box-shadow: 1px 1px 70px 0px rgba(0, 0, 0, 0.1);
 }
 
 .table tbody.mainBody::before {
-    content: '';
-    display: block;
-    height: 24px;
+  content: "";
+  display: block;
+  height: 24px;
 }
 
 .table tbody tr:not(tr:has(hr)) {
-    border-bottom: 20px solid transparent;
+  border-bottom: 20px solid transparent;
 }
 
 .operations {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 }
 
 .removeButton {
-    border: 0;
-    outline: 0;
-    background-color: transparent;
-    font-size: 14px;
-    font-weight: 600;
-    color: #B00020;
-    text-decoration: underline;
-    transition: 0.2s all;
-    padding: 4px;
-    border-radius: 8px;
-    cursor: pointer;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #b00020;
+  text-decoration: underline;
+  transition: 0.2s all;
+  padding: 4px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .removeButton:hover {
-    color: #fff;
-    text-decoration: none;
-    background-color: #B00020;
+  color: #fff;
+  text-decoration: none;
+  background-color: #b00020;
 }
 
 .removeButton:active {
-    transform: translateY(0.25em);
+  transform: translateY(0.25em);
 }
 
 @media (max-width: 600px) {
-    .table :is(td, th) {
-        font-size: 14px;
-    }
+  .table :is(td, th) {
+    font-size: 14px;
+  }
 }

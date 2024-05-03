@@ -1,57 +1,118 @@
-import { useState } from "react";
-import { PageTitle } from "../../components/page-title/PageTitle";
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { ProfileSidebar } from "../../components/profile-sidebar/ProfileSidebar";
 import { UserInformation } from "./components/user-information/UserInformation";
-import { CustomButton } from "../../components/custom-button";
-import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import { MyOrders } from "./components/my-orders/MyOrders";
+import { ItemsOrdered } from "./components/items-ordered/ItemsOrdered";
+import { Outlet, useNavigate } from "react-router-dom";
+import { fetchApiData } from "../../modules/fetch-api-data/FetchApiData";
+import { Routes, Route } from "react-router-dom";
+import { TitleSection } from "./components/title-section";
 
 export const UserProfile = () => {
-    const [title, setTitle] = useState("Personal Information");
+  const [title, setTitle] = useState("Personal Information");
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
+  const [orderNumber, setOrderNumber] = useState(null);
+  const [orders, setOrders] = useState();
+  const [orderData, setOrderData] = useState();
+  const navigate = useNavigate();
 
-    const titleSetter = (num) => {
-        setTitle(buttonList[num].label);
+  const titleSetter = (num) => {
+    setTitle(buttonList[num].label);
+  };
+
+  const handleOrderClick = (OrderId, orderNumber) => {
+    setSelectedOrderId(OrderId);
+    setOrderNumber(orderNumber);
+    navigate(`/user-profile/my-orders/order#${orderNumber}`);
+  };
+
+  const buttonList = [
+    {
+      label: "Personal Information",
+    },
+    {
+      label: "Refer and Earn",
+    },
+    {
+      label: "My Orders",
+    },
+    {
+      label: "My Wishlist",
+    },
+    {
+      label: "My Reviews",
+    },
+    {
+      label: "My Address Book",
+    },
+    {
+      label: "My Saved Cards",
+    },
+  ];
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const fetchedOrders = await fetchApiData("orders");
+        setOrders(fetchedOrders);
+      } catch (error) {
+        console.log(error.message);
+      }
     };
+    fetchDataAsync();
+  }, []);
 
-    const buttonList = [
-        {
-            label: "Personal Information",
-            component: <UserInformation />,
-        },
-        {
-            label: "Refer and Earn",
-            component: null,
-        },
-        {
-            label: "My Orders",
-            component: null,
-        },
-        {
-            label: "My Wishlist",
-            component: null,
-        },
-        {
-            label: "My Reviews",
-            component: null,
-        },
-        {
-            label: "My Address Book",
-            component: null,
+  useEffect(() => {
+    if (selectedOrderId) {
+      setTitle(`Order#${orderNumber}`);
+      const fetchDataAsync = async () => {
+        try {
+          const fetchedOrderItems = await fetchApiData(
+            `orders/${selectedOrderId}`
+          );
+          setOrderData(fetchedOrderItems);
+        } catch (error) {
+          console.log(error.message);
         }
-        ,
-        {
-            label: "My Saved Cards",
-            component: null,
-        }
-    ];
+      };
+      fetchDataAsync();
+    }
+  }, [selectedOrderId]);
 
-    return (
-        <Box sx={{ padding: "20px 36px", '@media (max-width: 768px)': { "&": { padding: "16px" } } }}>
-            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <PageTitle title={title} />
-                {title === "Personal Information" && <CustomButton startIcon={<LogoutOutlinedIcon />} label={"Logout"} variant="outlined" style={{ width: "fit-content" }} />}
-            </Box>
-            <ProfileSidebar SidebarOptions={buttonList} titleSetter={titleSetter} />
+  return (
+    <Box
+      sx={{
+        padding: "20px 36px",
+        "@media (max-width: 768px)": { "&": { padding: "16px" } },
+      }}
+    >
+      <TitleSection {...{ title }} />
+      <Box display={"flex"} flexDirection={{ xs: "column", md: "row" }}>
+        <ProfileSidebar
+          SidebarOptions={buttonList}
+          titleSetter={titleSetter}
+          {...{ setSelectedOrderId }}
+        />
+        <Outlet />
+        <Box sx={{ flex: 1 }}>
+          <Routes>
+            <Route
+              path="my-orders"
+              element={
+                <MyOrders orders={orders} onOrderClick={handleOrderClick} />
+              }
+            />
+            <Route
+              path="my-orders/order"
+              element={
+                <ItemsOrdered {...{ orderData }} itemId={selectedOrderId} />
+              }
+            />
+            <Route index element={<UserInformation />} />
+          </Routes>
         </Box>
-    )
-}
+      </Box>
+    </Box>
+  );
+};

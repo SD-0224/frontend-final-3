@@ -8,13 +8,22 @@ export function AccordionComponent({
   title,
   children,
   isExpanded = true,
-  isExpandIcon = false,
+  showExpandIcon = false,
   ...props
 }) {
   return (
-    <Accordion defaultExpanded={isExpanded} sx={{ boxShadow: 0, '&::before': { display: 'none' } }} {...props}>
+    <Accordion
+      defaultExpanded={isExpanded}
+      style={{ margin: 0 }}
+      sx={{ boxShadow: 0, "&::before": { display: "none" }, margin: "0" }}
+      {...props}
+    >
       <AccordionSummary
-        expandIcon={<ExpandMoreIcon sx={{ color: "var(--dark)", fontSize: "2rem" }} />}
+        expandIcon={
+          showExpandIcon && (
+            <ExpandMoreIcon sx={{ color: "var(--dark)", fontSize: "2rem" }} />
+          )
+        }
         aria-controls="accordion-content"
         sx={{
           fontSize: "20px",
@@ -25,6 +34,7 @@ export function AccordionComponent({
           my: "13px",
           minHeight: "unset",
           maxHeight: "36px",
+
           ".MuiAccordionSummary-content.Mui-expanded": {
             margin: 0,
           },
