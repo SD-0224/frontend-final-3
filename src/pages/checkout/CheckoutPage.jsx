@@ -4,7 +4,7 @@ import { calcDiscount, calcSubTotal, calcTotal } from "../../modules/order-calcu
 import { PaymentSide } from "./components/payment-side/PaymentSide";
 import { OrderSide } from "./components/order-side/OrderSide";
 import { useDataContext } from "../../contexts";
-
+import { Breadcrumbs } from '../../components/breadcrumbs'
 export const CheckoutPage = () => {
     const { products, user } = useDataContext();
     const addressKeys = Object.keys(user.address);
@@ -119,6 +119,7 @@ export const CheckoutPage = () => {
 
     return (
         <Box sx={{ padding: "20px" }}>
+            <Breadcrumbs />
             <PageTitle title={"Checkout"} />
             <Box sx={mainContainer}>
                 <PaymentSide addressInputs={addressInputs} paymentDetail={paymentDetail} paymentMethods={paymentMethods} />
