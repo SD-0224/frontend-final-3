@@ -1,4 +1,5 @@
 import { Typography, Paper, Box } from "@mui/material";
+import { Link } from "react-router-dom";
 import { CustomButton } from "../../../../../custom-button";
 import { RightArrow } from "../../../../../icons";
 
@@ -13,7 +14,7 @@ const textContainerStyles = {
   width: "100%",
 };
 
-export function CategoryTitles({ title, subtitle }) {
+export function CategoryTitles({ title, subtitle, id: categoryId }) {
   return (
     <Paper
       square
@@ -62,11 +63,13 @@ export function CategoryTitles({ title, subtitle }) {
       </Box>
 
       <Box sx={{ position: "absolute", left: "47px", bottom: "16px" }}>
-        <CustomButton
-          startIcon={<RightArrow borderColor={"var(--white)"} />}
-          label="See More"
-          padding="10px 65px"
-        />
+        <Link to={`/category?categoryId=${categoryId}`}>
+          <CustomButton
+            startIcon={<RightArrow borderColor={"var(--white)"} />}
+            label="See More"
+            padding="10px 65px"
+          />
+        </Link>
       </Box>
     </Paper>
   );
