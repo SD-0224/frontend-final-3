@@ -37,6 +37,7 @@ export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsArr, products
         return productsInCartArr?.map((product, index) => (
             <Fragment key={index}>
                 <ProductInCart
+                    src={product.smallImageUrl}
                     title={product.title}
                     subtitle={product.subtitle}
                     price={product.price}

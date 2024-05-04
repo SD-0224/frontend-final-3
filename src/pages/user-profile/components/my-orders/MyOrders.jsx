@@ -83,7 +83,8 @@ export function MyOrders({ orders, onOrderClick }) {
       display={"flex"}
       flexDirection={"column"}
       gap={"40px"}
-      marginBottom={"269px"}
+      marginBottom={{ lg: "269px", sm: "100px" }}
+
     >
       <TabNavigation
         titles={["Completed", "Processing", "Cancelled"]}
