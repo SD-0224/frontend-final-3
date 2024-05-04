@@ -55,7 +55,11 @@ export const Home = function () {
     const productCategories = Object.values(productCategoriesMap);
     const categoryCollections = productCategories
       .filter((category) => category)
-      .map(({ categoryImage, name }) => ({ image: categoryImage, text: name }));
+      .map(({ categoryImage, name, id }) => ({
+        image: categoryImage,
+        text: name,
+        categoryId: id,
+      }));
 
     setCollections(categoryCollections);
   }, [products, categories]);
