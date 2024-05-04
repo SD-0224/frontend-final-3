@@ -9,11 +9,11 @@ export const NewArrivalsSection = function ({ products }) {
       <HorizontalScroll title="New Arrivals">
         {products?.map((product) => (
           <Link
+            key={product.id}
             to={`/product?productId=${product.id}`}
             style={{ all: "unset", cursor: "pointer" }}
           >
             <NewArrivalsProductCard
-              key={product.id}
               image={product.smallImageUrl}
               subtitle={product.shortSubtitle}
               {...product}
