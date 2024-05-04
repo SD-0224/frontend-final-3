@@ -46,10 +46,10 @@ export const MyCart = () => {
           <OrderInfo title={"Order Summary"} orderInfo={orderDetails} />
           <Box className={styles.operations}>
             <Link to="/checkout">
-              <CustomButton label={"Place Order"} />
+              <CustomButton label={"Place Order"} style={{ width: "100%" }} />
             </Link>
             <Link to="/">
-              <CustomButton label={"Continue Shopping"} variant="outlined" />
+              <CustomButton label={"Continue Shopping"} variant="outlined" style={{ width: "100%" }} />
             </Link>
           </Box>
         </Box>
