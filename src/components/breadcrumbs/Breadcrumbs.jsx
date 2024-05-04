@@ -14,7 +14,7 @@ export const Breadcrumbs = () => {
                 pathnamesHasItems && <MUIBreadcrumbs aria-label="breadcrumb" separator={<ChevronRightRoundedIcon sx={{ color: "#171520" }} />} className={styles.breadcrumbs}>
                     <Link to={"/"}>Home</Link>
                     {
-                        pathNamesArray?.map(link => <Link to={link}>{link}</Link>)
+                        pathNamesArray?.map(link => <Link to={link.link}>{link.string}</Link>)
                     }
                 </MUIBreadcrumbs>
             }
@@ -24,9 +24,15 @@ export const Breadcrumbs = () => {
 };
 
 const getPathNamesFromUrl = (URL) => {
-    let pathnames = URL["pathname"].split("/").filter((x) => x).map(item => item.replace("-", " "));
+    let pathnamesLinks = URL["pathname"].split("/").filter((x) => x);
+    let pathnamesStrings = pathnamesLinks.map(item => item.replaceAll("-", " "));
+    let pathNames = [];
     if (URL.hash.length > 0) {
-        pathnames[pathnames.length - 1] += URL.hash;
+        pathnamesStrings[pathnamesStrings.length - 1] += URL.hash;
     }
-    return pathnames;
+    for (let i = 0; i < pathnamesLinks.length; i++) {
+        pathNames.push({ string: pathnamesStrings[i], link: pathnamesLinks[i] })
+    }
+
+    return pathNames;
 }

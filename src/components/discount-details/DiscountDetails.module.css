@@ -1,0 +1,8 @@
+.discountContainer {
+  display: flex;
+  align-items: center;
+}
+
+.originalPrice {
+  text-decoration: line-through;
+}

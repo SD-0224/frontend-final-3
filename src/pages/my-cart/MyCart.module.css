@@ -36,4 +36,14 @@
     .operations button {
         font-size: 14px;
     }
+
+    .tableContainer {
+        overflow: auto;
+        max-height: 350px;
+        width: calc(100vw - 24px);
+    }
+
+    .tableContainer table {
+        width: 500px;
+    }
 }

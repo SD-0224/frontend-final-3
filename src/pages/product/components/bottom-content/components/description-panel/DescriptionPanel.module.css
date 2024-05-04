@@ -1,0 +1,5 @@
+.panel {
+  font-size: 16px;
+  font-weight: var(--semi-bold-font-weight);
+  color: var(--low-emphasis-text-color);
+}

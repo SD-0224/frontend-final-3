@@ -53,7 +53,7 @@ export function ItemsOrdered({ orderData = [] }) {
         {products && (
           <ProductsTable
             products={products}
-            isRemove={false}
+            showRemoveButton={false}
             isItemOrdered={false}
           />
         )}

@@ -1,9 +1,9 @@
 import styles from "./ProductCard.module.css";
-import { ProductCardTop } from "../../../../components/product-card-top";
-import { StarsRating } from "../../../../components/stars-rating";
-import { DiscountDetails } from "./components/discount-details";
-import { reviewsToRating } from "../../../../modules/rating";
-import { amountFromPricePercentage, toFixed } from "../../../../modules/price";
+import { ProductCardTop } from "../product-card-top";
+import { StarsRating } from "../stars-rating";
+import { DiscountDetails } from "../discount-details";
+import { reviewsToRating } from "../../modules/rating";
+import { amountFromPricePercentage, toFixed } from "../../modules/price";
 
 export const ProductCard = function ({
   reviews,
