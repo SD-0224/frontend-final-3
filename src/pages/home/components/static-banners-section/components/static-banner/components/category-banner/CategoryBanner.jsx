@@ -2,8 +2,10 @@ import { Box, Typography } from "@mui/material";
 import { ProductImage } from "../../../../../../../../components/product-image";
 import { CircleIconLink } from "../../../../../../../../components/circle-icon-link";
 import { RightArrow } from "../../../../../../../../components/icons";
+import { Link } from "react-router-dom";
 
 export function CategoryBanner({
+  to,
   variant = "dual",
   imageSrc,
   title,
@@ -43,39 +45,43 @@ export function CategoryBanner({
       height={isDual ? dualHeight : fullHeight}
       {...props}
     >
-      <ProductImage
-        src={imageSrc}
-        width="100%"
-        height="100%"
-        borderRadius="24px"
-      />
-      <Typography
-        sx={{
-          ...(isDual ? dualTypo : fullTypo),
-          position: "absolute",
-          fontWeight: "700",
-          color: color,
-          maxWidth: "50%",
-          overflow: "hidden",
-          display: "-webkit-box",
-          WebkitBoxOrient: "vertical",
-        }}
-      >
-        {title}
-      </Typography>
-      {isDual ? (
-        <Box
-          position={"absolute"}
-          right={{ xs: "20px", md: "26px" }}
-          bottom={{ xs: "15px", md: "10px", lg: "26px" }}
-        >
-          <CircleIconLink
-            icon={<RightArrow borderColor={color} width={31} height={21} />}
-            backgroundColor={backgroundColor}
-            height="51px"
+      <Link to={to} style={{ all: "unset", cursor: "pointer" }}>
+        <>
+          <ProductImage
+            src={imageSrc}
+            width="100%"
+            height="100%"
+            borderRadius="24px"
           />
-        </Box>
-      ) : null}
+          <Typography
+            sx={{
+              ...(isDual ? dualTypo : fullTypo),
+              position: "absolute",
+              fontWeight: "700",
+              color: color,
+              maxWidth: "50%",
+              overflow: "hidden",
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+            }}
+          >
+            {title}
+          </Typography>
+          {isDual ? (
+            <Box
+              position={"absolute"}
+              right={{ xs: "20px", md: "26px" }}
+              bottom={{ xs: "15px", md: "10px", lg: "26px" }}
+            >
+              <CircleIconLink
+                icon={<RightArrow borderColor={color} width={31} height={21} />}
+                backgroundColor={backgroundColor}
+                height="51px"
+              />
+            </Box>
+          ) : null}
+        </>
+      </Link>
     </Box>
   );
 }
