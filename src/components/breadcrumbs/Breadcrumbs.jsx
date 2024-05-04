@@ -7,7 +7,6 @@ import styles from './breadcrumbs.module.css';
 export const Breadcrumbs = () => {
     const URL = useLocation();
     const pathNamesArray = getPathNamesFromUrl(URL);
-    console.log(pathNamesArray)
     let pathnamesHasItems = pathNamesArray.length > 0;
     return (
         <>
