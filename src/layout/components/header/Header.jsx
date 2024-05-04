@@ -137,8 +137,11 @@ export const Header = () => {
 
       <BottomNavigation className={styles.bottomNavigation} sx={{ backgroundColor: "var(--primary)" }} value={value} onChange={handleChange}>
         {
-          bottomNavigationData?.map((data, index) => (
-            <BottomNavigationAction
+          bottomNavigationData?.map((data, index) => {
+            let isProfile = data.value === "profile";
+            let isHome = data.value === "home";
+            let isBag = data.value === "bag";
+            return <BottomNavigationAction
               key={index}
               sx={{
                 color: "var(--light-text-color)",
@@ -154,10 +157,11 @@ export const Header = () => {
               }}
               label={data.label}
               value={data.value}
-              onClick={data.value === "bag" ? toggleDrawer(true) : null}
+              href={isProfile ? '/user-profile' : isHome ? '/' : null}
+              onClick={isBag ? toggleDrawer(true) : null}
               icon={<data.icon />}
             />
-          ))
+          })
         }
       </BottomNavigation>
     </>
