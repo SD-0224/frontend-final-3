@@ -10,7 +10,8 @@ export const OrderSide = ({ orderDetails, products }) => {
         height: "fit-content",
         maxHeight: "fit-content",
         position: "sticky",
-        top: "130px"
+        top: "130px",
+        "@media (max-width: 768px)": { '&': { position: "static" } }
     };
     return (
         <Box sx={styles}>

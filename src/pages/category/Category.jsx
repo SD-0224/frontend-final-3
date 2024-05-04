@@ -7,6 +7,7 @@ import { CategoryProducts } from "./components/category-products";
 import { CustomPagination } from "./components/custom-pagination";
 import { chunk } from "../../modules/array";
 import { categories, products } from "../../fake";
+import { Breadcrumbs } from "../../components/breadcrumbs";
 
 export const Category = function () {
   const PAGE_SIZE = 9;
@@ -50,6 +51,7 @@ export const Category = function () {
             alignItems: "center",
           }}
         >
+          <Box sx={{ alignSelf: "self-start", marginTop: "44px" }}><Breadcrumbs /></Box>
           <CategoryTitle>{category.name}</CategoryTitle>
           <CategoryProducts {...{ products: pageProducts }} />
           <CustomPagination

@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 
 import { useDataContext } from "../../contexts";
+import { Breadcrumbs } from "../../components/breadcrumbs";
 
 export const MyCart = () => {
   const { products } = useDataContext();
@@ -37,6 +38,7 @@ export const MyCart = () => {
         },
       }}
     >
+      <Breadcrumbs />
       <PageTitle title={"my cart"} />
       <Box className={styles.grid}>
         <Box className={styles.tableContainer}>
@@ -46,10 +48,10 @@ export const MyCart = () => {
           <OrderInfo title={"Order Summary"} orderInfo={orderDetails} />
           <Box className={styles.operations}>
             <Link to="/checkout">
-              <CustomButton label={"Place Order"} />
+              <CustomButton label={"Place Order"} style={{ width: "100%" }} />
             </Link>
             <Link to="/">
-              <CustomButton label={"Continue Shopping"} variant="outlined" />
+              <CustomButton label={"Continue Shopping"} variant="outlined" style={{ width: "100%" }} />
             </Link>
           </Box>
         </Box>

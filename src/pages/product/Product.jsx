@@ -8,7 +8,7 @@ import { ActionsSection } from "./components/actions-section";
 import { BottomContent } from "./components/bottom-content/BottomContent";
 import { BottomGallery } from "./components/bottom-gallery";
 import { ProductDetails } from "./components/product-details";
-
+import { Breadcrumbs } from "../../components/breadcrumbs";
 export const Product = function () {
   const [product, setProduct] = useState(null);
   const [galleryImages, setGalleryImages] = useState([]);
@@ -34,6 +34,7 @@ export const Product = function () {
   return (
     product && (
       <SectionContainer padding="20px">
+        <Breadcrumbs />
         <Box>
           <Grid container gap="27px">
             <Grid item xs={12} sm={10} md={8} lg={6} justifyContent="center">
