@@ -83,7 +83,7 @@ export const UserProfile = () => {
   return (
     <Box
       sx={{
-        padding: "20px 36px",
+        padding: "24px 20px",
         "@media (max-width: 768px)": { "&": { padding: "16px" } },
       }}
     >
