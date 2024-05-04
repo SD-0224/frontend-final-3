@@ -1,4 +1,3 @@
-import { brands } from "../../fake";
 import { useEffect, useState } from "react";
 import { mapBy } from "../../modules/array";
 import { HandpickedSection } from "./components/handpicked-section";
@@ -12,7 +11,7 @@ export const Home = function () {
   const [categories, setCategories] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
   const [products, setProducts] = useState([]);
-  const categoriesMap = mapBy(categories, "id");
+  const [brands, setBrands] = useState([]);
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
@@ -33,7 +32,14 @@ export const Home = function () {
 
       setProducts(fetchedProducts);
     })();
-    
+
+    (async () => {
+      const fetchedBrands = await fetchApiData("brands");
+
+      setBrands(fetchedBrands);
+    })();
+  }, []);
+
   useEffect(() => {
     const categoriesMap = mapBy(categories, "id");
     const productCategoriesMap = {};
