@@ -1,0 +1,10 @@
+.ratingsContainer {
+  display: flex;
+  gap: 14px;
+}
+
+.ratingsCount {
+  color: var(--light-text-color);
+  font-size: 16px;
+  font-weight: var(--regular-font-weight);
+}
