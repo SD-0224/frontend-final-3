@@ -17,7 +17,12 @@ export const PaymentSide = ({ addressInputs, paymentMethods, paymentDetail }) =>
         }
     }
     return (
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "40px" }}>
+        <Box sx={{
+            display: "flex", flexDirection: "column", gap: "40px",
+            '@media (max-width: 768px)': {
+                '&': { order: 2 }
+            }
+        }}>
             <AccordionComponent title={"Add New Address"} isExpanded={true}>
                 <Box sx={gridStyles}>
                     {addressInputs?.map(input => (
