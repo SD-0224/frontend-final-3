@@ -6,12 +6,19 @@ import { NewArrivalsSection } from "./components/new-arrivals-section";
 import { ShopByBrandsSection } from "./components/shop-by-brands-section";
 import { StaticBannersSection } from "./components/static-banners-section";
 import { HeroSection } from "./components/hero-section";
+import { fetchApiData } from "../../modules/fetch-api-data";
 
 export const Home = function () {
+  const [categories, setCategories] = useState([]);
   const categoriesMap = mapBy(categories, "id");
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
+    (async () => {
+      const fetchedCategories = await fetchApiData("categories");
+
+      setCategories(fetchedCategories);
+    })();
     const productCategoriesMap = {};
 
     for (let product of products) {
