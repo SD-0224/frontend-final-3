@@ -7,7 +7,12 @@ export const NewArrivalsSection = function ({ products }) {
     <SectionContainer padding="0px">
       <HorizontalScroll title="New Arrivals">
         {products?.map((product) => (
-          <NewArrivalsProductCard key={product.id} {...product} />
+          <NewArrivalsProductCard
+            key={product.id}
+            image={product.smallImageUrl}
+            subtitle={product.shortSubtitle}
+            {...product}
+          />
         ))}
       </HorizontalScroll>
     </SectionContainer>

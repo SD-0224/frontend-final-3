@@ -10,6 +10,7 @@ import { fetchApiData } from "../../modules/fetch-api-data";
 
 export const Home = function () {
   const [categories, setCategories] = useState([]);
+  const [newArrivals, setNewArrivals] = useState([]);
   const categoriesMap = mapBy(categories, "id");
   const [collections, setCollections] = useState([]);
 
@@ -19,6 +20,13 @@ export const Home = function () {
 
       setCategories(fetchedCategories);
     })();
+
+    (async () => {
+      const fetchedNewArrivals = await fetchApiData("products/new-arrivals");
+
+      setNewArrivals(fetchedNewArrivals);
+    })();
+
     const productCategoriesMap = {};
 
     for (let product of products) {
@@ -40,7 +48,7 @@ export const Home = function () {
   return (
     <>
       <HeroSection {...{ categories }} />
-      <NewArrivalsSection {...{ products }} />
+      <NewArrivalsSection {...{ products: newArrivals }} />
       <HandpickedSection {...{ collections }} />
       <ShopByBrandsSection {...{ brands }} />
       <StaticBannersSection />
