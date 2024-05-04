@@ -9,9 +9,9 @@
 }
 
 .circleLink:hover {
-  background-color: #aedadd;
+  filter: brightness(0.9);
 }
 
 .circleLink:active {
-  background-color: #87b5b8;
+  filter: brightness(1);
 }
