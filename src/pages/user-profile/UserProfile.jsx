@@ -8,6 +8,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { fetchApiData } from "../../modules/fetch-api-data/FetchApiData";
 import { Routes, Route } from "react-router-dom";
 import { TitleSection } from "./components/title-section";
+import { Breadcrumbs } from "../../components/breadcrumbs/";
 
 export const UserProfile = () => {
   const [title, setTitle] = useState("Personal Information");
@@ -87,6 +88,7 @@ export const UserProfile = () => {
         "@media (max-width: 768px)": { "&": { padding: "16px" } },
       }}
     >
+      <Breadcrumbs />
       <TitleSection {...{ title }} />
       <Box display={"flex"} flexDirection={{ xs: "column", md: "row" }}>
         <ProfileSidebar
