@@ -14,7 +14,6 @@ export const Layout = function () {
       }}
     >
       <Header />
-      <Breadcrumbs />
       <main>
         <Outlet />
       </main>
