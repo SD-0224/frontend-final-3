@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Box } from "@mui/material";
 import { List, ListSubheader, ListItemText } from "@mui/material";
 import styles from "./FooterList.module.css";
+import { Link } from "react-router-dom";
 
 export const FooterList = ({ title, links, toRow }) => {
   const conditionalStyle = {
@@ -20,20 +21,28 @@ export const FooterList = ({ title, links, toRow }) => {
   };
 
   const memoizedFooterLinks = useMemo(() => {
-    return links?.map((data, index) => (
-      <a
-        key={index}
-        href={data.id ? `category?categoryId=${data.id}` : `/#${data.name}`}
-        onClick={data.id ? null : (e) => handleScroll(e, data.name)}
-        className={styles.footerListItem}
-      >
-        <ListItemText
-          sx={{ margin: 0, "& .MuiListItemText-primary": { fontSize: "14px" } }}
-          primary={data.name}
-        />
-        {toRow && <span className={styles.verticalBar}>|</span>}
-      </a>
-    ));
+    return links?.map((data, index) => {
+      const isHashLink = data.link.includes("/#");
+      const elementId = data.link.split("/#").pop();
+
+      return (
+        <Link
+          key={index}
+          to={data.link}
+          onClick={isHashLink ? (e) => handleScroll(e, elementId) : null}
+          className={styles.footerListItem}
+        >
+          <ListItemText
+            sx={{
+              margin: 0,
+              "& .MuiListItemText-primary": { fontSize: "14px" },
+            }}
+            primary={data.name}
+          />
+          {toRow && <span className={styles.verticalBar}>|</span>}
+        </Link>
+      );
+    });
   }, [links, toRow]);
 
   return (

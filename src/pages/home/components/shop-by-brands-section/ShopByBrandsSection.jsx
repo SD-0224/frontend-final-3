@@ -13,7 +13,13 @@ export const ShopByBrandsSection = function ({ brands }) {
             to={`/brand?brandId=${brand.id}`}
             style={{ all: "unset", cursor: "pointer" }}
           >
-            <ProductImage src={brand.image} width="168px" />
+            <ProductImage
+              src={brand.image}
+              width="168px"
+              backgroundColor="var(--accent)"
+              borderRadius="16px"
+              objectFit="contain"
+            />
           </Link>
         ))}
       </HorizontalScroll>

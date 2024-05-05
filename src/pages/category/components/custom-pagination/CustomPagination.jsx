@@ -34,7 +34,7 @@ export const CustomPagination = function ({
     setShowNext(page < count);
 
     onChange(null, page);
-  }, [page]);
+  }, [page, count]);
 
   return (
     <Box display="flex" gap="8px" {...props}>

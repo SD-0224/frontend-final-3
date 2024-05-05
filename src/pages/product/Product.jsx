@@ -11,6 +11,7 @@ import { ProductDetails } from "./components/product-details";
 import { Breadcrumbs } from "../../components/breadcrumbs";
 import { useSearchParams } from "react-router-dom";
 import { useResetPageScroll } from "../../hooks/reset-page-scroll";
+import { Storage } from "../../modules/sotrage";
 
 export const Product = function () {
   useResetPageScroll();
@@ -20,6 +21,14 @@ export const Product = function () {
   const [searchParams] = useSearchParams();
 
   const MAX_GALLERY_ITEMS = 30;
+
+  function addToCart() {
+    const cartProducts = Storage.get("products");
+
+    cartProducts.push(product);
+
+    Storage.add("products", cartProducts);
+  }
 
   useEffect(() => {
     const randomGalleryLength = Math.ceil(Math.random() * MAX_GALLERY_ITEMS);
@@ -44,7 +53,7 @@ export const Product = function () {
         <Breadcrumbs />
         <Box>
           <Grid container gap="27px">
-            <Grid item xs={12} sm={10} md={8} lg={6} justifyContent="center">
+            <Grid item justifyContent="center">
               <Box width="100%" maxWidth="588px">
                 <ProductImage
                   src={product.largeImageUrl}
@@ -61,10 +70,10 @@ export const Product = function () {
                 />
               </Box>
             </Grid>
-            <Grid item>
+            <Grid item xs={12} md={5}>
               <ProductDetails {...product} />
               <Divider sx={{ marginTop: "24px", marginBottom: "32px" }} />
-              <ActionsSection />
+              <ActionsSection onAddToCart={() => addToCart(product.id)} />
             </Grid>
           </Grid>
           <Box marginTop="30px">

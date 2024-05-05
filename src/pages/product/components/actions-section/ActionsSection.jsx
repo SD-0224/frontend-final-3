@@ -12,7 +12,7 @@ const buttonProps = {
   },
 };
 
-export const ActionsSection = function () {
+export const ActionsSection = function ({ onAddToCart }) {
   return (
     <div className={styles.actionsContainer}>
       <QuantityCounter quantity={1} />
@@ -22,6 +22,7 @@ export const ActionsSection = function () {
             label: "Add To Cart",
             startIcon: <ShoppingBag borderColor="var(--white)" />,
             textColor: "var(--white)",
+            onClick: onAddToCart,
             ...buttonProps,
           }}
         />
