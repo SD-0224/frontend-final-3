@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const HandpickedSection = function ({ collections }) {
   return (
-    <SectionContainer paddingX="0px">
+    <SectionContainer id="Featured" paddingX="0px">
       <HorizontalScroll
         title="Handpicked Collections"
         color="var(--white)"

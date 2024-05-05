@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const ShopByBrandsSection = function ({ brands }) {
   return (
-    <SectionContainer padding="0px">
+    <SectionContainer id="Brands" padding="0px">
       <HorizontalScroll title="Shop By Brands" gap="46px">
         {brands?.map((brand) => (
           <Link
