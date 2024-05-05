@@ -6,29 +6,25 @@ import { ProductsPanel } from "./components/products-panel";
 import { ReviewsPanel } from "./components/reviews-panel/ReviewsPanel";
 
 export const BottomContent = function ({ description, reviews, categoryId }) {
-  const [selectedTab, setSelectedTab] = useState(0);
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const endpoint = `products/category/${categoryId}`;
-      const fetchedProducts = await fetchApiData(endpoint);
-      const PRODUCTS_COUNT = 5;
-      const productsSlice = fetchedProducts.slice(0, PRODUCTS_COUNT);
-
-      setProducts(productsSlice);
-    })();
-  }, []);
-
+  const PRODUCTS_COUNT = 5;
   const tabs = [
     "Product Description",
     "Related Products",
     "Ratings and Reviews",
   ];
 
-  const isDescriptionTab = selectedTab == tabs[0];
-  const isProductsTab = selectedTab == tabs[1];
-  const isReviewsTab = selectedTab == tabs[2];
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const endpoint = `products/category/${categoryId}`;
+      const fetchedProducts = await fetchApiData(endpoint);
+      const productsSlice = fetchedProducts.slice(0, PRODUCTS_COUNT);
+
+      setProducts(productsSlice);
+    })();
+  }, []);
 
   const tabChange = function (tab) {
     setSelectedTab(tab);
@@ -38,9 +34,9 @@ export const BottomContent = function ({ description, reviews, categoryId }) {
     <>
       <TabNavigation {...{ titles: tabs }} handleTabClick={tabChange} />
       <div style={{ marginTop: "24px" }}>
-        {isDescriptionTab && <DescriptionPanel {...{ description }} />}
-        {isProductsTab && <ProductsPanel {...{ products }} />}
-        {isReviewsTab && <ReviewsPanel {...{ reviews }} />}
+        {selectedTab === tabs[0] && <DescriptionPanel {...{ description }} />}
+        {selectedTab === tabs[1] && <ProductsPanel {...{ products }} />}
+        {selectedTab === tabs[2] && <ReviewsPanel {...{ reviews }} />}
       </div>
     </>
   );
