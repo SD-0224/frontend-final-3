@@ -12,10 +12,10 @@ const buttonProps = {
   },
 };
 
-export const ActionsSection = function ({ onAddToCart }) {
+export const ActionsSection = function ({ onAddToCart, productID }) {
   return (
     <div className={styles.actionsContainer}>
-      <QuantityCounter quantity={1} />
+      <QuantityCounter quantity={1} id={productID} />
       <div className={styles.buttonsContainer}>
         <CustomButton
           {...{
