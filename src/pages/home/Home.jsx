@@ -15,29 +15,21 @@ export const Home = function () {
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      const fetchedCategories = await fetchApiData("categories");
+    fetchApiData("categories")
+      .then(setCategories)
+      .catch(() => {});
 
-      setCategories(fetchedCategories);
-    })();
+    fetchApiData("products/new-arrivals")
+      .then(setNewArrivals)
+      .catch(() => {});
 
-    (async () => {
-      const fetchedNewArrivals = await fetchApiData("products/new-arrivals");
+    fetchApiData("products")
+      .then(setProducts)
+      .catch(() => {});
 
-      setNewArrivals(fetchedNewArrivals);
-    })();
-
-    (async () => {
-      const fetchedProducts = await fetchApiData("products");
-
-      setProducts(fetchedProducts);
-    })();
-
-    (async () => {
-      const fetchedBrands = await fetchApiData("brands");
-
-      setBrands(fetchedBrands);
-    })();
+    fetchApiData("brands")
+      .then(setBrands)
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
