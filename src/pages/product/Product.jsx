@@ -53,7 +53,7 @@ export const Product = function () {
         <Breadcrumbs />
         <Box>
           <Grid container gap="27px">
-            <Grid item xs={12} sm={10} md={8} lg={6} justifyContent="center">
+            <Grid item justifyContent="center">
               <Box width="100%" maxWidth="588px">
                 <ProductImage
                   src={product.largeImageUrl}
@@ -70,7 +70,7 @@ export const Product = function () {
                 />
               </Box>
             </Grid>
-            <Grid item>
+            <Grid item xs={12} md={5}>
               <ProductDetails {...product} />
               <Divider sx={{ marginTop: "24px", marginBottom: "32px" }} />
               <ActionsSection onAddToCart={() => addToCart(product.id)} />
