@@ -9,6 +9,7 @@ import { chunk } from "../../modules/array";
 import { Breadcrumbs } from "../../components/breadcrumbs";
 import { useFetchCategoryPageData } from "../../hooks/fetch-products";
 
+
 export const Category = function () {
   const PAGE_SIZE = 20;
 
