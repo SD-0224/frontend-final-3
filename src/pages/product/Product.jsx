@@ -12,26 +12,27 @@ import { Breadcrumbs } from "../../components/breadcrumbs";
 import { useSearchParams } from "react-router-dom";
 
 export const Product = function () {
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState({});
   const [galleryImages, setGalleryImages] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const MAX_GALLERY_ITEMS = 30;
-  const randomGalleryLength = Math.ceil(Math.random() * MAX_GALLERY_ITEMS);
 
   useEffect(() => {
+    const randomGalleryLength = Math.ceil(Math.random() * MAX_GALLERY_ITEMS);
+
     const productId = searchParams.get("productId");
 
-    (async () => {
-      const product = await fetchApiData(`products/${productId}`);
-      const galleryUrls = new Array(randomGalleryLength).fill(
-        product.smallImageUrl
-      );
+    fetchApiData(`products/${productId}`)
+      .then((product) => {
+        const { smallImageUrl } = product;
 
-      setGalleryImages(galleryUrls);
+        const galleryUrls = new Array(randomGalleryLength).fill(smallImageUrl);
 
-      setProduct(product);
-    })();
+        setProduct(product);
+        setGalleryImages(galleryUrls);
+      })
+      .catch(() => {});
   }, [searchParams]);
 
   return (
