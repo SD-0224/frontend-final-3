@@ -22,14 +22,6 @@ export const Product = function () {
 
   const MAX_GALLERY_ITEMS = 30;
 
-  function addToCart() {
-    const cartProducts = Storage.get("products");
-
-    cartProducts.push(product);
-
-    Storage.add("products", cartProducts);
-  }
-
   useEffect(() => {
     const randomGalleryLength = Math.ceil(Math.random() * MAX_GALLERY_ITEMS);
 
@@ -44,7 +36,7 @@ export const Product = function () {
         setProduct(product);
         setGalleryImages(galleryUrls);
       })
-      .catch(() => {});
+      .catch(() => { });
   }, [searchParams]);
 
   return (
@@ -73,7 +65,7 @@ export const Product = function () {
             <Grid item xs={12} md={5}>
               <ProductDetails {...product} />
               <Divider sx={{ marginTop: "24px", marginBottom: "32px" }} />
-              <ActionsSection onAddToCart={() => addToCart(product.id)} />
+              <ActionsSection onAddToCart={() => Storage.addProduct(product)} productID={product.idء} />
             </Grid>
           </Grid>
           <Box marginTop="30px">
