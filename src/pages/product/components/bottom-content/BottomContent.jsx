@@ -17,14 +17,16 @@ export const BottomContent = function ({ description, reviews, categoryId }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      const endpoint = `products/category/${categoryId}`;
-      const fetchedProducts = await fetchApiData(endpoint);
-      const productsSlice = fetchedProducts.slice(0, PRODUCTS_COUNT);
+    const endpoint = `products/category/${categoryId}`;
 
-      setProducts(productsSlice);
-    })();
-  }, []);
+    fetchApiData(endpoint)
+      .then((fetchedProducts) => {
+        const productsSlice = fetchedProducts.slice(0, PRODUCTS_COUNT);
+
+        setProducts(productsSlice);
+      })
+      .catch(() => {});
+  }, [categoryId]);
 
   const tabChange = function (tab) {
     setSelectedTab(tab);
