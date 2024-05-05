@@ -29,5 +29,41 @@ export const Storage = {
         const data = Storage.get("products");
         const filteredData = data.filter(e => e.id !== id);
         return Storage.add('products', filteredData);
+    },
+    getIndexOfProdcut(id) {
+        // Retrieve the data from localStorage
+        const products = Storage.get("products");
+
+        // Define the ID of the product you want to update
+        const productTargeted = id;
+
+        // Find the index of the product by its ID
+        const indexOfProduct = products.findIndex(product => product.id === productTargeted);
+
+        return indexOfProduct;
+    },
+    isProdcutStored(id) {
+        const index = Storage.getIndexOfProdcut(id);
+        return index !== -1;
+    },
+    updateQuantity(id, newQuantity) {
+        const productsData = Storage.get('products');
+
+        const product = Storage.getIndexOfProdcut(id);
+        if (product) {
+            productsData[product].quantity = newQuantity;
+        }
+
+        // Update localStorage with the modified data
+        return Storage.add('products', productsData);
+    },
+    addProduct(product){
+        const data = Storage.get('products');
+
+        if(!Storage.isProdcutStored(product.id)){
+            data.push(product);
+            console.log(data);
+            Storage.add('products', data);
+        }
     }
 }
