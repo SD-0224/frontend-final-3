@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import { calcSubTotal } from "../../../modules/order-calculations";
 import { useDataContext } from "../../../contexts";
 import { fetchApiData } from "../../../modules/fetch-api-data";
+import { useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const [categories, setCategories] = useState([]);
@@ -28,6 +29,8 @@ export const Header = () => {
   const [value, setValue] = useState("recents");
 
   const [open, setOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const productsInCart = useDataContext().products;
 
@@ -39,12 +42,18 @@ export const Header = () => {
     setValue(newValue);
   };
 
+  const handleSearchKeyPress = (event) => {
+    if (event.key === "Enter") {
+      const searchValue = event.target.value;
+      navigate(`/search?query=${searchValue}`);
+    }
+  };
+
   useEffect(() => {
     const fetchDataAsync = async () => {
       try {
         const fetchedCategories = await fetchApiData("categories");
         setCategories(fetchedCategories);
-        console.log(fetchedCategories);
       } catch (error) {
         console.log(error.message);
       }
@@ -129,7 +138,11 @@ export const Header = () => {
           </Link>
           <div className={styles.navigationLinks}>
             {categories?.slice(0, 5).map((category, index) => (
-              <Link to="#" className={styles.navigationLink} key={index}>
+              <Link
+                to={`category?categoryId=${category.id}`}
+                className={styles.navigationLink}
+                key={index}
+              >
                 {category.name}
               </Link>
             ))}
@@ -141,6 +154,7 @@ export const Header = () => {
             type={"search"}
             placeholder={"Search for products or brands....."}
             icon={<SearchOutlined />}
+            onKeyDown={handleSearchKeyPress}
           />
           <div className={styles.userOperations}>
             <Heart />
