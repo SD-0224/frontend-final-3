@@ -16,6 +16,7 @@ export function StaticBanner() {
       }}
     >
       <CategoryBanner
+        to={`/limited-edition`}
         variant="full"
         imageSrc="/images/static-banner/limited.png"
         title="Limited Edition Products"
@@ -28,13 +29,16 @@ export function StaticBanner() {
         gap={{ xs: "20px", md: "32px" }}
       >
         <CategoryBanner
+          to={`/on-sale`}
           variant="dual"
           imageSrc="/images/static-banner/onsale.png"
           title="15% OFF & more"
           backgroundColor="var(--grey)"
           color="#A53F64"
         />
+
         <CategoryBanner
+          to={`/popular`}
           variant="dual"
           imageSrc="/images/static-banner/popular.png"
           title="Popular in community!"

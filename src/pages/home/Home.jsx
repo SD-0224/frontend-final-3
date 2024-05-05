@@ -1,4 +1,3 @@
-import { categories, products, brands } from "../../fake";
 import { useEffect, useState } from "react";
 import { mapBy } from "../../modules/array";
 import { HandpickedSection } from "./components/handpicked-section";
@@ -6,12 +5,43 @@ import { NewArrivalsSection } from "./components/new-arrivals-section";
 import { ShopByBrandsSection } from "./components/shop-by-brands-section";
 import { StaticBannersSection } from "./components/static-banners-section";
 import { HeroSection } from "./components/hero-section";
+import { fetchApiData } from "../../modules/fetch-api-data";
 
 export const Home = function () {
-  const categoriesMap = mapBy(categories, "id");
+  const [categories, setCategories] = useState([]);
+  const [newArrivals, setNewArrivals] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [brands, setBrands] = useState([]);
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
+    (async () => {
+      const fetchedCategories = await fetchApiData("categories");
+
+      setCategories(fetchedCategories);
+    })();
+
+    (async () => {
+      const fetchedNewArrivals = await fetchApiData("products/new-arrivals");
+
+      setNewArrivals(fetchedNewArrivals);
+    })();
+
+    (async () => {
+      const fetchedProducts = await fetchApiData("products");
+
+      setProducts(fetchedProducts);
+    })();
+
+    (async () => {
+      const fetchedBrands = await fetchApiData("brands");
+
+      setBrands(fetchedBrands);
+    })();
+  }, []);
+
+  useEffect(() => {
+    const categoriesMap = mapBy(categories, "id");
     const productCategoriesMap = {};
 
     for (let product of products) {
@@ -25,15 +55,19 @@ export const Home = function () {
     const productCategories = Object.values(productCategoriesMap);
     const categoryCollections = productCategories
       .filter((category) => category)
-      .map(({ categoryImage, name }) => ({ image: categoryImage, text: name }));
+      .map(({ categoryImage, name, id }) => ({
+        image: categoryImage,
+        text: name,
+        categoryId: id,
+      }));
 
     setCollections(categoryCollections);
-  }, []);
+  }, [products, categories]);
 
   return (
     <>
       <HeroSection {...{ categories }} />
-      <NewArrivalsSection {...{ products }} />
+      <NewArrivalsSection {...{ products: newArrivals }} />
       <HandpickedSection {...{ collections }} />
       <ShopByBrandsSection {...{ brands }} />
       <StaticBannersSection />

@@ -10,7 +10,7 @@ const imageContainerStyles = {
   height: { xs: "200px", sm: "250px", md: "350px", lg: "400px" },
 };
 
-export function CarouselItem({ title, subtitle, homeImage }) {
+export function CarouselItem({ title, subtitle, homeImage, id }) {
   return (
     <>
       <Box
@@ -31,7 +31,7 @@ export function CarouselItem({ title, subtitle, homeImage }) {
               height="100%"
               borderRadius="24px"
             />
-            <CategoryTitles {...{ title, subtitle }} />
+            <CategoryTitles {...{ title, subtitle, id }} />
           </Box>
         </Link>
       </Box>
