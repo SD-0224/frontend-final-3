@@ -2,6 +2,7 @@ import styles from "./ProductsTable.module.css";
 import { ProductInCart } from "../product-in-cart";
 import { useMemo } from "react";
 import { calcSubTotal } from "../../modules/order-calculations";
+import { Storage } from "../../modules/sotrage";
 
 export const ProductsTable = ({
   products,
@@ -19,6 +20,7 @@ export const ProductsTable = ({
             title={product.title}
             subtitle={product.shortSubtitle}
             quantity={product.quantity}
+            id={product.id}
           />
         </td>
         <td>{product.price}</td>
@@ -27,7 +29,7 @@ export const ProductsTable = ({
           <div className={styles.operations}>
             <span>${calcSubTotal([product])}</span>
             {showRemoveButton && (
-              <button type="button" className={styles.removeButton}>
+              <button type="button" className={styles.removeButton} onClick={() => Storage.removeProduct(product.id)}>
                 Remove
               </button>
             )}
