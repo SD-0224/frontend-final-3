@@ -8,9 +8,11 @@ import { CustomPagination } from "./components/custom-pagination";
 import { chunk } from "../../modules/array";
 import { Breadcrumbs } from "../../components/breadcrumbs";
 import { useFetchCategoryPageData } from "../../hooks/fetch-products";
-
+import { useResetPageScroll } from "../../hooks/reset-page-scroll";
 
 export const Category = function () {
+  useResetPageScroll();
+
   const PAGE_SIZE = 20;
 
   const { title, image, products } = useFetchCategoryPageData();

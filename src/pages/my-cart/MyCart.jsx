@@ -13,8 +13,11 @@ import { Link } from "react-router-dom";
 
 import { useDataContext } from "../../contexts";
 import { Breadcrumbs } from "../../components/breadcrumbs";
+import { useResetPageScroll } from "../../hooks/reset-page-scroll";
 
 export const MyCart = () => {
+  useResetPageScroll();
+
   const { products } = useDataContext();
 
   let subTotal = calcSubTotal(products);
@@ -51,7 +54,11 @@ export const MyCart = () => {
               <CustomButton label={"Place Order"} style={{ width: "100%" }} />
             </Link>
             <Link to="/">
-              <CustomButton label={"Continue Shopping"} variant="outlined" style={{ width: "100%" }} />
+              <CustomButton
+                label={"Continue Shopping"}
+                variant="outlined"
+                style={{ width: "100%" }}
+              />
             </Link>
           </Box>
         </Box>

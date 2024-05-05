@@ -6,8 +6,11 @@ import { ShopByBrandsSection } from "./components/shop-by-brands-section";
 import { StaticBannersSection } from "./components/static-banners-section";
 import { HeroSection } from "./components/hero-section";
 import { fetchApiData } from "../../modules/fetch-api-data";
+import { useResetPageScroll } from "../../hooks/reset-page-scroll";
 
 export const Home = function () {
+  useResetPageScroll();
+
   const [categories, setCategories] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
   const [products, setProducts] = useState([]);
