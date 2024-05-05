@@ -24,14 +24,19 @@ export const Footer = () => {
   const shopByProducts = [
     {
       name: "Featured",
+      link: "/#Featured",
     },
     {
       name: "Brands",
+      link: "/#Brands",
     },
     {
       name: "Trendy",
+      link: "/#Trendy",
     },
   ];
+
+  const aboutLinks = [{ name: "About Us", link: "/about" }];
 
   const socialList = [
     {
@@ -56,7 +61,12 @@ export const Footer = () => {
     const fetchDataAsync = async () => {
       try {
         const fetchedCategories = await fetchApiData("categories");
-        setCategories(fetchedCategories);
+        const categoriesLinks = fetchedCategories.map((category) => ({
+          name: category.name,
+          link: `/category?categoryId=${category.id}`,
+        }));
+
+        setCategories(categoriesLinks);
       } catch (error) {
         console.log(error.message);
       }
@@ -99,6 +109,7 @@ export const Footer = () => {
         <Box className={styles.listsContainer}>
           <FooterList title={"Shop by Category"} links={categories} />
           <FooterList title={"Shop by products"} links={shopByProducts} />
+          <FooterList title={"About"} links={aboutLinks} />
         </Box>
 
         {/* Social media side */}
