@@ -10,8 +10,11 @@ import { BottomGallery } from "./components/bottom-gallery";
 import { ProductDetails } from "./components/product-details";
 import { Breadcrumbs } from "../../components/breadcrumbs";
 import { useSearchParams } from "react-router-dom";
+import { useResetPageScroll } from "../../hooks/reset-page-scroll";
 
 export const Product = function () {
+  useResetPageScroll();
+
   const [product, setProduct] = useState({});
   const [galleryImages, setGalleryImages] = useState([]);
   const [searchParams] = useSearchParams();

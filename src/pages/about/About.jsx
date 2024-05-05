@@ -3,12 +3,15 @@ import { AboutHeadline } from "./components/about-headline";
 import { BannerImage } from "./components/banner-image";
 import { AboutCategory } from "./components/about-category";
 import { SectionContainer } from "../../components/section-container";
+import { useResetPageScroll } from "../../hooks/reset-page-scroll";
 
 const title = "About";
 const description =
   "Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing.  Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. Lorem Ipsum is simply dummy text of the printing. ";
 
 export function About() {
+  useResetPageScroll();
+
   return (
     <Box display={"flex"} flexDirection={"column"} gap={"40px"}>
       <BannerImage

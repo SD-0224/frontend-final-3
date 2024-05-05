@@ -9,8 +9,11 @@ import { fetchApiData } from "../../modules/fetch-api-data/FetchApiData";
 import { Routes, Route } from "react-router-dom";
 import { TitleSection } from "./components/title-section";
 import { Breadcrumbs } from "../../components/breadcrumbs/";
+import { useResetPageScroll } from "../../hooks/reset-page-scroll";
 
 export const UserProfile = () => {
+  useResetPageScroll();
+
   const [title, setTitle] = useState("Personal Information");
   const [selectedOrderId, setSelectedOrderId] = useState(null);
   const [orderNumber, setOrderNumber] = useState(null);

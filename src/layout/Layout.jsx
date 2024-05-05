@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import { Footer } from "./components/footer";
 import { Header } from "./components/header";
 import Box from "@mui/material/Box";
-import { Breadcrumbs } from "../components/breadcrumbs/Breadcrumbs";
 
 export const Layout = function () {
   return (
