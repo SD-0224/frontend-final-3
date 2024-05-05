@@ -14,59 +14,55 @@ import { CircleIconLink } from "../../../components/circle-icon-link";
 import { CopyrightBox } from "./components/copyright";
 import { LocationBox } from "./components/location";
 import styles from "./Footer.module.css";
+import { fetchApiData } from "../../../modules/fetch-api-data";
 
 export const Footer = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  const links = [
+  const [categories, setCategories] = useState([]);
+
+  const shopByProducts = [
     {
-      text: "Skincare",
-      link: "https://google.com",
+      name: "Featured",
     },
     {
-      text: "Personal Care",
-      link: "https://google.com",
+      name: "Brands",
     },
     {
-      text: "Handbags",
-      link: "https://google.com",
-    },
-    {
-      text: "Apparels",
-      link: "https://google.com",
-    },
-    {
-      text: "Watches",
-      link: "https://google.com",
-    },
-    {
-      text: "Eye Wear",
-      link: "https://google.com",
-    },
-    {
-      text: "Jewellery",
-      link: "https://google.com",
+      name: "Trendy",
     },
   ];
 
   const socialList = [
     {
       iconName: Facebook,
-      link: "#",
+      link: "https://www.facebook.com",
     },
     {
       iconName: Instagram,
-      link: "#",
+      link: "https://www.instagram.com",
     },
     {
       iconName: Twitter,
-      link: "#",
+      link: "https://twitter.com",
     },
     {
       iconName: Youtube,
-      link: "#",
+      link: "https://www.youtube.com",
     },
   ];
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const fetchedCategories = await fetchApiData("categories");
+        setCategories(fetchedCategories);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchDataAsync();
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -101,7 +97,8 @@ export const Footer = () => {
 
       <AccordionDetails className={styles.accordionDetails}>
         <Box className={styles.listsContainer}>
-          <FooterList title={"Shop by Category"} links={links} />
+          <FooterList title={"Shop by Category"} links={categories} />
+          <FooterList title={"Shop by products"} links={shopByProducts} />
         </Box>
 
         {/* Social media side */}
@@ -112,7 +109,12 @@ export const Footer = () => {
               <CircleIconLink
                 key={index}
                 link={social.link}
-                icon={<social.iconName borderSize={0} fillColor={"var(--primary)"} />}
+                icon={
+                  <social.iconName
+                    borderSize={0}
+                    fillColor={"var(--primary)"}
+                  />
+                }
               />
             ))}
           </Box>
