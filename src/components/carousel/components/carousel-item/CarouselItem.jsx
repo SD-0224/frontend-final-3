@@ -19,21 +19,19 @@ export function CarouselItem({ title, subtitle, homeImage, id }) {
           borderRadius: "24px",
         }}
       >
-        <Link to={"/"}>
-          <Box
-            sx={{
-              ...imageContainerStyles,
-            }}
-          >
-            <ProductImage
-              src={homeImage}
-              width="100%"
-              height="100%"
-              borderRadius="24px"
-            />
-            <CategoryTitles {...{ title, subtitle, id }} />
-          </Box>
-        </Link>
+        <Box
+          sx={{
+            ...imageContainerStyles,
+          }}
+        >
+          <ProductImage
+            src={homeImage}
+            width="100%"
+            height="100%"
+            borderRadius="24px"
+          />
+          <CategoryTitles {...{ title, subtitle, id }} />
+        </Box>
       </Box>
     </>
   );
