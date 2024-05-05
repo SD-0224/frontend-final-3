@@ -16,7 +16,6 @@ export const MainRouter = function () {
     "/popular",
     "/search",
     "/handpicked",
-    "/new-arrivals",
     "/limited-edition",
     "/on-sale",
   ];
