@@ -6,11 +6,13 @@ import { CategoryTitle } from "./components/category-title";
 import { CategoryProducts } from "./components/category-products";
 import { CustomPagination } from "./components/custom-pagination";
 import { chunk } from "../../modules/array";
-import { categories, products } from "../../fake";
 import { Breadcrumbs } from "../../components/breadcrumbs";
+import { useFetchCategoryPageData } from "../../hooks/fetch-products";
 
 export const Category = function () {
-  const PAGE_SIZE = 9;
+  const PAGE_SIZE = 20;
+
+  const { title, image, products } = useFetchCategoryPageData();
   const pages = chunk(products, PAGE_SIZE);
 
   const [pageNumber, setPageNumber] = useState(1);
@@ -21,14 +23,12 @@ export const Category = function () {
     const pageProducts = pages[pageIndex];
 
     setPageProducts(pageProducts);
-  }, [pageNumber]);
-
-  const [category] = categories;
+  }, [pageNumber, products]);
 
   const paginationProps = {
+    pageNumber,
     count: pages.length,
     onChange: (_event, page) => setPageNumber(page),
-    pageNumber,
   };
 
   return (
@@ -37,7 +37,7 @@ export const Category = function () {
         <ProductImage
           width="100%"
           height="400px"
-          src={category.categoryImage}
+          src={image}
           borderRadius="24px"
         />
       </SectionContainer>
@@ -51,8 +51,10 @@ export const Category = function () {
             alignItems: "center",
           }}
         >
-          <Box sx={{ alignSelf: "self-start", marginTop: "44px" }}><Breadcrumbs /></Box>
-          <CategoryTitle>{category.name}</CategoryTitle>
+          <Box sx={{ alignSelf: "self-start", marginTop: "44px" }}>
+            <Breadcrumbs />
+          </Box>
+          <CategoryTitle>{title}</CategoryTitle>
           <CategoryProducts {...{ products: pageProducts }} />
           <CustomPagination
             {...paginationProps}
