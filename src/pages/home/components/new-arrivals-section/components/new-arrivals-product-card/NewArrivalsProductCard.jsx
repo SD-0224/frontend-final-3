@@ -6,10 +6,11 @@ export const NewArrivalsProductCard = function ({
   title,
   subtitle,
   price,
+  ...props
 }) {
   return (
     <div className={styles.productCard}>
-      <ProductCardTop {...{ image, title, subtitle }}>
+      <ProductCardTop {...{ image, title, subtitle, ...props }}>
         <p className={styles.price}>
           <span className="currency">$</span>
           {price}

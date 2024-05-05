@@ -9,27 +9,31 @@ import { BottomContent } from "./components/bottom-content/BottomContent";
 import { BottomGallery } from "./components/bottom-gallery";
 import { ProductDetails } from "./components/product-details";
 import { Breadcrumbs } from "../../components/breadcrumbs";
+import { useSearchParams } from "react-router-dom";
+
 export const Product = function () {
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState({});
   const [galleryImages, setGalleryImages] = useState([]);
+  const [searchParams] = useSearchParams();
 
   const MAX_GALLERY_ITEMS = 30;
-  const randomGalleryLength = Math.ceil(Math.random() * MAX_GALLERY_ITEMS);
 
   useEffect(() => {
-    (async () => {
-      const products = await fetchApiData("products");
-      const filtered = products.filter(({ reviews }) => reviews?.length > 1);
-      const product = filtered[Math.ceil(Math.random() * filtered.length)];
-      const galleryUrls = new Array(randomGalleryLength).fill(
-        product.smallImageUrl
-      );
+    const randomGalleryLength = Math.ceil(Math.random() * MAX_GALLERY_ITEMS);
 
-      setGalleryImages(galleryUrls);
+    const productId = searchParams.get("productId");
 
-      setProduct(product);
-    })();
-  }, []);
+    fetchApiData(`products/${productId}`)
+      .then((product) => {
+        const { smallImageUrl } = product;
+
+        const galleryUrls = new Array(randomGalleryLength).fill(smallImageUrl);
+
+        setProduct(product);
+        setGalleryImages(galleryUrls);
+      })
+      .catch(() => {});
+  }, [searchParams]);
 
   return (
     product && (
