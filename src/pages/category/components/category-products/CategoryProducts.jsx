@@ -6,7 +6,11 @@ export const CategoryProducts = function ({ products }) {
     <Grid container spacing={4}>
       {products?.map((product) => (
         <Grid item key={product.id}>
-          <ProductCard {...product} />
+          <ProductCard
+            {...product}
+            image={product.smallImageUrl}
+            subtitle={product.shortSubtitle}
+          />
         </Grid>
       ))}
     </Grid>
