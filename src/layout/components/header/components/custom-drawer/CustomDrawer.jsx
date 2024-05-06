@@ -10,6 +10,8 @@ import { ProductInCart } from '../../../../../components/product-in-cart';
 import { CustomButton } from '../../../../../components/custom-button';
 import { CustomInput } from '../../../../../components/custom-input';
 import { FinancialDetails } from '../financial-details'
+import { EmptyCartMessage } from '../../../../../components/empty-cart-message';
+import { Link } from 'react-router-dom';
 
 export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsArr, productsInCartArr }) => {
 
@@ -42,6 +44,7 @@ export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsArr, products
                     subtitle={product.subtitle}
                     price={product.price}
                     quantity={product.quantity}
+                    id={product.id}
                 />
                 <Divider sx={{ marginTop: "50px", marginBottom: "24px", '@media (max-width: 768px)': { marginTop: "12px" } }} />
             </Fragment>
@@ -49,9 +52,11 @@ export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsArr, products
     }, [productsInCartArr]);
 
     const memoizedFinancialDetails = useMemo(() => {
-        return FinancialDetailsArr?.map((data, index) => (
+        const isSubTotal = FinancialDetailsArr[0].amount > 0;
+
+        return isSubTotal ? FinancialDetailsArr?.map((data, index) => (
             <FinancialDetails key={index} title={data.title} amount={data.amount} isTotal={data.isTotal} />
-        ));
+        )) : <EmptyCartMessage />;
     }, [FinancialDetailsArr]);
 
     return (
@@ -72,11 +77,13 @@ export const CustomDrawer = ({ toggleDrawer, open, FinancialDetailsArr, products
                 <button type="button" className={styles.check}>CHECK</button>
             </Box>
 
-            <CustomButton label={"Place Order"} href="/checkout"/>
+            <CustomButton label={"Place Order"} href="/my-cart" />
 
-            <button className={styles.continueShopping} onClick={toggleDrawer(false)}>
-                <span>Continue Shopping</span>
-            </button>
+            <Link to={"/"}>
+                <button className={styles.continueShopping} style={{ width: "100%" }} onClick={toggleDrawer(false)}>
+                    <span>Continue Shopping</span>
+                </button>
+            </Link>
         </Drawer>
     )
 }

@@ -14,11 +14,14 @@ import { Link } from "react-router-dom";
 import { useDataContext } from "../../contexts";
 import { Breadcrumbs } from "../../components/breadcrumbs";
 import { useResetPageScroll } from "../../hooks/reset-page-scroll";
+import { EmptyCartMessage } from "../../components/empty-cart-message";
 
 export const MyCart = () => {
   useResetPageScroll();
 
   const { products } = useDataContext();
+
+  let isThereProducts = products?.length > 0;
 
   let subTotal = calcSubTotal(products);
   let discount = calcDiscount(products);
@@ -43,26 +46,29 @@ export const MyCart = () => {
     >
       <Breadcrumbs />
       <PageTitle title={"my cart"} />
-      <Box className={styles.grid}>
-        <Box className={styles.tableContainer}>
-          <ProductsTable products={products} />
-        </Box>
-        <Box className={styles.orderInfo}>
-          <OrderInfo title={"Order Summary"} orderInfo={orderDetails} />
-          <Box className={styles.operations}>
-            <Link to="/checkout">
-              <CustomButton label={"Place Order"} style={{ width: "100%" }} />
-            </Link>
-            <Link to="/">
-              <CustomButton
-                label={"Continue Shopping"}
-                variant="outlined"
-                style={{ width: "100%" }}
-              />
-            </Link>
-          </Box>
-        </Box>
-      </Box>
+      {
+        isThereProducts ?
+          <Box className={styles.grid}>
+            <Box className={styles.tableContainer}>
+              <ProductsTable products={products} />
+            </Box>
+            <Box className={styles.orderInfo}>
+              <OrderInfo title={"Order Summary"} orderInfo={orderDetails} />
+              <Box className={styles.operations}>
+                <Link to="/checkout">
+                  <CustomButton label={"Place Order"} style={{ width: "100%" }} />
+                </Link>
+                <Link to="/">
+                  <CustomButton
+                    label={"Continue Shopping"}
+                    variant="outlined"
+                    style={{ width: "100%" }}
+                  />
+                </Link>
+              </Box>
+            </Box>
+          </Box> : <EmptyCartMessage />
+      }
     </Box>
   );
 };

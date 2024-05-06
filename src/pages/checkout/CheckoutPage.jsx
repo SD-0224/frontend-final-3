@@ -10,11 +10,13 @@ import { OrderSide } from "./components/order-side/OrderSide";
 import { useDataContext } from "../../contexts";
 import { Breadcrumbs } from "../../components/breadcrumbs";
 import { useResetPageScroll } from "../../hooks/reset-page-scroll";
+import { EmptyCartMessage } from "../../components/empty-cart-message";
 
 export const CheckoutPage = () => {
   useResetPageScroll();
 
   const { products, user } = useDataContext();
+  const isThereProducts = products?.length > 0;
   const addressKeys = Object.keys(user.address);
   const addressData = user.address[addressKeys];
 
@@ -135,7 +137,9 @@ export const CheckoutPage = () => {
           paymentDetail={paymentDetail}
           paymentMethods={paymentMethods}
         />
-        <OrderSide orderDetails={orderDetails} products={products} />
+        {
+          isThereProducts ? <OrderSide orderDetails={orderDetails} products={products} /> : <EmptyCartMessage />
+        }
       </Box>
     </Box>
   );
