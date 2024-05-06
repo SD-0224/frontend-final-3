@@ -6,7 +6,6 @@ const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
     const [users, setUsers] = useState(null);
-    const [products, setProducts] = useState(null);
 
     useEffect(() => {
         // Fetch users if not in localStorage
@@ -23,22 +22,14 @@ export const DataContextProvider = ({ children }) => {
 
         // Fetch products if not in localStorage
         if (!Storage.get('products')) {
-            (async () => {
-                try {
-                    const fetchedProductData = await fetchApiData("products");
-                    setProducts(fetchedProductData);
-                } catch (error) {
-                    console.error("Error fetching product data:", error);
-                }
-            })();
+            Storage.add("products", [])
         }
     }, []);
 
     const contextValue = useMemo(() => {
-        // Store users and products in localStorage
-        if (users && products) {
+        // Store users in localStorage
+        if (users) {
             Storage.add("user", users[0]);
-            Storage.add("products", [products[0], products[1]]);
         }
 
         // Return both users and products from localStorage
@@ -46,7 +37,7 @@ export const DataContextProvider = ({ children }) => {
             user: Storage.get("user"),
             products: Storage.get("products")
         };
-    }, [users, products]);
+    }, [users]);
 
     return (
         <DataContext.Provider value={contextValue}>

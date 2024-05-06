@@ -65,7 +65,7 @@ export const Product = function () {
             <Grid item xs={12} md={5}>
               <ProductDetails {...product} />
               <Divider sx={{ marginTop: "24px", marginBottom: "32px" }} />
-              <ActionsSection onAddToCart={() => Storage.addProduct(product)} productID={product.idء} />
+              <ActionsSection onAddToCart={() => Storage.addProduct(product)} productId={product.id} />
             </Grid>
           </Grid>
           <Box marginTop="30px">

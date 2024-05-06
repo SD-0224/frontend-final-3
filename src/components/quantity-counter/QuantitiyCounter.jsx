@@ -17,8 +17,6 @@ export const QuantityCounter = ({ quantity = 0, showText = true, id }) => {
         setValue((value) => value - 1);
     }
 
-    console.log(isStored);
-
     useEffect(() => {
         if (isStored) {
             Storage.updateQuantity(id, value);
